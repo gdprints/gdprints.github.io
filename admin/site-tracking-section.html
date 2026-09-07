@@ -1,0 +1,47 @@
+<!-- ============================================================
+     Պատվերի դիտարկում — paste this block into services.html
+     right after the services listing section closes.
+
+     For RU/EN pages, copy this same block and translate only the
+     visible text (button label, titles, placeholder) — every id
+     and class name must stay exactly the same, since
+     order-tracking.js finds elements by these ids.
+     ============================================================ -->
+
+<link rel="stylesheet" href="shared/css/gd-tracking.css">
+
+<div class="gdt-trigger-wrap">
+  <button class="gdt-trigger" id="gdt-open-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22M17.5 15H9"/></svg>
+    Հետևել իմ պատվերին
+  </button>
+</div>
+
+<div class="gdt-modal-overlay" id="gdt-modal-overlay">
+  <div class="gdt-modal">
+    <div class="gdt-modal-head">
+      <button class="gdt-modal-close" id="gdt-modal-close">&times;</button>
+      <div class="gdt-title">📦 Պատվերի դիտարկում</div>
+      <div class="gdt-sub">Մուտքագրեք ձեր պատվերի համարը՝ կարգավիճակը և մանրամասները տեսնելու համար</div>
+    </div>
+    <div class="gdt-modal-body">
+      <div class="gdt-search-row">
+        <input type="text" id="gdt-order-input" placeholder="Օրինակ՝ GD-458221">
+        <button id="gdt-search-btn">Փնտրել</button>
+      </div>
+      <div class="gdt-result" id="gdt-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Place near the end of </body>, AFTER the other scripts on the
+     page. If supabase-js / shared/js/supabase.js / shared/js/ui.js
+     are already loaded elsewhere on this page (e.g. by
+     order-form-submit.js for the 11 service modals), do NOT
+     duplicate those three script tags — just add the last one. -->
+<script src="shared/js/vendor/supabase.js"></script>
+<script src="shared/js/supabase.js"></script>
+<script src="shared/js/ui.js"></script>
+<script src="shared/js/vendor/qrcode.js"></script>
+<script src="shared/js/qr.js"></script>
+<script src="shared/js/order-tracking.js"></script>
