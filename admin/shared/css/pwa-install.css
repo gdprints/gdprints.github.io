@@ -1,0 +1,21 @@
+/* GDprint Admin PWA install prompt */
+.gd-pwa-install-modal{position:fixed;inset:0;z-index:1000000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.gd-pwa-install-modal.is-open{display:flex}
+.gd-pwa-install-card{position:relative;width:min(460px,100%);padding:30px;border:1px solid rgba(212,175,55,.28);border-radius:24px;background:linear-gradient(145deg,#101114,#17181c);color:#fff;box-shadow:0 28px 90px rgba(0,0,0,.48)}
+.gd-pwa-install-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.05);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.gd-pwa-install-head{display:flex;align-items:center;gap:14px;padding-right:38px}
+.gd-pwa-install-icon{width:62px;height:62px;flex:0 0 62px;border-radius:17px;object-fit:cover;border:1px solid rgba(212,175,55,.25);box-shadow:0 8px 25px rgba(0,0,0,.28)}
+.gd-pwa-install-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#d4af37;margin-bottom:4px}
+.gd-pwa-install-card h2{margin:0;font-size:23px;line-height:1.2;color:#fff}
+.gd-pwa-install-card p{margin:18px 0;color:#c5c8ce;font-size:14px;line-height:1.65}
+.gd-pwa-install-points{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px 0 22px}
+.gd-pwa-install-point{padding:10px 12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.035);font-size:12px;color:#e6e7ea}
+.gd-pwa-install-actions{display:flex;gap:10px}
+.gd-pwa-install-btn{min-height:48px;padding:0 18px;border-radius:13px;border:0;font:inherit;font-weight:800;cursor:pointer;transition:transform .16s ease,opacity .16s ease}
+.gd-pwa-install-btn:hover{transform:translateY(-1px)}
+.gd-pwa-install-primary{flex:1;background:linear-gradient(135deg,#ecd36a,#c89a1e);color:#111}
+.gd-pwa-install-secondary{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.1)}
+.gd-pwa-install-help{display:none;margin-top:16px;padding:13px 14px;border-radius:12px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.18);font-size:12px;line-height:1.55;color:#ddd}
+.gd-pwa-install-help.is-visible{display:block}
+@media(max-width:560px){.gd-pwa-install-modal{padding:12px;align-items:flex-end}.gd-pwa-install-card{padding:26px 20px 20px;border-radius:24px 24px 18px 18px}.gd-pwa-install-points{grid-template-columns:1fr}.gd-pwa-install-actions{flex-direction:column}.gd-pwa-install-secondary{order:2}}
+@media(display-mode:standalone){.gd-pwa-install-modal{display:none!important}}

@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+
+<html lang="hy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Նոր պատվեր · GDprint Manager</title>
+<!-- Bootstrap base first; GDprint theme overrides it -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../shared/css/design-system.css" rel="stylesheet"/>
+<link href="../shared/css/app-shell.css" rel="stylesheet"/>
+<style>
+/* ── Professional service selector ── */
+.service-selector {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-solid);
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+}
+.service-selector::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ink-cyan), #5875e8 55%, var(--ink-magenta));
+}
+.service-selector-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.service-selector-copy { min-width: 0; }
+.service-selector-title {
+  margin: 0 0 5px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+.service-selector-sub {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.service-count {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.service-count::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink-cyan);
+  box-shadow: 0 0 0 4px rgba(0,184,217,.10);
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 20px 22px;
+}
+.svc-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px;
+  min-height: 82px;
+  padding: 14px 13px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: transform .16s var(--ease), border-color .16s var(--ease), box-shadow .16s var(--ease), background .16s var(--ease);
+}
+.svc-card::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--ink-cyan);
+  opacity: 0;
+  transform: scaleY(.55);
+  transition: opacity .16s var(--ease), transform .16s var(--ease);
+}
+.svc-card:hover,
+.svc-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0,184,217,.55);
+  background: var(--surface-solid);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  outline: none;
+}
+.svc-card:hover::after,
+.svc-card:focus-visible::after { opacity: 1; transform: scaleY(1); }
+.svc-icon-box {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  border: 1px solid rgba(0,184,217,.20);
+  background: rgba(0,184,217,.08);
+  color: var(--ink-cyan);
+}
+.svc-icon-box svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.svc-content { min-width: 0; }
+.svc-name {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 720;
+  line-height: 1.25;
+  color: var(--text);
+}
+.svc-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.svc-prefix {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 6px;
+  background: rgba(0,184,217,.09);
+  color: var(--ink-cyan);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.svc-arrow {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  color: var(--text-muted);
+  transition: transform .16s var(--ease), color .16s var(--ease), background .16s var(--ease);
+}
+.svc-arrow svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+.svc-card:hover .svc-arrow { transform: translateX(2px); color: var(--ink-cyan); background: rgba(0,184,217,.08); }
+@media (max-width: 1180px) { .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .service-selector-head { padding: 19px 18px 15px; align-items: flex-start; }
+  .service-count { display: none; }
+  .service-grid { grid-template-columns: 1fr; padding: 14px; gap: 10px; }
+  .svc-card { min-height: 76px; }
+}
+/* ── Bootstrap modal override for dark theme ── */
+.modal-content {
+  background: var(--surface-solid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  color: var(--text) !important;
+}
+.modal-header {
+  border-bottom: 1px solid var(--border) !important;
+  background: linear-gradient(135deg, rgba(0,184,217,.08), rgba(233,30,140,.06)) !important;
+}
+.modal-title { color: var(--text) !important; font-family: var(--font-display) !important; font-weight: 700 !important; }
+.modal-body { padding: 20px 24px !important; }
+.btn-close { filter: invert(1) !important; }
+.modal-footer { border-top: 1px solid var(--border) !important; }
+
+/* ── Form fields inside modal ── */
+.modal .form-control, .modal .form-select {
+  background: var(--bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 8px !important;
+  font-size: 13.5px !important;
+}
+.modal .form-control:focus, .modal .form-select:focus {
+  border-color: var(--ink-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(0,184,217,.15) !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+.modal .form-label {
+  font-size: 11.5px !important; font-weight: 600 !important;
+  color: var(--text-muted) !important; text-transform: uppercase;
+  letter-spacing: .04em; margin-bottom: 5px !important;
+}
+.modal .form-select option { background: var(--surface-solid); color: var(--text); }
+.modal textarea.form-control { min-height: 80px; resize: vertical; }
+
+/* ── Order number row inside modal ── */
+.order-num-row {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;
+}
+.order-num-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+.order-num-val { font-family: var(--font-mono); font-size: 15px; font-weight: 700; color: var(--ink-cyan); }
+.copy-num-btn {
+  margin-left: auto; font-size: 12px; padding: 5px 12px; border-radius: 7px;
+  border: 1px solid var(--border); background: none; color: var(--text);
+  cursor: pointer; white-space: nowrap; transition: all .15s;
+}
+.copy-num-btn:hover { background: var(--ink-cyan); border-color: var(--ink-cyan); color: #fff; }
+
+/* ── Price display inside modal ── */
+.price-display {
+  font-family: var(--font-display); font-size: 17px; font-weight: 700;
+  color: var(--ink-cyan); padding: 8px 0;
+}
+
+/* ── Submit button ── */
+.btn-gd-primary {
+  background: linear-gradient(135deg, var(--ink-cyan), #0090ab) !important;
+  color: #fff !important; border: none !important; font-weight: 700 !important;
+  border-radius: 9px !important; padding: 10px 26px !important;
+  box-shadow: 0 4px 14px rgba(0,181,204,.28) !important;
+  transition: opacity .15s !important;
+}
+.btn-gd-primary:hover { opacity: .88 !important; }
+.btn-gd-primary:disabled { opacity: .5 !important; cursor: not-allowed !important; }
+
+/* ── Feedback messages ── */
+.gd-msg {
+  border-radius: 9px; padding: 10px 14px; font-size: 13px; font-weight: 600; display: none;
+  margin-top: 8px;
+}
+.gd-msg.error   { background: rgba(255,71,87,.12);  color: var(--danger); }
+.gd-msg.success { background: rgba(46,213,115,.12); color: var(--success); }
+
+/* Manager page theme must affect the whole Bootstrap page, not only service cards. */
+html, body, .app-shell, .main { background-color: var(--bg) !important; color: var(--text) !important; }
+a, a:hover, a:focus, .btn, .btn:hover, .nav-item, .nav-item:hover { text-decoration: none !important; }
+[data-theme="light"] .btn-close { filter: none !important; }
+</style>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#0b0b0d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="../icons/admin-192.png">
+<link rel="stylesheet" href="../shared/css/pwa-install.css">
+</head>
+<body>
+<div class="app-shell">
+<!-- ══ Sidebar ══ -->
+<aside class="sidebar" id="sidebar">
+<div class="brand"><div class="brand-name"><img class="theme-logo" data-theme-logo src="../img/logo-dark.png" alt="GDprint"></div></div>
+<div class="nav-section-title">Իմ էջը</div>
+<nav>
+<a class="nav-item" href="dashboard.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="9" rx="1.5" width="7" x="3" y="3"></rect><rect height="5" rx="1.5" width="7" x="14" y="3"></rect><rect height="9" rx="1.5" width="7" x="14" y="12"></rect><rect height="5" rx="1.5" width="7" x="3" y="16"></rect></svg>
+<span>Dashboard</span>
+</a>
+<a class="nav-item active" href="new-order.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+<span>Նոր պատվեր</span>
+</a>
+<a class="nav-item" href="analytics.html"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 16l4-5 4 3 5-7"></path></svg><span>Անալիտիկա</span></a>
+<a class="nav-item" href="messages.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+<span>Հաղորդագրություններ</span>
+</a>
+</nav>
+<div class="nav-section-title">Համակարգ</div>
+<nav>
+<a class="nav-item" data-logout="" href="#">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5M21 12H9"></path></svg>
+<span>Ելք</span>
+</a>
+</nav>
+<div class="sidebar-foot">
+<div class="avatar" id="user-avatar">M</div>
+<div class="sidebar-foot-text">
+<div class="name" id="user-name">Մենեջեր</div>
+<div class="role">Մենեջեր</div>
+</div>
+</div>
+</aside>
+<!-- ══ Main ══ -->
+<div class="main">
+<header class="topbar">
+<button class="icon-btn menu-toggle" id="menu-toggle">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+</button>
+<div>
+<div class="page-title">Նոր Պատվեր</div>
+<div class="page-sub">Ընտրեք ծառայությունը</div>
+</div>
+<a class="btn btn-ghost" href="dashboard.html" style="margin-left:auto;">← Dashboard</a>
+<button class="icon-btn" id="theme-toggle">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>
+</button>
+</header>
+<main class="content">
+<section class="service-selector" aria-labelledby="service-selector-title">
+<div class="service-selector-head">
+<div class="service-selector-copy">
+<h2 class="service-selector-title" id="service-selector-title">Ընտրեք ծառայությունը</h2>
+<p class="service-selector-sub">Ընտրեք տպագրական ծառայությունը՝ պատվերի մանրամասները լրացնելու համար։</p>
+</div>
+<div class="service-count">11 ծառայություն</div>
+</div>
+<div class="service-grid">
+<button class="svc-card" data-bs-target="#modal-wide-format" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="4" y="13" width="16" height="8" rx="2"/><path d="M6 17H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M17 12h.01"/></svg></span>
+<span class="svc-content"><span class="svc-name">Լայնաֆորմատ տպագրություն</span><span class="svc-meta"><span class="svc-prefix">LTP</span><span>Մեծ ֆորմատներ</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-plotter" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="M8.6 8.5 21 3"/><path d="m8.6 15.5 5.2 2.3"/><path d="m14.5 12 6.5 9"/></svg></span>
+<span class="svc-content"><span class="svc-name">Պլոտերային հատում</span><span class="svc-meta"><span class="svc-prefix">PLT</span><span>Վինիլ և տեքստ</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-bizcard" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5.5 16c.7-1.5 1.6-2.2 2.5-2.2s1.8.7 2.5 2.2"/><path d="M13 10h5M13 14h4"/></svg></span>
+<span class="svc-content"><span class="svc-name">Այցեքարտերի տպագրություն</span><span class="svc-meta"><span class="svc-prefix">AYC</span><span>Business cards</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-photo" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="m21 15-5-5L5 19"/></svg></span>
+<span class="svc-content"><span class="svc-name">Լուսանկարների տպագրություն</span><span class="svc-meta"><span class="svc-prefix">LUS</span><span>Ֆոտո տպագրություն</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-forms" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
+<span class="svc-content"><span class="svc-name">Ձևաթղթերի տպագրություն</span><span class="svc-meta"><span class="svc-prefix">DEV</span><span>Գրասենյակային նյութեր</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-calendar" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg></span>
+<span class="svc-content"><span class="svc-name">Օրացույցների տպագրություն</span><span class="svc-meta"><span class="svc-prefix">CAL</span><span>Սեղանի և պատի</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-rollup" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12M8 3v14M16 3v14M6 17h12M9 21h6M12 17v4"/></svg></span>
+<span class="svc-content"><span class="svc-name">Roll-Up Stand</span><span class="svc-meta"><span class="svc-prefix">RUP</span><span>Շարժական ստենդ</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-canvas" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m21 15-4.5-4.5L6 20"/></svg></span>
+<span class="svc-content"><span class="svc-name">Կտավի վրա տպագրություն</span><span class="svc-meta"><span class="svc-prefix">CNV</span><span>Canvas print</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-poster" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 13z"/><path d="M11.6 15.4 13 21H8l-1.2-6.7"/><path d="M21 10v4"/></svg></span>
+<span class="svc-content"><span class="svc-name">Գովազդի տեղադրում</span><span class="svc-meta"><span class="svc-prefix">POST</span><span>Փակցնում և մոնտաժ</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-cup" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M4 5h12v9a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 8h2a3 3 0 0 1 0 6h-2"/><path d="M7 2v2M11 2v2"/></svg></span>
+<span class="svc-content"><span class="svc-name">Բաժակների տպագրություն</span><span class="svc-meta"><span class="svc-prefix">CUP</span><span>Սուբլիմացիոն տպագրություն</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+<button class="svc-card" data-bs-target="#modal-flyer" data-bs-toggle="modal" type="button">
+<span class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<span class="svc-content"><span class="svc-name">Թռուցիկների տպագրություն</span><span class="svc-meta"><span class="svc-prefix">FLY</span><span>Flyer / Leaflet</span></span></span>
+<span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+</button>
+</div>
+</section>
+</main>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  1. ԼԱՅՆԱՖՈՐՄԱՏ  (LTP)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-wide-format" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">🖨️ Լայնաֆորմատ տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="LTP" data-service-key="wide_format" id="wideFormatForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն Ազգանուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="email">Էլ հասցե</label>
+<input class="form-control" id="email" name="Էլ հասցե" required="" type="email"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="select">Ընտրեք նյութը</label>
+<select class="form-select" id="material" name="Նյութ" required="">
+<option name="Նյութ" value="Banner">Banner</option>
+<option name="Նյութ" value="Banner+ողակ">Banner+ողակ</option>
+<option name="Նյութ" value="Samokley">Samokley</option>
+<option name="Նյութ" value="Setka Samokley">Setka Samokley</option>
+</select>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="length">Բարձրություն</label>
+<input class="form-control" id="height" min="0.5" name="Բարձրություն" required="" step="0.01" type="number"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="width">Լայնություն</label>
+<input class="form-control" id="width" min="0.5" name="Լայնություն" required="" step="0.01" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="borderCut">Եզրագծային կտրվածք</label>
+<select class="form-select" id="borderCut" name="Եզրագծային կտրվածք">
+<option name="Առանց կտրվածքի" selected="" value="0">Առանց կտրվածքի</option>
+<option name="Կտրվածքով" value="100">Կտրվածքով</option>
+</select>
+</div>
+<div class="col-md-6" id="eyeletWrapper">
+<label class="form-label">Ողակների քանակ</label>
+<input class="form-control" data-manual="false" id="eyeletCount" min="8" name="Ողակների-քանակ" step="4" type="number"/>
+</div>
+</div>
+</div>
+<!-- ⚠️ Զգուշացման Modal -->
+<div aria-hidden="true" aria-labelledby="eyeletWarningLabel" class="modal fade" id="eyeletWarningModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content border-danger">
+<div class="modal-header bg-danger text-white">
+<h5 class="modal-title" id="eyeletWarningLabel" style="color: #fff; font-weight: bold; text-transform: uppercase;">Զգուշացում</h5>
+<button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<div class="war" style=" display: flex; justify-content: center; margin: 0; padding: 0;">
+<i class="bi bi-exclamation-triangle-fill" style="color: red; margin: 0; padding: 0; font-size: 144px;"></i>
+</div>
+<p style="text-align: center; color: red; font-weight: bolder;">Նշված ողակների քանակը շատ քիչ է, միջին առկա քանակը ըստ չափի է առաջարկվում ավտոմատ:</p>
+</div>
+<div class="modal-footer">
+<button class="btn btn-danger" data-bs-dismiss="modal" type="button">Հասկացա</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="servicePackage">Ծառայության փաթեթը</label>
+<select class="form-select" id="servicePackage" name="Ծառայության փաթեթը" required="">
+<option disabled="" name="Ծառայության փաթեթը" selected="" value="Select Package">Ընտրեք Փաթեթ</option>
+<option name="Սկսնակ" value="4500">Starter</option>
+<option name="Մատչելի" value="6000">Economy</option>
+<option name="Էկոնոմ" value="8000">Premium</option>
+<option name="Պրեմիում" value="10000">Gold</option>
+</select>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalCost" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Լայնաֆորմատ տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer" style="border-top:1px solid var(--border);">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  2. ՊԼՈՏԵՐԱՅԻՆ ՀԱՏՈՒՄ  (PLT)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-plotter" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">✂️ Պլոտերային հատում</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="PLT" data-service-key="plotter_cutting" id="PLTform">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ հասցե</label>
+<input class="form-control" id="email" name="Էլ հասցե" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="length">Բարձրություն</label>
+<input class="form-control" id="length" name="Բարձրություն" required="" type="number"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="width">Լայնություն</label>
+<input class="form-control" id="width" name="Լայնություն" required="" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fontSelect">Ընտրեք Տառատեսակ</label>
+<select class="fontSelect form-select" id="fontSelect" name="Ընտրեք Տառատեսակ">
+<option disabled="" name="Տառատեսակ" selected="" value="">Ընտրեք տառատեսակ</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="fileLink">Պատկեր/Ֆայլի հղում</label>
+<input class="form-control" id="fileLink" name="Ֆայլի հղում" type="url"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Պլոտերային հատում"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  3. ԱՅՑԵՔԱՐՏ  (AYC)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-bizcard" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">🪪 Այցեքարտերի տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="BC" data-service-key="business_cards" id="order-form">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ հասցե</label>
+<input class="form-control" id="email" name="Էլ հասցե" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="quantity">Տպաքանակը</label>
+<input class="form-control" id="quantity" min="1000" name="Տպաքանակը" required="" type="number" value="1000"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="paperType">Թղտի թղտի տեսակը</label>
+<select class="form-select" id="paperType" name="Թղտի տեսակը" required="">
+<!--									<option selected disabled>Ընտրեք  տեսակը</option>-->
+<option name="glossy" value="glossy">Glossy</option>
+<option name="matte" value="matte">Matte</option>
+</select>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="selected-design">Ընտրված դիզայն</label>
+<input class="form-control" id="selected-design" name="Ընտրված դիզայն" readonly="" type="text" value=""/>
+<div class="modal" id="design-modal">
+<div class="modal-content design">
+<div class="category" style="display: flex; justify-content: space-between;">
+<select class="form-select" id="category" onchange="filterCards()" style="max-width: 50%;">
+<option value="all">Անբողջը</option>
+<option value="business">Բիզնես և ֆինանսներ</option>
+<option value="healthcare">Առողջապահություն</option>
+<option value="marketing">Մարքեթինգ և դիզայն</option>
+<option value="education">Կրթություն և ուսուցում</option>
+<!--<option value="Construction">Շինարարություն և անշարժ</option>
+												<option value="TT">Տեղեկատվական տեխնոլոգիաներ</option>
+												<option value="Legal">Իրավաբանական ծառայություններ</option>
+												<option value="beauty">Գեղեցկության և առողջության ոլորտ</option>
+												<option value="Production">Արտադրություն և մեծածախ առևտուր</option>
+												<option value="hotel">Հյուրանոցային և ռեստորանային բիզնես</option>
+-->
+</select>
+<span class="close">×</span>
+</div>
+<div class="design-grid" id="cards">
+<!-- Example designs -->
+<!--Business card start-->
+<div class="design-option" data-category="business" data-design-name="Design 000">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/black-business-card-with-silver-details_1435-30.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 000</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 001">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148563770.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 001</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 002">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/modern-black-white-business-card-design_1017-14939.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 002</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 003">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/clean-style-modern-business-card-template_1017-30352.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 003</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 004">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-black-business-card-with-blue-shade_1017-24148.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 004</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 005">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148550055.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 005</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 006">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/black-business-card-with-glossy-lines_1051-1368.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 006</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 007">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/minimal-business-card-design-with-geometric-shapes_53876-58067.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 007</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 008">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/creative-minimal-modern-business-card-design-featuring-geometric-shapes_53876-43845.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 008</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 009">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/minimal-golden-business-card-template_1017-31203.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 009</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 010">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/modern-business-card-with-vibrant-colors_1051-1284.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 010</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 011">
+<img alt="Modern Design" src="https://img.freepik.com/free-psd/modern-red-business-card-template_1051-2572.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 011</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 012">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/double-sided-horizontal-business-template-brown-tones_52683-55486.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 012</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 013">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-elegant-double-sided-horizontal-business-card-template_23-2149288466.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 013</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 014">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/black-white-elegant-business-card-design_1017-26059.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 014</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 015">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/geometric-business-card_1051-1135.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 015</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 016">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/dark-metallic-business-card_1051-1462.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 016</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 017">
+<img alt="Modern Design" src="https://img.freepik.com/free-psd/white-business-card-with-red-details_1435-1145.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 017</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 018">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/monochrome-business-cards-concept_23-2148565742.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 018</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 019">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-psd/modern-minimal-business-card-template_1051-2571.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 019</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 020">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/elegant-minimal-black-yellow-business-card-template_1017-22513.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 020</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 021">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/hand-painted-business-cards_23-2148564942.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 021</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 022">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-template-with-distorted-lines_23-2148570564.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 022</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 023">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/simple-black-white-business-card_1017-17674.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 023</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 024">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/black-business-card-with-glowing-blue-curve-lines_1017-33879.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 024</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 025">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-golden-luxury-horizontal-business-card-template_23-2149032587.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 025</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 026">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-style-creative-business-card-design-bold-colors_53876-64096.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 026</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 027">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/black-white-business-card-simple-design_1017-37341.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 027</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 028">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-natural-motifs-template_52683-40499.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 028</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 029">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148556411.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 029</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 030">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-template-with-distorted-lines_23-2148564187.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 030</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 031">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/triangular-business-card-design_1369-44.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 031</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 032">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-geometric-business-card-template_23-2148312701.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 032</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 033">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-geometric-monochrome-double-sided-horizontal-business-card-template_23-2149287853.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 033</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 034">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148559995.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 034</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 035">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-template-with-distorted-lines_23-2148570565.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 035</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 036">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/funny-graphic-designer-business-card-template_23-2148401948.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 036</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 037">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/black-white-elegant-business-card-design_1017-26059.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 037</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 038">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-pastel-gradient-design_23-2148561442.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 038</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 039">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-psd/dark-metallic-business-card_1051-1462.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 039</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 040">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/black-geometric-pattern-white-business-card-vector_53876-67722.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 040</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 041">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-with-numbers_91008-116.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 041</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 042">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148372064.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 042</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 043">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/elegant-black-business-card-design_1017-14935.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 043</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 044">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/gradient-geometric-business-card_23-2149318014.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 044</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 045">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/low-poly-style-geometric-white-business-card_1017-26127.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 045</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 046">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-colorful-business-card_23-2148489977.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 046</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 047">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/realistic-hand-drawn-floral-business-card-template_23-2148390159.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 047</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 048">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_52683-39810.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 048</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 049">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-pastel-color-template_23-2148570091.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 049</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 050">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-polygonal-business-card-template_23-2148401719.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 050</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 051">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/funny-graphic-designer-business-card-template_23-2148410721.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 051</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 052">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/template-minimal-colorful-business-card_23-2148378034.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 052</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 053">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card_23-2148114869.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 053</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 054">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/black-purple-abstract-business-card_1051-680.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 054</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 055">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-geometric-business-card_52683-82551.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 055</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 056">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/black-business-card-with-turquoise-color-theme_1017-24145.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 056</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 057">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/marble-textured-visiting-cards_1340-7795.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 057</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 058">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_23-2148903982.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 058</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 059">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/flat-geometric-double-sided-horizontal-business-card-template_23-2149302264.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 059</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 060">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/elegant-black-white-business-card-design_1017-17670.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 060</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 061">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/minimal-golden-business-card-template_1017-31203.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 061</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 062">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-green-business-card-template_1017-31749.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 062</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 063">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/elegant-minimal-business-card_1051-1576.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 063</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 064">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-template-with-distorted-lines_23-2148572627.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 064</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 065">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card_52683-5706.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 065</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 066">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-geometric-monochrome-double-sided-horizontal-business-card-template_23-2149287861.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 066</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 067">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/flat-geometric-monochrome-double-sided-horizontal-business-card-template_23-2149287864.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 067</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 068">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/creative-minimal-modern-business-card-design-featuring-geometric-shapes_53876-63036.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 068</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 069">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148564967.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 069</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 070">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_52683-39731.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 070</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 071">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-template-abstract-style_23-2148334364.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 071</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 072">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_23-2148886081.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 072</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 073">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148563771.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 073</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 074">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/flat-design-full-side-color-business-card_23-2151030119.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 074</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 075">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/modern-business-card-with-abstract-shapes_1361-1096.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 075</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 076">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/graphic-designer-business-card-template-with-emoitcons_23-2148399667.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 076</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 077">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/memphis-name-card-design_53876-119655.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 077</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 078">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-neon-concept_23-2148561721.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 078</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 079">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/pastel-gradient-frames-business-card-template_23-2148552967.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 079</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 080">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/dark-business-card-with-polygonal-lines_1051-1144.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 080</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 081">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/gold-foil-business-card-template_23-2148876252.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 081</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 082">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gold-foil-business-card-template_23-2148874380.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 082</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 083">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-geometric-business-card-template_23-2148246032.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 083</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 084">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/flat-minimal-double-sided-horizontal-business-card-template_23-2149290782.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 084</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 085">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_23-2148897056.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 085</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 086">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/minimal-white-business-card-template_1017-19528.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 086</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 087">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/blue-business-card-artists_23-2147568025.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 087</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 088">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/black-business-card-modern-style_1017-30938.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 088</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 089">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-psd/black-business-card-with-blue-circles_1051-1325.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 089</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 090">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_52683-28897.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 090</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 091">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-monochromatic-business-card-template_23-2148344168.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 091</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 092">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/flat-design-geometric-business-card-template_23-2149268218.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 092</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 093">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/coffee-shop-business-card-template-vector_53876-61336.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 093</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 094">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-template-with-distorted-lines_23-2148556301.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 094</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 095">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/black-white-simple-design-business-card-template_23-2148552594.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 095</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 096">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/botanical-business-card-template-elegant-style_53876-114055.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 096</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 097">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-template-corporate-brand-identity-design_314614-1727.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 097</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 098">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/black-white-distorted-lines-business-card_23-2148561929.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 098</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 099">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148566364.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 099</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 100">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-distorted-lines_23-2148562811.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 100</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 101">
+<img alt="Modern Design" src="https://img.freepik.com/free-psd/technology-template-design_23-2149942404.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 101</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 102">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/minimal-business-card-with-blue-grey_23-2148446791.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 102</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 103">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-blue-identity-card_1075-69.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 103</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 104">
+<img alt="Modern Design" src="https://img.freepik.com/free-psd/horizontal-business-card-template-transport-commuting_23-2150227093.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 104</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 105">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-shapes-business-card-template_52683-14542.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 105</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 106">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-polygonal-business-card-template_23-2148401719.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 106</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 107">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/finances-advice-horizontal-business-card-template_23-2150126957.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 107</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 108">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-design_1337-43.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 108</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 109">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-purple-business-card_23-2149267673.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 109</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 110">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-geometric-business-card-template_23-2148401718.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 110</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 111">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/gradient-very-peri-design-template_52683-82061.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 111</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 112">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-low-poly-design_1048-13573.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 112</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 113">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/corporate-business-card-template-design_742173-29296.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 113</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 114">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/modern-business-card-with-photo_23-2148855458.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 114</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 115">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148361255.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 115</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 116">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148334053.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 116</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 117">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/green-polygonal-business-card-design_1043-252.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 117</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 118">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/classic-blue-business-card-template_23-2148424657.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 118</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 119">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-amazing-polygonal-shapes_1051-1166.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 119</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 120">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-shapes-business-card-template_52683-14541.jpg?ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid_sidr"/>
+<p>Design 120</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 121">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/squares-design-classic-blue-business-card_23-2148429027.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 121</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 122">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/dark-blue-business-card-modern-style_1017-2325.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 122</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 123">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/bank-service-concept-horizontal-business-card_23-2150487384.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 123</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 124">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-geometric-business-card-template_23-2148401718.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 124</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 125">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148376454.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 125</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 126">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/elegant-business-card-design_1115-175.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 126</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 127">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/blue-bokeh-abstract-business-card_1075-61.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 127</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 128">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-psd/colorful-business-card_1051-1366.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 128</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 129">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148361255.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 129</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 130">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/memphis-business-card-with-photo_23-2148363196.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 130</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 131">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148360687.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 131</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 132">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148367948.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 132</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 133">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-polygonal-business-card-template_23-2148401719.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 133</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 134">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-design_1115-291.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 134</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 135">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/building-style-abstract-business-card-template_23-2148355915.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 135</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 136">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/corporative-classic-blue-business-card_23-2148409820.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 136</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 137">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card_23-2148424659.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 137</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 138">
+<img alt="Modern Design" src="https://img.freepik.com/free-psd/editable-business-card-template-psd-modern-design_53876-139986.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 138</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 139">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-with-different-shapes-photo_23-2148359003.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 139</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 140">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/modern-abstract-business-card-concept_23-2147968072.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 140</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 141">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/flat-design-minimalist-business-card_23-2150435710.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 141</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 142">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-blue-tones_1043-268.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 142</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 143">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-purple-business-card_23-2149267673.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 143</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 144">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/template-abstract-business-card_23-2148371116.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 144</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 145">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148420726.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 145</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 146">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-card-template_23-2148578957.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 146</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 147">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148365925.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 147</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 148">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/neumorph-abstract-business-card-template_23-2148897692.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 148</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 149">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/elegant-business-card-design_1115-186.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 149</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 150">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148340198.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 150</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 151">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/template-abstract-business-card_23-2148354132.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 151</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 152">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-minimalist-shapes-photo-template_23-2148358589.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 152</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 153">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148380860.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 153</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 154">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148459014.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 154</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 155">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/modern-business-card-template-with-circles_23-2147932672.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 155</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 156">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148346847.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 156</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 157">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148363699.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 157</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 158">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/template-abstract-business-card-with-image_23-2148361855.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 158</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 159">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-business-card-template_23-2148291788.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 159</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 160">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/editable-business-card-template-vector-modern-design_53876-140825.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 160</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 161">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148361251.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 161</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 162">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148405518.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 162</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 163">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148373701.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 163</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 164">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/elegant-business-card-design_1115-184.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 164</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 165">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148411021.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 165</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 166">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-with-classic-blue-shapes_23-2148430436.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 166</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 167">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/minimalist-business-card-template_23-2148358592.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 167</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 168">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/template-abstract-business-card_23-2148375585.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 168</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 169">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/banking-business-horizontal-business-card_23-2150972730.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 169</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 170">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/neon-design-business-cards_23-2148557733.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 170</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 171">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-picture_23-2148362019.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 171</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 172">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_52683-58276.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 172</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 173">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/green-polygonal-business-card-design_1043-252.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 173</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 174">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-design_1115-132.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 174</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 175">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148361085.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 175</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 176">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/flat-geometric-double-sided-horizontal-business-card-template_23-2149256662.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 176</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 177">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/template-abstract-business-card-with-photo_23-2148355290.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 177</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 178">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148359367.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 178</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 179">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-wallet-design_1340-66.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 179</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 180">
+<img src="https://img.freepik.com/free-vector/green-black-business-card-design-template_1017-7910.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 180</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 181">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148339932.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 181</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 182">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-real-estate-business-card-horizontal_23-2149165548.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 182</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 183">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-skyscrapers_23-2148466593.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 183</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 184">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148420184.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 184</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 185">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-psd/corporate-business-card-template_1051-1299.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 185</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 186">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148405521.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 186</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 187">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/business-card-design_1115-150.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 187</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 188">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148373991.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 188</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 189">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/creative-gradient-business-card-with-shapes-flat-design_79603-219.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 189</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 190">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-minimalist-shapes-picture_23-2148358590.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 190</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 191">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/modern-business-card-template_1035-1169.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 191</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 192">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-design_47987-1697.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 192</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 193">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-dark-green-business-card_1017-19537.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 193</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 194">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148409470.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 194</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 195">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/modern-business-card-with-bright-colors_1035-4172.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 195</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 196">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-with-photo_23-2148455850.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 196</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 197">
+<img alt="Modern Design" src="https://img.freepik.com/free-vector/green-black-artist-business-card_1057-4746.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 197</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 198">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148384355.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 198</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 199">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/gradient-business-card-template_52683-47619.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 199</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 200">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-image_23-2148374526.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 200</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 201">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/abstract-shapes-business-card-template_52683-14542.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 201</p>
+</div>
+<div class="design-option" data-category="business" data-design-name="Design 202">
+<img alt="Minimalist Design" src="https://img.freepik.com/free-vector/business-card-with-wallet-design_1340-66.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 202</p>
+</div>
+<!--Business card end-->
+<!--healthcare card start-->
+<div class="design-option" data-category="healthcare" data-design-name="Design 203">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-simple-company-card_1115-103.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 203</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 204">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/turquoise-business-card-with-lights_1051-1152.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 204</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 205">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-healthy-center-business-card_1075-72.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 205</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 206">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-white-ecg-business-card_1057-4707.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 206</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 207">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/mental-health-psychiatrist-name-card-mockup-vector_53876-61370.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 207</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 208">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/turquoise-business-card-with-map_1034-290.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 208</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 209">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-professional-business-card-design-mockup_53876-61796.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 209</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 210">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-medical-team_1078-27.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 210</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 211">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-shapes-business-card-design_1370-18.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 211</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 212">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/mental-health-psychiatrist-name-card-mockup-vector_53876-61372.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 212</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 213">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-theme_23-2148451331.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 213</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 214">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-professional-business-card-design-mockup_53876-61799.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 214</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 215">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-monochromatic-business-card-template_23-2148352652.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 215</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 216">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/polygonal-business-card_1051-1410.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 216</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 217">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/mental-health-psychiatrist-name-card-mockup-vector_53876-61369.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 217</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 218">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/botox-filler-clinic-business-card-template_23-2150277053.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 218</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 219">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/sports-physiotherapy-business-card-template_23-2150140522.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 219</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 220">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/vibrant-abstract-template-business-card_23-2148355909.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 220</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 221">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-simple-company-card_1115-103.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 221</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 222">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-hospital-horizontal-business-card_23-2149669161.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 222</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 223">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/editable-business-card-template-abstract-design_53876-118994.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 223</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 224">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148387596.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 224</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 225">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/veterinary-business-card-template_23-2148990864.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 225</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 226">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-business-card-with-abstract-shapes_1048-2786.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 226</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 227">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/medical-business-card_1051-1362.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 227</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 228">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-painted-business-card-template_52683-39707.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 228</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 229">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-medical-business-card-template_1051-613.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 229</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 230">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/green-white-business-card_1057-4568.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 230</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 231">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-professional-business-card-design-mockup_53876-61797.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 231</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 232">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-medical-card_1051-1114.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 232</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 233">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-pastel-colored-stains_23-2148399931.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 233</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 234">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-corporate-card_1051-1174.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 234</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 235">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-medical-card_1051-1173.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 235</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 236">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-medical-card-with-hexagons_1051-1175.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 236</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 237">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/creative-business-card_1051-1551.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 237</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 238">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/classic-blue-company-card_23-2148424143.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 238</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 239">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-minimal-double-sided-horizontal-business-card-template_23-2149290780.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 239</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 240">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-professional-business-card-design-mockup_53876-61800.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 240</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 241">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/editable-business-card-template-psd-modern-design_53876-139984.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 241</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 242">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/flat-design-medical-template_23-2150117820.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 242</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 243">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-business-card-design_1078-45.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 243</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 244">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/red-white-ambulance-business-card_1057-4569.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 244</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 245">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card_23-2147981311.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 245</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 246">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/turquoise-visit-card-with-hexagons_1035-3578.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 246</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 247">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148423727.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 247</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 248">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/simple-abstract-business-card-template_23-2148466598.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 248</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 249">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/minimal-business-card_23-2148445264.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 249</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 250">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/light-blue-business-card_1051-1502.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 250</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 251">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-painted-business-card-template-set_23-2148468304.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 251</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 252">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/duotone-hand-drawn-nurse-business-card-template_742173-17703.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 252</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 253">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/medical-professional-business-card-design-mockup_53876-61794.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 253</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 254">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/pastel-gradient-business-cards-set_23-2148566368.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 254</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 255">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/geometric-business-card-design_1340-82.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 255</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 256">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-turquoise-color_1035-1168.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 256</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 257">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/turquoise-minimal-business-card_1051-922.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 257</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 258">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/simple-business-card-template_1017-3679.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 258</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 259">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/doctor-dark-blue-business-card_1057-4709.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 259</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 260">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-circles-business-card_1017-3961.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 260</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 261">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-business-card-with-medical-background_1361-1157.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 261</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 262">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-stains_23-2148399597.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 262</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 263">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-white-business-card_1057-4603.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 263</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 264">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/mental-health-psychiatrist-name-card-mockup-vector_53876-61373.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 264</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 265">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-design_1115-136.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 265</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 266">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/red-heart-business-card_1057-4708.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 266</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 267">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/coloured-medical-business-card_1142-55.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 267</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 268">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-business-card-green-color_1035-3545.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 268</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 269">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-elegant-business-card_1055-10365.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 269</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 270">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-white-medical-business-card_1057-4580.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 270</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 271">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/green-medical-business-card_1057-4571.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 271</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 272">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-abstract-blue-business-card-template_23-2148363278.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 272</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 273">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-stylish-business-card-design_1055-2431.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 273</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 274">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/pastel-gradient-business-cards_23-2148555771.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 274</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 275">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-medical-team-business-card_1078-20.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 275</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 276">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/green-business-card-with-ornamental-shapes_1017-3739.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 276</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 277">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/watercolor-minimal-business-card_23-2149263349.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 277</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 278">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_23-2148874319.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 278</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 279">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/corporative-business-card_1051-887.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 279</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 280">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148380427.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 280</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 281">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-soft-blue-green-geometric-business-card-template_1055-16199.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 281</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 282">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-template-business-card-pack_23-2148442900.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 282</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 283">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/soft-green-wave-style-business-card-design-template_1055-21181.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 283</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 284">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/sport-training-horizontal-business-card-template_23-2150065115.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 284</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 285">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/modern-business-card-template-psd-navy-blue_53876-145127.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 285</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 286">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-identity-card-template_23-2148424190.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 286</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 287">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-abstract-ocean-blue_23-2148462420.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 287</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 288">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-colorful-wave-style-business-card-template-vector_1055-12816.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 288</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 289">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/blue-stripes-business-card_1017-2422.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 289</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 290">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-geometric-horizontal-business-card-template_23-2149280498.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 290</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 291">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148410500.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 291</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 292">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-dentists_1051-1116.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 292</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 293">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-dental-clinic-horizontal-business-card_23-2149302857.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 293</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 294">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-horizontal-business-card-template-dental-clinic-business_23-2149575798.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 294</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 295">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-dental-clinic-double-sided-horizontal-business-card-template_23-2149316865.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 295</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 296">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/simple-dental-care-clinic-appointment-business-card_742173-9972.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 296</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 297">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-blue-dental-clinic-postcard_742173-1123.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 297</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 298">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/dentist-business-card_1051-1589.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 298</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 299">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/pastel-linear-dental-clinic-postcard-template_742173-2350.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 299</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 300">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/cool-modern-dental-business-card_742173-6622.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 300</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 301">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/realistic-geometric-dental-clinic-horizontal-business-card_23-2149778354.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 301</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 302">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/simple-glitter-dental-postcard-template_742173-2338.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 302</p>
+</div>
+<div class="design-option" data-category="healthcare" data-design-name="Design 303">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/doodle-kids-dental-center-postcard_742173-6616.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 303</p>
+</div>
+<!--healthcare card end-->
+<!--marketing card start-->
+<div class="design-option" data-category="marketing" data-design-name="Design 304">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/flat-design-social-media-business-card-template_23-2151227203.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 304</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 305">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-marketing-agency-business-card_52683-128522.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 305</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 306">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/flat-design-travel-adventure-business-card_23-2150900338.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 306</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 307">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-mosaic-business-card_23-2149057531.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 307</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 308">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-abstract-business-card_52683-81930.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 308</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 309">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-template-with-gradient-abstract-shapes_23-2149117315.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 309</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 310">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/marketing-agency-business-card-template-design_742173-23985.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 310</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 311">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-business-card-template_23-2148355917.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 311</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 312">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/marketing-agency-business-card-template-design_742173-23462.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 312</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 313">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/funny-graphic-designer-business-card-template_23-2148387649.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 313</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 314">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-advertising-agency-horizontal-business-card_23-2150789688.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 314</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 315">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-advertising-agency-business-card-template_23-2150059832.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 315</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 316">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-template-business-card-with-photo_23-2148458366.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 316</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 317">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-card-template_23-2148551319.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 317</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 318">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/company-card-with-colorful-lines_23-2148534355.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 318</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 319">
+<img alt="Classic Design" src="https://img.freepik.com/free-psd/marketing-concept-business-card-template_23-2150049279.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 319</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 320">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-set-creative-clean-business-card-template_460848-12724.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 320</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 321">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-design_23-2148468417.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 321</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 322">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-card-template_23-2148578957.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 322</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 323">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148435966.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 323</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 324">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-cards_23-2148572451.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 324</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 325">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-abstract-horizontal-double-sided-business-card-template_23-2149267537.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 325</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 326">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_52683-60597.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 326</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 327">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/brand-creative-business-card-template_23-2148400015.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 327</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 328">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-cards-concept_23-2148620615.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 328</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 329">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_52683-71531.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 329</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 330">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/funny-graphic-designer-business-card-template_23-2148408003.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 330</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 331">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-abstract-shapes-business-cards-template_23-2149083727.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 331</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 332">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/funny-graphic-designer-business-card-template_23-2148390808.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 332</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 333">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-with-modern-design_1048-2022.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 333</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 334">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-abstract-shapes-business-cards_23-2149084957.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 334</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 335">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-classic-blue-business-card-template_23-2148411021.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 335</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 336">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/geometric-business-card_23-2147699945.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 336</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 337">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/dark-blue-with-white-shapes-business-card-template_23-2148421233.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 337</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 338">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-retro-business-card-design_23-2149969053.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 338</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 339">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/colored-business-card-with-circles-modern-style_1051-918.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 339</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 340">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-high-contrast-business-card_52683-141117.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 340</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 341">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-abstract-business-card-design_23-2149333600.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 341</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 342">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-with-halftone-dots_1048-5056.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 342</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 343">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-abstract-geometric-business-card_23-2149330790.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 343</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 344">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-design-red-business-card-design-template_23-2150889804.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 344</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 345">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-card-template_23-2148562430.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 345</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 346">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-design-musical-poster_23-2149062373.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 346</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 347">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148360687.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 347</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 348">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-template-abstract-set_23-2148362997.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 348</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 349">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hey-greetings-business-card-template_23-2148386812.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 349</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 350">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/template-business-card-with-circles_23-2148355916.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 350</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 351">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-rounded-shapes-business-card_23-2151071835.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 351</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 352">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-luxurious-vip-card-template_23-2149119006.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 352</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 353">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-collection-with-photo_23-2148364004.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 353</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 354">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/template-colorful-abstract-business-card_52683-29290.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 354</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 355">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-template-neumorph-design_23-2148893560.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 355</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 356">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-double-sided-horizontal-business-card-template_23-2149301403.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 356</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 357">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/kayak-gift-certificate-template-design_742173-23094.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 357</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 358">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-colorful-business-card_23-2148489976.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 358</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 359">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-cards-set_23-2148554516.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 359</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 360">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/corporate-business-card-template_53876-78239.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 360</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 361">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-concept_23-2148458110.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 361</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 362">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/yellow-business-card-with-elegant-pattern_1017-4779.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 362</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 363">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-horizontal-business-card-template_23-2149276490.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 363</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 364">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-design-business-cards_23-2148557733.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 364</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 365">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/company-card-template-with-distorted-lines_52683-40046.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 365</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 366">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/pastel-gradient-business-card-template_52683-39184.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 366</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 367">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-abstract-horizontal-business-card-template_23-2149284771.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 367</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 368">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/visiting-card-with-triangles_1017-5382.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 368</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 369">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neumorph-business-card-template_23-2148886747.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 369</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 370">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-with-classic-blue-geometrical-shapes_23-2148430434.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 370</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 371">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-colorful-business-card-template_23-2148333295.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 371</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 372">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-with-photo_23-2148363701.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 372</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 373">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-collection-with-image_23-2148453725.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 373</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 374">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/gradient-abstract-business-card_23-2149311082.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 374</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 375">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template-collection-with-image_23-2148453725.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 375</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 376">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/green-abstract-business-card_1035-3256.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 376</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 377">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/neon-business-card-template_23-2148582173.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 377</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 378">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/minimal-business-card-with-memphis-elements_23-2148456810.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 378</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 379">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/vintage-business-card-design_1115-127.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 379</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 380">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-painted-business-cards_23-2148564243.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 380</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 381">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-template-business-card_23-2148466599.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 381</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 382">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/colorful-abstract-business-card-template_23-2148365765.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 382</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 383">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-horizontal-business-card-template_23-2149276487.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 383</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 384">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/red-blue-business-card_1167-211.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 384</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 385">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-abstract-shapes-business-cards-template_23-2149083858.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 385</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 386">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-horizontal-business-card-template_23-2149276490.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 386</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 387">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/business-card-template-with-photo_23-2148444057.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybridv"/>
+<p>Design 387</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 388">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-with-different-colors_1017-7549.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 388</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 389">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-elegant-horizontal-business-card-template_23-2149286050.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 389</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 390">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/monochrome-business-cards-template-pack_23-2148554510.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 390</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 391">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-business-card-template-with-blue-marble-shapes_1393-87.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 391</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 392">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design-vector_53876-110951.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 392</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 393">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design_53876-119655.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 393</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 394">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design_53876-119655.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 394</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 395">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-horizontal-business-card-template_23-2148929191.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 395</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 396">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-horizontal-business-card-template_23-2149260063.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 396</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 397">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/geometric-shapes-gradient-business-card_23-2149268921.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 397</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 398">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-black-white-pattern-visiting-card_1340-5342.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 398</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 399">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-mosaic-horizontal-business-card-template_23-2149053991.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 399</p>
+</div>
+<div class="design-option" data-category="marketing" data-design-name="Design 400">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-business-card-template_23-2148375576.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 400</p>
+</div>
+<!--marketing card end-->
+<!--education card start-->
+<div class="design-option" data-category="education" data-design-name="Design 391">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/modern-business-card-template-with-blue-marble-shapes_1393-87.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 401</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 392">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design-vector_53876-110951.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 402</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 393">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design_53876-119655.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 403</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 394">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/memphis-name-card-design_53876-119655.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 404</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 395">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/abstract-horizontal-business-card-template_23-2148929191.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 405</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 396">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-abstract-horizontal-business-card-template_23-2149260063.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 406</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 397">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/geometric-shapes-gradient-business-card_23-2149268921.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 407</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 398">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/hand-drawn-black-white-pattern-visiting-card_1340-5342.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 408</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 399">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/flat-mosaic-horizontal-business-card-template_23-2149053991.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 409</p>
+</div>
+<div class="design-option" data-category="education" data-design-name="Design 390">
+<img alt="Classic Design" src="https://img.freepik.com/free-vector/monochrome-business-cards-template-pack_23-2148554510.jpg?uid=R32108519&amp;ga=GA1.1.1081075215.1734765392&amp;semt=ais_hybrid"/>
+<p>Design 410</p>
+</div>
+<!--education card end-->
+<!-- Add more designs as needed -->
+</div>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none; outline-color: none; list-style: none;" type="submit">Պատվիրել</button>
+<button class="btn btn-primary" id="open-modal" style="background-color: black; outline: none; border: none; border-color: none;" type="button">Ընտրեք Դիզայն</button>
+<div class="result">
+<p id="totalBCCost" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Գինը: 0դր.</p>
+</div>
+</div>
+<!--							<input type="hidden" name="_template" value="table">-->
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Այցեքարտերի տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  4. ԼՈՒՍԱՆԿԱՐ  (LUS)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-photo" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">📸 Լուսանկարների տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="PH" data-service-key="photo_printing" id="photoform">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ հասցե" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="size">Թղթի չափս</label>
+<select class="form-select" id="size" name="Թղթի չափս" onchange="photoCount()" required="">
+<option name="A4 չափս 400" value="400">A4</option>
+<option name="A5 չափս 200" value="200">A5</option>
+<option name="A5 չափս 100" value="100">A6</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="quantity">Տպման քանակը</label>
+<input class="form-control" id="qanak" min="1" name="Տպագրության քանակը" oninput="photoCount()" placeholder="Մուտքագրեք քանակը" required="" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="fileLink">Պատկեր/Ֆայլի հղում</label>
+<input class="form-control" id="fileLink" name="Պատկեր/Ֆայլի հղում" required="" type="url"/>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" id="submitBtn" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalphCost" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Լուսանկարների տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  5. ՁԵՒԱԹՂԹԵՐ  (DEV)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-forms" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">📄 Ձևաթղթերի տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="PF" data-service-key="printable_forms" id="printableForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ. հասցե" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="printType">Տպագրության տեսակը</label>
+<select class="form-select" id="printType" name="Տպագրության տեսակը" onchange="blankForms()" required="">
+<option name="Տպագրության տեսակը 30դր" value="30">A4 Սև ու Սպիտակ</option>
+<option name="Տպագրության տեսակը 50դր" value="50">A4 Գունավոր</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="blank">Տպման քանակը</label>
+<input class="form-control" id="blank" min="1" name="Տպագրության քանակը" oninput="blankForms()" placeholder="Մուտքագրեք քանակը" required="" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="fileLink">Պատկեր/Ֆայլի հղում</label>
+<input class="form-control" id="fileLink" name="Պատկեր/Ֆայլի հղում" required="" type="url"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalbkCost" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Ձևաթղտերի տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  6. ՕՐԱՑՈՒՅՑ  (CAL)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-calendar" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">📅 Օրացույցի տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="CAL" data-service-key="calendar" id="calendarOrderForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ․ հասցե" placeholder="Մուտքագրեք ձեր էլ․ հասցեն" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="fontSelect">Ընտրեք Տառատեսակ</label>
+<select class="fontSelect form-select" id="fontSelect" name="Ընտրեք Տառատեսակ">
+<option disabled="" name="Տառատեսակ" selected="" value="">Ընտրեք տառատեսակ</option>
+</select>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="calendarType">Օրացույցի տիպ</label>
+<select class="form-select" id="calendarType" name="Օրացույցի տեսակը" required="">
+<option disabled="" name="Ընտրեք օրացույցի տիպը" selected="">Ընտրեք օրացույցի տիպը</option>
+<option name="Օրացույցի տեսակը" value="Սեղանի օրացույց">Սեղանի օրացույց</option>
+<option name="Օրացույցի տեսակը" value="Պատի օրացույց">Պատի օրացույց</option>
+<option name="Օրացույցի տեսակը" value="Գրպանի օրացույց">Գրպանի օրացույց</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="printQuantity">Պատճենների քանակ</label>
+<input class="form-control" id="printQuantity" name="Պատճենների քանակ" placeholder="Մուտքագրեք պատճենների քանակը" required="" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="paperType">Թղթի տեսակը</label>
+<select class="form-select" id="paperType" required="">
+<option disabled="" name="Ընտրեք թղթի տեսակը" selected="">Ընտրեք թղթի տեսակը</option>
+<option name="Փայլուն" value="glossy">Փայլուն</option>
+<option name="Մատվի" value="matte">Մատվի</option>
+</select>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" placeholder="Մուտքագրեք պատվերի մանրամասները" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Գինը: Պայմանագրային</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Օրացույցի տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  7. ROLL-UP STAND  (RUP)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-rollup" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">🪧 Roll-Up Stand տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="RL" data-service-key="rollup" id="RollupOrderForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ․ հասցե" placeholder="Մուտքագրեք ձեր էլ․ հասցեն" required="" type="email"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="fileLink">Google Drive հղում:</label>
+<input class="form-control" name="GoogleLink" type="url"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="rullsize">Ընտրեք չափսը:</label>
+<select class="form-select" id="rullsize" name="Ընտրեք չափը">
+<option disabled="" selected="" value="">Ընտրեք չափը</option>
+<option data-price="10150" value="60x160">60x160</option>
+<option data-price="16900" value="80x200">80x200</option>
+<option data-price="18000" value="85x200">85x200</option>
+<option data-price="21100" value="100x200">100x200</option>
+<option data-price="25350" value="120x200">120x200</option>
+<option data-price="31700" value="150x200">150x200</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="rullquantity">Քանակ</label>
+<input class="form-control" id="rullquantity" min="1" name="Քանակ" type="number" value="1"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" placeholder="Մուտքագրեք պատվերի մանրամասները" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalRLPrice" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Rull UP Stand տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  8. ԿՏԱՎ  (CNV)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-canvas" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">🖼️ Կտավի վրա տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="CNV" data-service-key="canvas" id="CanvasOrderForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ․ հասցե" placeholder="Մուտքագրեք ձեր էլ․ հասցեն" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="canvasize">Ընտրել չափսը</label>
+<select class="form-select" id="canvasize" name="Ընտրված չափսը">
+<option disabled="" selected="" value="">-- Ընտրել չափսը --</option>
+<optgroup label="Ստանդարտ չափեր"></optgroup>
+<option data-price="5460" value="20x30">20 x 30 սմ</option>
+<option data-price="5850" value="30x40">30 x 40 սմ</option>
+<option data-price="6370" value="40x50">40 x 50 սմ</option>
+<option data-price="6890" value="50x70">50 x 70 սմ</option>
+<option data-price="7410" value="60x80">60 x 80 սմ</option>
+<option data-price="7930" value="70x100">70 x 100 սմ</option>
+<optgroup label="Ոչ ստանդարտ չափեր"></optgroup>
+<option data-price="14820" value="100x150">100 x 150 սմ</option>
+<option data-price="5670" value="20x20">20 x 20 սմ</option>
+<option data-price="6100" value="25x35">25 x 35 սմ</option>
+<option data-price="6620" value="35x35">35 x 35 սմ</option>
+<option data-price="6620" value="40x60">40 x 60 սմ</option>
+<option data-price="7700" value="60x60">60 x 60 սմ</option>
+<option data-price="9180" value="80x120">80 x 120 սմ</option>
+<option data-price="10400" value="100x100">100 x 100 սմ</option>
+<option data-price="19700" value="120x180">120 x 180 սմ</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="quantity">Քանակ</label>
+<input class="form-control" id="canvaquantity" min="1" name="Քանակ" type="number" value="1"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="fileLink">Google Drive հղում:</label>
+<input class="form-control" name="GoogleLink" type="url"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" placeholder="Մուտքագրեք պատվերի մանրամասները" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="canvatotal" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Կտավի վրա տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  9. ԳՈՎԱԶԴ ՏԵՂԱԴՐՈՒՄ  (POST)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-poster" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">📢 Գովազդի տեղադրում</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="POST" data-service-key="poster_placement" id="posterOrderFormEl">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ․ հասցե" placeholder="Մուտքագրեք ձեր էլ․ հասցեն" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName" style="font-weight: 600; ">Ընկերության անունը</label>
+<input class="form-control" id="fullName" name="Կազմակերպության անվանումը" placeholder="Ընկերության անունը" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label for="squareMeters">Քառակուսի մետր</label>
+<input class="form-control" id="squareMeters" min="0.1" name="Քառակուսի մետր" oninput="PostForms()" placeholder="Քառակուսի մետր" step="0.1" type="number"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="printQuantity">Կազմակերպության հասցե</label>
+<input class="form-control" id="printQuantity" name="Կազմակերպության հասցե" placeholder="Մուտքագրեք կազմակերպության հասցեն" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" placeholder="Մուտքագրեք պատվերի մանրամասները" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+							align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalptCost" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Գինը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Բաների տեղադրում"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  10. ԲԱԺԱԿ  (CUP)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-cup" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">☕ Բաժակի վրա տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="CUP" data-service-key="cup_printing" id="cupOrderFormEl">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="fullName">Անուն</label>
+<input class="form-control" id="fullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="telNumber">Հեռախոսահամար</label>
+<input class="form-control" id="telNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Էլ․ հասցե</label>
+<input class="form-control" id="email" name="Էլ․ հասցե" placeholder="Մուտքագրեք ձեր էլ․ հասցեն" required="" type="email"/>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label for="Sarph">Բաժակների քանակ:</label>
+<input class="form-control" id="Sarph" name="Բաժակների քանակ" oninput="SarphForms()" placeholder="Մուտքագրեք բաժակների քանակը" required="" type="number"/>
+</div>
+<div class="col-md-6">
+<label for="design">Ֆայլի Հղում:</label>
+<input class="form-control" id="fullName" name="Ֆայլի Հղում" placeholder="Մուտքագրեք Ֆայլի Հղում" required="" type="url"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="orderDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="orderDescription" name="Պատվերի նկարագրություն" placeholder="Մուտքագրեք պատվերի մանրամասները" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display: flex;
+								align-items: center; justify-content: space-between;">
+<button class="btn btn-primary" style="background-color: black; border: none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalcupCost" name="Արժեքը" style="display: flex; justify-content: center; font-weight: bolder; color: #000; margin: 0px auto; align-items: center;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է "/>
+<input name="_subject" type="hidden" value="Բաժակի վրա տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════
+  11. ԹՌՈՒՑԻԿ  (FLY)
+════════════════════════════════════════════════ -->
+<div class="modal fade" id="modal-flyer" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">📑 Թռուցիկների տպագրություն</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="gd-order-form" data-prefix="FLY" data-service-key="flyer" id="flyerForm">
+<div class="mb-3" style="display: flex; justify-content: space-between;">
+<input class="form-control" id="wideFormat" name="ID" readonly="" type="text"/>
+<span class="gd-copy-btn" style="background-color: red; color: #fff; cursor: pointer; border-radius: 5px; padding: 5px 10px; font-weight: 500; border: none;">Պատճենել</span>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="flyerFullName">Անուն Ազգանուն</label>
+<input class="form-control" id="flyerFullName" name="Անուն Ազգանուն" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="flyerTelNumber">Հեռախոսահամար</label>
+<input class="form-control" id="flyerTelNumber" name="Հեռ. համար" required="" type="tel"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="flyerEmail">Էլ․ հասցե</label>
+<input class="form-control" id="flyerEmail" name="Էլ հասցե" required="" type="email"/>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="fileLink">Google Drive Հղում</label>
+<input class="form-control" id="fileLink" name="File Link" type="url"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="flyerSize">Թղթի չափը</label>
+<select class="form-select" id="flyerSize" name="Թղթի չափը" onchange="flyerCount()" required="">
+<option data-price="300" value="A4">A4</option>
+<option data-price="195" value="A5">A5</option>
+<option data-price="25" value="A4 1/3">A4 1/3</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label">( Նվազագույնը՝ 2000 հատ )</label>
+<input class="form-control" id="flyerQuantity" min="2000" name="Տպաքանակ" oninput="flyerCount()" placeholder="Մուտքագրեք քանակը" required="" step="1" type="number" value="0"/>
+</div>
+</div>
+</div>
+<div class="mb-3 col-md-12">
+<div class="row">
+<div class="col-md-6">
+<label class="form-label" for="flyerWeight">Թղթի խտություն</label>
+<select class="form-select" id="flyerWeight" name="Թղթի խտություն" onchange="flyerCount()">
+<option name="115գր կավճապատ" value="115գր կավճապատ">115գր կավճապատ</option>
+<option name="150գր կավճապատ" value="150գր կավճապատ">150գր կավճապատ</option>
+<option name="170գր կավճապատ" value="170գր կավճապատ">170գր կավճապատ</option>
+</select>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="flyerType">Թղթի տեսակը</label>
+<select class="form-select" id="flyerType" name="Թղթի տեսակը" onchange="flyerCount()">
+<option name="Թղթի տեսակը" value="Փայլուն">Փայլուն</option>
+<option name="Թղթի տեսակը" value="Անփայլ">Անփայլ</option>
+</select>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="flyerDescription">Պատվերի նկարագրություն</label>
+<textarea class="form-control" id="flyerDescription" name="Պատվերի նկարագրություն" required="" rows="3"></textarea>
+</div>
+<div class="mb-3" style="display:flex; align-items:center; justify-content:space-between;">
+<button class="btn btn-primary" style="background-color:black; border:none;" type="submit">Պատվիրել</button>
+<div class="result">
+<p id="totalFlyerCost" style="font-weight:bolder; margin:0;">Արժեքը: 0 AMD</p>
+</div>
+</div>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_autoresponse" type="hidden" value="Ձեր պատվերը հաջողությամբ գրանցվել է։"/>
+<input name="_subject" type="hidden" value="Թռուցիկների տպագրություն"/>
+<input name="_next" type="hidden" value="https://gdprint.am/services.html"/>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Չեղարկել</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- ══ Scripts ══ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared/js/vendor/supabase.js"></script>
+<script src="../shared/js/supabase.js"></script>
+<script src="../shared/js/ui.js"></script>
+<script src="../shared/js/auth.js"></script>
+<script src="../shared/js/order-form-submit.js"></script>
+<script src="../shared/js/order-number.js"></script>
+<script src="js/price_am.js"></script>
+<script src="js/business-card.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const auth = await requireRole(["manager"]);
+  if (!auth) return;
+  const name = auth.profile?.full_name || "Մենեջեր";
+  const un = document.getElementById("user-name"), av = document.getElementById("user-avatar");
+  if (un) un.textContent = name;
+  if (av) av.textContent = name.charAt(0).toUpperCase();
+});
+</script>
+<script src="../shared/js/pwa-install.js"></script>
+</body>
+</html>
