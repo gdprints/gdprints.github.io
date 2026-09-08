@@ -1,0 +1,2 @@
+-- Manager earnings are calculated only for orders created by a manager.
+-- Customer App orders have created_by_manager_id = NULL and must not generate commission.
