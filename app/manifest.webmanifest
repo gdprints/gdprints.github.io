@@ -1,1 +1,0 @@
-{"name":"GDprint Customer App","short_name":"GDprint","start_url":"./index.html","display":"fullscreen","background_color":"#111318","theme_color":"#111318","icons":[{"src":"assets/img/logo-icon.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}],"display_override":["fullscreen","standalone"],"orientation":"any"}
