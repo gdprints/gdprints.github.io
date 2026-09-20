@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GDprint — Պորտֆոլիո</title>
+<meta content="GDprinting ընկերությունը կատարում է ցանկացած տեսակի տպագրական
+	աշխատանքներ։ Դիզայն, ֆայլերի պատրաստում, չափագրում, ինքնակպչուն
+	թաղանթների փակցման և բաներների տեղադրման, ամրացման աշխատանքներ։
+	Երաշխավորում ենք անթերի և բարձրորակ տպագրություն։ #print #Պլոտեռային_հատում #Kinderbox #Օֆսետ #A4բլանկ #պիտակներ" name="description">
+<meta content="GDprinting" name="keywords">
+<meta content="GDprinting" name="author">
+<!-- Favicons -->
+<link href="assets/img/logo-icon.png" rel="icon">
+<link href="assets/img/logo-icon.png" rel="apple-touch-icon">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet">
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<!-- Main CSS File -->
+<link href="assets/css/main.css" rel="stylesheet">
+<link href="assets/css/gdprint-header-v7.css" rel="stylesheet">
+<link href="assets/css/portfolio-existing-extracted.css" rel="stylesheet">
+<link href="assets/css/portfolio-premium.css" rel="stylesheet">
+<script src="assets/js/portfolio-consent-guard.js"></script>
+</head>
+<body class="portfolio-page">
+<header class="header sticky-top gdp-v7-full" id="header">
+<div class="branding">
+<div class="container position-relative d-flex align-items-center justify-content-between">
+<a class="logo d-flex align-items-center" href="home.html">
+<img alt="GDprint" src="assets/img/logo.png">
+</a>
+<nav class="navmenu" id="navmenu">
+<ul>
+<li><a href="home.html">Տուն</a></li>
+<li><a href="about.html">Մեր մասին</a></li>
+<li class="service-menu">
+<button aria-expanded="false" class="gdp-service-trigger" type="button">
+<span>Ծառայություններ</span><i class="bi bi-chevron-down"></i>
+</button>
+<div class="gdp-mega"><div class="gdp-mega-grid">
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-printer"></i><span>Տպագրություն</span>
+</div>
+<ul>
+<li><a data-service-key="business_cards" href="services.html?service=business_cards#services">Այցեքարտերի տպագրություն</a></li>
+<li><a data-service-key="photo_printing" href="services.html?service=photo_printing#services">Լուսանկարների տպագրություն</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-badge-ad"></i><span>Գովազդային նյութեր</span>
+</div>
+<ul>
+<li><a data-service-key="rollup" href="services.html?service=rollup#services">Rull UP Stand տպագրություն</a></li>
+<li><a data-service-key="x_banner" href="services.html?service=x_banner#services">X-բաներների տպագրություն</a></li>
+<li><a data-service-key="self_adhesive_sticker" href="services.html?service=self_adhesive_sticker#services">Ինքնակպչուն սթիքերների տպագրություն</a></li>
+<li><a data-service-key="poster_placement" href="services.html?service=poster_placement#services">Գովազդի տեղադրում</a></li>
+<li><a data-service-key="tshirt_printing" href="services.html?service=tshirt_printing#services">Շապիկների վրա տպագրություն</a></li>
+<li><a data-service-key="cup_printing" href="services.html?service=cup_printing#services">Բաժակի վրա տպագրություն</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-box-seam"></i><span>Փաթեթավորում</span>
+</div>
+<ul><li><a data-service-key="kinder_box_printing" href="services.html?service=kinder_box_printing#services">Kinder տուփերի տպագրություն</a></li></ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-vector-pen"></i><span>Մեծ ֆորմատ և հատում</span>
+</div>
+<ul>
+<li><a data-service-key="wide_format" href="services.html?service=wide_format#services">Լայնաֆորմատ տպագրություն</a></li>
+<li><a data-service-key="plotter_cutting" href="services.html?service=plotter_cutting#services">Պլոտերային հատում</a></li>
+<li><a data-service-key="canvas" href="services.html?service=canvas#services">Կտավի վրա տպագրություն</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col gdp-design-col">
+<div class="gdp-mega-title">
+<i class="bi bi-palette"></i><span>Դիզայն</span>
+</div>
+<ul>
+<li><a data-service-key="plotter_file_design" href="services.html?service=plotter_file_design#services">Պլոտերային հատման ֆայլ</a></li>
+<li><a data-service-key="mug_design" href="services.html?service=mug_design#services">Բաժակի դիզայն</a></li>
+<li><a data-service-key="business_card_design" href="services.html?service=business_card_design#services">Այցեքարտի դիզայն</a></li>
+<li><a data-service-key="banner_design" href="services.html?service=banner_design#services">Բանների դիզայն</a></li>
+<li><a data-service-key="outdoor_ad_design" href="services.html?service=outdoor_ad_design#services">Արտաքին գովազդի դիզայն</a></li>
+<li><a data-service-key="rollup_design" href="services.html?service=rollup_design#services">Roll Up դիզայն</a></li>
+<li><a data-service-key="corporate_identity" href="services.html?service=corporate_identity#services">Կորպորատիվ ոճ</a></li>
+<li><a data-service-key="logo_design" href="services.html?service=logo_design#services">Լոգոյի դիզայն</a></li>
+</ul>
+</div>
+</div></div>
+</li>
+<li><a class="active" href="portfolio.html">Պորտֆոլիո</a></li>
+<li><a href="team.html">Թիմ</a></li>
+<li><a href="contact.html">Կապ</a></li>
+<li class="dropdown">
+<a href="#" id="other"><span>Այլ</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+<ul>
+<li><a href="faq.html">ՀՏՀ</a></li>
+<li><a href="testimonials.html">Կարծիքներ</a></li>
+<li><a href="pricing.html">Գնագոյացում</a></li>
+<li><a href="Regulations.html">Կանոնակարգ</a></li>
+<li><a href="partner.html">Գործընկերային փաթեթներ</a></li>
+</ul>
+</li>
+</ul>
+<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+<div class="gdp-actions">
+<div class="language-dropdown">
+<button class="language-button" type="button"><img alt="" src="https://flagcdn.com/w40/am.png"></button>
+<div class="language-menu">
+<a class="active" href="portfolio.html"><img alt="Հայերեն" src="https://flagcdn.com/w40/am.png"> Հայերեն</a><a class="active" href="RU/portfolio.html"><img alt="Русский" src="https://flagcdn.com/w40/ru.png"> Русский</a><a class="active" href="EN/portfolio.html"><img alt="English" src="https://flagcdn.com/w40/us.png"> English</a>
+</div>
+</div>
+<button aria-label="Search" class="gdp-search-toggle" type="button"><i class="bi bi-search"></i></button>
+<a class="gdp-order-btn" href="services.html#services">Պատվիրել<i class="bi bi-arrow-right"></i></a>
+</div>
+<div class="gdp-search-panel">
+<input autocomplete="off" class="gdp-search-input" placeholder="Որոնել ծառայություն..." type="search">
+<div class="gdp-search-results"></div>
+</div>
+</div>
+</div>
+</header>
+<main class="main gdp-portfolio" data-portfolio-root="">
+<section class="gdp-portfolio-hero">
+<div class="gdp-portfolio-hero__inner">
+<span class="gdp-portfolio-eyebrow"><i class="bi bi-diamond-fill"></i>GDprint / Պորտֆոլիո</span>
+<h1>Մեր աշխատանքները</h1>
+<p>Իրական տպագրական նախագծեր՝ գաղափարից մինչև պատրաստի արդյունք։ Գտեք անհրաժեշտ աշխատանքը ֆիլտրով կամ որոնմամբ։</p>
+<div class="gdp-portfolio-stats">
+<span class="gdp-portfolio-stat"><i class="bi bi-images"></i>500+ աշխատանք</span>
+<span class="gdp-portfolio-stat"><i class="bi bi-grid-3x3-gap"></i>20 ծառայություն</span>
+<span class="gdp-portfolio-stat"><i class="bi bi-patch-check"></i>Բարձր որակ</span>
+</div>
+</div>
+</section>
+<section class="gdp-portfolio-shell">
+<aside class="gdp-filter-panel" data-filter-panel="">
+<div class="gdp-filter-title">
+<h2>Ֆիլտրեր</h2>
+<button class="gdp-filter-close" data-close-filter="" type="button"><i class="bi bi-x-lg"></i></button>
+</div>
+<label class="gdp-search"><i class="bi bi-search"></i><input data-portfolio-search="" placeholder="Որոնել աշխատանքներ..." type="search"></label>
+<div class="gdp-filter-group">
+<h3>Կատեգորիաներ</h3>
+<div class="gdp-filter-list">
+<button class="gdp-filter-btn active" data-filter="all" type="button"><span><i class="bi bi-grid"></i>Բոլորը</span><span class="gdp-filter-count">31</span></button><button class="gdp-filter-btn" data-filter="print" type="button"><span><i class="bi bi-printer"></i>Տպագրություն</span><span class="gdp-filter-count">15</span></button><button class="gdp-filter-btn" data-filter="cutting" type="button"><span><i class="bi bi-scissors"></i>Պլոտերային հատում</span><span class="gdp-filter-count">8</span></button><button class="gdp-filter-btn" data-filter="card" type="button"><span><i class="bi bi-person-vcard"></i>Այցեքարտեր</span><span class="gdp-filter-count">8</span></button>
+</div>
+</div>
+<div class="gdp-filter-group">
+<h3>Գույն</h3>
+<div class="gdp-color-row">
+<span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span>
+</div>
+</div>
+<div class="gdp-filter-group">
+<h3>Նյութեր</h3>
+<div class="gdp-materials">
+<label><input disabled type="checkbox"> Թուղթ</label><label><input disabled type="checkbox"> Վինիլ</label><label><input disabled type="checkbox"> Պլաստիկ</label><label><input disabled type="checkbox"> Տեքստիլ</label><label><input disabled type="checkbox"> Ստվարաթուղթ</label>
+</div>
+</div>
+</aside>
+<div class="gdp-filter-backdrop" data-filter-backdrop=""></div>
+<div class="gdp-portfolio-main">
+<div class="gdp-toolbar">
+<div class="gdp-toolbar-left">
+<button class="gdp-mobile-filter" data-open-filter="" type="button"><i class="bi bi-sliders"></i>Ֆիլտր</button>
+<div class="gdp-tabs">
+<button class="gdp-tab active" data-filter="all" type="button">Բոլորը</button><button class="gdp-tab" data-filter="print" type="button">Տպագրություն</button><button class="gdp-tab" data-filter="cutting" type="button">Պլոտերային հատում</button><button class="gdp-tab" data-filter="card" type="button">Այցեքարտեր</button>
+</div>
+</div>
+<div class="gdp-toolbar-right">
+<button aria-label="Grid" class="gdp-view-btn active" data-view="grid" type="button"><i class="bi bi-grid-3x3-gap-fill"></i></button>
+<button aria-label="List" class="gdp-view-btn" data-view="list" type="button"><i class="bi bi-list-ul"></i></button>
+<select aria-label="Դասավորել՝ նորից հին" class="gdp-sort"><option>Դասավորել՝ նորից հին</option></select>
+</div>
+</div>
+<div class="gdp-project-grid" data-project-grid="">
+<article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/1.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №1 Տպագրություն" data-title="Աշխատանք №1">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №1" loading="lazy" src="assets/img/portfolio/1.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №1</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/2.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №2 Տպագրություն" data-title="Աշխատանք №2">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №2" loading="lazy" src="assets/img/portfolio/2.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №2</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/4.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №4 Տպագրություն" data-title="Աշխատանք №4">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №4" loading="lazy" src="assets/img/portfolio/4.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №4</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/5.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №5 Տպագրություն" data-title="Աշխատանք №5">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №5" loading="lazy" src="assets/img/portfolio/5.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №5</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/6.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №6 Տպագրություն" data-title="Աշխատանք №6">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №6" loading="lazy" src="assets/img/portfolio/6.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №6</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/7.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №7 Տպագրություն" data-title="Աշխատանք №7">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №7" loading="lazy" src="assets/img/portfolio/7.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №7</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/8.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №8 Տպագրություն" data-title="Աշխատանք №8">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №8" loading="lazy" src="assets/img/portfolio/8.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №8</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/9.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №9 Տպագրություն" data-title="Աշխատանք №9">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №9" loading="lazy" src="assets/img/portfolio/9.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №9</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/13.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №13 Տպագրություն" data-title="Աշխատանք №13">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №13" loading="lazy" src="assets/img/portfolio/13.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №13</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/14.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №14 Տպագրություն" data-title="Աշխատանք №14">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №14" loading="lazy" src="assets/img/portfolio/14.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №14</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/15.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №15 Տպագրություն" data-title="Աշխատանք №15">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №15" loading="lazy" src="assets/img/portfolio/15.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №15</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/19.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №19 Տպագրություն" data-title="Աշխատանք №19">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №19" loading="lazy" src="assets/img/portfolio/19.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №19</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/28.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №28 Տպագրություն" data-title="Աշխատանք №28">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №28" loading="lazy" src="assets/img/portfolio/28.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №28</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/29.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №29 Տպագրություն" data-title="Աշխատանք №29">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №29" loading="lazy" src="assets/img/portfolio/29.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №29</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="assets/img/portfolio/30.jpg" data-meta="Տպագրություն" data-order-href="services.html" data-project-card="" data-search="Աշխատանք №30 Տպագրություն" data-title="Աշխատանք №30">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №30" loading="lazy" src="assets/img/portfolio/30.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №30</h3>
+<p class="gdp-project-meta">Տպագրություն</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/10.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №10 Պլոտերային հատում" data-title="Աշխատանք №10">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №10" loading="lazy" src="assets/img/portfolio/10.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №10</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/11.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №11 Պլոտերային հատում" data-title="Աշխատանք №11">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №11" loading="lazy" src="assets/img/portfolio/11.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №11</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/12.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №12 Պլոտերային հատում" data-title="Աշխատանք №12">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №12" loading="lazy" src="assets/img/portfolio/12.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №12</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/17.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №17 Պլոտերային հատում" data-title="Աշխատանք №17">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №17" loading="lazy" src="assets/img/portfolio/17.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №17</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/18.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №18 Պլոտերային հատում" data-title="Աշխատանք №18">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №18" loading="lazy" src="assets/img/portfolio/18.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №18</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/20.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №20 Պլոտերային հատում" data-title="Աշխատանք №20">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №20" loading="lazy" src="assets/img/portfolio/20.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №20</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/27.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №27 Պլոտերային հատում" data-title="Աշխատանք №27">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №27" loading="lazy" src="assets/img/portfolio/27.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №27</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="assets/img/portfolio/31.jpg" data-meta="Պլոտերային հատում" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Աշխատանք №31 Պլոտերային հատում" data-title="Աշխատանք №31">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №31" loading="lazy" src="assets/img/portfolio/31.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №31</h3>
+<p class="gdp-project-meta">Պլոտերային հատում</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/21.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №21 Այցեքարտեր" data-title="Աշխատանք №21">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №21" loading="lazy" src="assets/img/portfolio/21.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №21</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/22.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №22 Այցեքարտեր" data-title="Աշխատանք №22">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №22" loading="lazy" src="assets/img/portfolio/22.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №22</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/23.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №23 Այցեքարտեր" data-title="Աշխատանք №23">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №23" loading="lazy" src="assets/img/portfolio/23.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №23</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/24.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №24 Այցեքարտեր" data-title="Աշխատանք №24">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №24" loading="lazy" src="assets/img/portfolio/24.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №24</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/25.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №25 Այցեքարտեր" data-title="Աշխատանք №25">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №25" loading="lazy" src="assets/img/portfolio/25.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №25</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/26.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №26 Այցեքարտեր" data-title="Աշխատանք №26">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №26" loading="lazy" src="assets/img/portfolio/26.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №26</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/16.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №16 Այցեքարտեր" data-title="Աշխատանք №16">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №16" loading="lazy" src="assets/img/portfolio/16.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №16</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="assets/img/portfolio/32.jpg" data-meta="Այցեքարտեր" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Աշխատանք №32 Այցեքարտեր" data-title="Աշխատանք №32">
+<div class="gdp-project-media">
+<img alt="Աշխատանք №32" loading="lazy" src="assets/img/portfolio/32.jpg">
+<span class="gdp-project-badge">Պորտֆոլիո</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Աշխատանք №32</h3>
+<p class="gdp-project-meta">Այցեքարտեր</p>
+</div>
+<button aria-label="Պատվիրել նմանատիպ" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article>
+</div>
+<div class="gdp-empty" data-empty="">
+<i class="bi bi-search"></i>Այս ֆիլտրով աշխատանք չի գտնվել</div>
+<div class="gdp-portfolio-cta">
+<div>
+<h3>Չե՞ք գտել Ձեր գաղափարին համապատասխան օրինակ</h3>
+<p>Ընտրեք ծառայությունը և գրանցեք պատվերը առցանց։</p>
+</div>
+<a href="services.html">Գրանցել պատվեր <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="gdp-project-modal" data-project-modal="">
+<div class="gdp-project-modal__backdrop" data-modal-close=""></div>
+<div aria-modal="true" class="gdp-project-modal__dialog" role="dialog">
+<button aria-label="Close" class="gdp-project-modal__close" data-modal-close="" type="button"><i class="bi bi-x-lg"></i></button>
+<div class="gdp-project-modal__media"><img alt="" data-modal-img="" src=""></div>
+<div class="gdp-project-modal__body">
+<h2 data-modal-title=""></h2>
+<p data-modal-meta=""></p>
+<a class="gdp-project-order" data-modal-order="" href="services.html">Պատվիրել նմանատիպ <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</main>
+<footer class="gdp-footer" id="footer">
+<div class="gdp-footer-main">
+<div class="gdp-brand">
+<a aria-label="GDprint" href="home.html">
+<img alt="GDprint" src="assets/img/logo.png">
+</a>
+<p class="gdp-brand-line">Ձեր գաղափարները՝ մեր տպագրության մեջ</p>
+<div class="gdp-tagline">Print Your Ideas</div>
+<div class="gdp-promises">
+<div class="gdp-promise">
+<i class="bi bi-receipt"></i><span>Թափանցիկ գին</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-lightning-charge"></i><span>Արագ պատվեր</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-shield-check"></i><span>Անվտանգ վճարում</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-headset"></i><span>Օնլայն աջակցություն</span>
+</div>
+</div>
+</div>
+<div class="gdp-col">
+<h4>Ծառայություններ</h4>
+<ul>
+<li><a href="services.html">Այցեքարտեր</a></li>
+<li><a href="services.html">Լայն ֆորմատ</a></li>
+<li><a href="services.html">Լուսանկարներ</a></li>
+<li><a href="services.html">Փաթեթավորում</a></li>
+<li><a href="services.html">Գովազդային նյութեր</a></li>
+</ul>
+</div>
+<div class="gdp-col">
+<h4>Օգտակար</h4>
+<ul>
+<li><a href="about.html">Մեր մասին</a></li>
+<li><a href="faq.html">Հաճախ տրվող հարցեր</a></li>
+<li><a href="services.html">Պատվերի ձևակերպում</a></li>
+<li><a href="pricing.html">Գնացուցակ</a></li>
+<li><a href="portfolio.html">Պորտֆոլիո</a></li>
+<li><a href="Regulations.html">Կանոնակարգ</a></li>
+</ul>
+</div>
+<div class="gdp-col">
+<h4>Կոնտակտներ</h4>
+<div class="gdp-contact-list">
+<div class="gdp-contact-row">
+<i class="bi bi-telephone-fill"></i>
+<a href="tel:+37495818921">+374 95 818 921</a>
+</div>
+<div class="gdp-contact-row">
+<i class="bi bi-envelope-fill"></i>
+<a href="mailto:gdprint.am@mail.ru">gdprint.am@mail.ru</a>
+</div>
+<div class="gdp-contact-row gdp-hours-row">
+<i class="bi bi-clock-fill"></i><span>Երկ–Շաբ 09:00–19:00, Կիրակի՝ փակ</span>
+</div>
+</div>
+<a class="gdp-contact-btn" href="contact.html">
+<i class="bi bi-chat-dots-fill"></i>Կապվել մեզ հետ<i class="bi bi-arrow-right"></i>
+</a>
+</div>
+<div class="gdp-idea">
+<div class="gdp-script">Print<br>Your <strong>Ideas</strong>
+</div>
+<p>Արագ, հարմար և ժամանակակից տպագրական լուծումներ ձեր բիզնեսի համար։</p>
+</div>
+</div>
+<div class="gdp-footer-bottom">
+<div class="gdp-copy">© 2026 GDprint | Բոլոր իրավունքները պաշտպանված են</div>
+<div aria-label="Վճարման եղանակներ" class="gdp-payments">
+<span class="gdp-payment-title">Վճարման եղանակներ</span><img alt="IDBank" class="gdp-payment-logo" loading="lazy" src="assets/img/icons/idbank.svg" title="IDBank"><img alt="ArCa" class="gdp-payment-logo" loading="lazy" src="assets/img/icons/arca.svg" title="ArCa"><img alt="Mastercard" class="gdp-payment-logo" loading="lazy" src="assets/img/icons/mastercard.svg" title="Mastercard"><img alt="Visa" class="gdp-payment-logo" loading="lazy" src="assets/img/icons/visa.svg" title="Visa">
+</div>
+<div class="gdp-legal">
+<a href="Regulations.html">Օգտագործման պայմաններ</a>
+<a href="faq.html">Հաճախ տրվող հարցեր</a>
+</div>
+</div>
+</footer>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<!-- Scroll Top -->
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Preloader -->
+<div id="preloader"></div>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/sub.js"></script>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+<!--Start of Tawk.to Script-->
+<!--End of Tawk.to Script-->
+<div class="ns-modal" id="ns-subscription-modal">
+<div class="ns-modal__content">
+<!-- Վերնագիր (Գլուխ) -->
+<div class="ns-modal__header">
+<h2 class="ns-modal__title">Բաժանորդագրվել նորություններին</h2>
+
+
+<p class="ns-modal__subtitle">Ստացեք վերջին թարմացումներն ու առաջարկները</p>
+
+
+<button class="ns-modal__close" id="ns-close-modal">×</button>
+</div>
+<!-- Մարմին (Ձև) -->
+<div class="ns-modal__body">
+<!-- Առավելություններ / Benefits -->
+<div class="ns-benefits">
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span>Բացառիկ զեղչեր միայն բաժանորդների համար</span>
+
+
+</div>
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span>Շաբաթական տեղեկագիր նորություններով</span>
+
+
+</div>
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span>Անվճար առաքում 50,000 դրամից ավելի պատվերների դեպքում</span>
+
+
+</div>
+</div>
+<!-- Բաժանորդագրության ձև formsubmit.co-ով -->
+<form action="https://formsubmit.co/660dd97886433d138ad8015f38da42f1" class="ns-form" id="ns-subscription-form" method="POST">
+<!-- formsubmit.co-ի հատուկ դաշտեր -->
+<input name="_subject" type="hidden" value="Նոր բաժանորդագրություն | New Subscription">
+<input name="_template" type="hidden" value="table">
+<input name="_captcha" type="hidden" value="false">
+<input name="_next" type="hidden" value="https://YOUR-WEBSITE.com/thank-you.html">
+<input id="ns-form-language" name="_language" type="hidden" value="hy">
+<!-- Լեզվի ինդիկատոր (կարևոր է եռալեզու համար) -->
+<input id="ns-submit-language" name="Լեզու | Language" type="hidden" value="Հայերեն">
+<!-- Անուն -->
+<div class="ns-form-group">
+<label for="ns-name">Անուն</label>
+
+
+<i class="fas fa-user ns-input-icon"></i>
+<input id="ns-name" name="Անուն | Name" placeholder="Օրինակ՝ Հայկ Պետրոսյան" required="" type="text">
+</div>
+<!-- Էլ. հասցե -->
+<div class="ns-form-group">
+<label for="ns-email">Էլ. հասցե</label>
+
+
+<i class="fas fa-envelope ns-input-icon"></i>
+<input id="ns-email" name="Էլ. հասցե | Email" placeholder="example@mail.com" required="" type="email">
+</div>
+<!-- Հեռախոսահամար (պարտադիր չէ) -->
+<div class="ns-form-group">
+<label for="ns-phone">Հեռախոսահամար</label>
+
+
+<i class="fas fa-phone-alt ns-input-icon"></i>
+<input id="ns-phone" name="Հեռախոս | Phone" placeholder="+374 XX XXX XXX" required="" type="tel">
+</div>
+<!-- Համաձայնություն -->
+<div class="ns-checkbox-group">
+<input id="ns-terms" required="" type="checkbox">
+<label for="ns-terms">Ընդունում եմ <a href="Regulations.html">Կանոնակարգը</a></label>
+
+
+</div>
+<button class="ns-submit-btn" id="ns-submit-btn" type="submit">
+<span>Բաժանորդագրվել</span>
+
+
+</button>
+</form>
+<!-- Հաջողության հաղորդագրություն (սկզբում թաքնված) -->
+<div class="ns-success-message d-none" id="ns-success-message">
+<i class="fas fa-check-circle ns-success-icon"></i>
+<h3>Շնորհակալություն բաժանորդագրվելու համար:</h3>
+
+
+<p>Ձեր էլ. հասցեին ուղարկվել է հաստատման նամակ:</p>
+
+
+</div>
+</div>
+<!-- Ստորին հատված -->
+<div class="ns-modal__footer">
+<p>Չե՞ք ցանկանում բաժանորդագրվել: <a href="#" id="ns-close-footer">Փակել</a></p>
+
+
+</div>
+</div>
+</div>
+<script src="assets/js/gdprint-header-v7.js"></script><script src="assets/js/site-contextmenu.js"></script><script src="assets/js/tawk-loader.js"></script><script src="assets/js/portfolio-premium.js"></script>
+</body>
+</html>
