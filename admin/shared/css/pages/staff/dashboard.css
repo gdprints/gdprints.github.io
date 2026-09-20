@@ -1,0 +1,7 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/staff/dashboard.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#gd-style-ca35b7b-001 { height:38px;max-width:190px;object-fit:contain }
+#gd-style-ca35b7b-002 { margin-top:12px }
+#hello { margin:0;font-size:25px }
+#gd-style-ca35b7b-004 { display:flex;justify-content:space-between;gap:12px;align-items:center }

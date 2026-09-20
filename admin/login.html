@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Մուտք · GDprint</title>
+<link href="shared/css/design-system.css" rel="stylesheet">
+<link href="manifest.webmanifest" rel="manifest">
+<meta content="#102233" name="theme-color">
+<link href="icons/admin-192.png" rel="apple-touch-icon">
+<link href="shared/css/pwa-install.css" rel="stylesheet">
+<link href="shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="shared/css/pages/auth/login.css" rel="stylesheet">
+</head>
+<body class="erp-auth">
+<div class="auth-shell">
+<section aria-label="GDprint" class="auth-visual">
+<img alt="GDprint" class="auth-visual-logo" src="img/logo-light.png">
+<div class="auth-visual-kicker">Տպարանի կառավարման համակարգ</div>
+<div class="auth-visual-copy">
+<h2>Տպում ենք գաղափարները իրականություն</h2>
+<p>Պատվերներ, արտադրություն, աշխատակիցներ և հաճախորդներ՝ մեկ անվտանգ աշխատանքային միջավայրում։</p>
+</div>
+</section>
+<main class="auth-main">
+<div class="auth-card">
+<div class="auth-brand">
+<div class="auth-title">Մուտք համակարգ</div>
+<div class="auth-sub">Մուտքագրեք ձեր GDprint աշխատակցի տվյալները</div>
+</div>
+<form id="login-form">
+<div class="field">
+<label for="login-email">Email</label>
+<input autocomplete="username" id="login-email" name="email" placeholder="admin@gdprint.am" required="" type="email">
+</div>
+<div class="field">
+<label for="login-password">Գաղտնաբառ</label>
+<input autocomplete="current-password" id="login-password" name="password" placeholder="••••••••" required="" type="password">
+</div>
+<div class="auth-options">
+<label class="remember-row"><input name="remember" type="checkbox"> <span>Հիշել ինձ</span></label>
+<a class="auth-link" href="forgot-password.html">Մոռացե՞լ եք գաղտնաբառը</a>
+</div>
+<p id="login-error"></p>
+<button class="btn btn-primary btn-block" type="submit">Մուտք գործել</button>
+</form>
+<div class="auth-switch">Նոր աշխատակի՞ց եք — <a href="register.html">Գրանցվել</a>
+</div>
+</div>
+<div class="auth-foot">
+<span>GDprint © 2026 · Բոլոր իրավունքները պաշտպանված են</span><select aria-label="Լեզու" class="auth-lang"><option>Հայերեն</option></select>
+</div>
+</main>
+</div>
+<script src="shared/js/vendor/supabase.js"></script>
+<script src="shared/js/supabase.js"></script>
+<script src="shared/js/ui.js?v=7.6.4"></script>
+<script src="shared/js/auth.js"></script>
+<script src="shared/js/pwa-install.js"></script>
+</body>
+</html>

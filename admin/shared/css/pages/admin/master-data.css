@@ -1,0 +1,7 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/master-data.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#newBtn { margin-left:auto }
+#gd-style-bb3e72c-002 { display:flex;gap:10px;flex-wrap:wrap }
+#q { flex:1;min-width:220px }
+#gd-style-bb3e72c-004 { margin-top:16px }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>Հաղորդագրություններ · GDprint</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="css/staff.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="../shared/css/pages/staff/messages.css" rel="stylesheet">
+</head>
+<body>
+<div class="staff-wrap">
+<div class="staff-head">
+<div>
+<h1 id="gd-style-b258263-001">Ներքին հաղորդագրություններ</h1>
+<div class="staff-role" id="role-line">–</div>
+</div>
+<button class="btn btn-ghost" data-logout="">Ելք</button>
+</div>
+<div class="staff-toolbar">
+<a class="btn btn-ghost" href="dashboard.html">Dashboard</a><a class="btn btn-ghost" href="tasks.html">Իմ աշխատանքները</a><a class="btn btn-primary" href="messages.html">Հաղորդագրություններ</a><a class="btn btn-ghost" href="profile.html">Իմ հաշիվը</a>
+</div>
+<div class="chat-layout">
+<div class="staff-card">
+<label>Ում գրել</label><select id="chat-recipient"><option value="">Բոլոր աշխատակիցներին / ընդհանուր</option></select><p class="staff-muted">Լռելյայն ընտրվում է Admin-ը։ Կարող եք նաև ընտրել այլ աշխատակցի կամ ուղարկել ընդհանուր հաղորդագրություն։</p>
+</div>
+<div class="staff-card chat-box">
+<div class="chat-messages" id="chat-messages">Բեռնվում է…</div>
+<form class="chat-form" id="chat-form">
+<input id="chat-input" maxlength="4000" placeholder="Գրել հաղորդագրություն…" required=""><button class="btn btn-primary">Ուղարկել</button>
+</form>
+</div>
+</div>
+</div>
+<script src="../shared/js/vendor/supabase.js"></script><script src="../shared/js/supabase.js"></script><script src="../shared/js/ui.js?v=7.6.4"></script><script src="../shared/js/auth.js"></script><script src="../shared/js/order-details.js?v=8.0.3"></script><script src="js/staff.js?v=8.0.3"></script>
+</body>
+</html>

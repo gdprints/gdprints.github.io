@@ -1,0 +1,13 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/orders.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+/* ---- extracted <style> block 1 from admin/admin/orders.html ---- */
+.filters{display:grid;grid-template-columns:2fr repeat(5,1fr);gap:10px;margin:16px 0}.table-wrap{overflow:auto}.order-table{width:100%;border-collapse:collapse}.order-table th,.order-table td{padding:11px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}.prio-urgent{color:#ef4444;font-weight:800}.prio-high{color:#f59e0b;font-weight:700}.modalx{position:fixed;inset:0;background:#0009;display:none;place-items:center;padding:16px;z-index:100}.modalx.open{display:grid}.modal-card{width:min(780px,100%);max-height:92vh;overflow:auto;background:var(--surface-solid);border:1px solid var(--border);border-radius:18px;padding:20px}@media(max-width:900px){.filters{grid-template-columns:1fr 1fr}}
+
+#theme-toggle { margin-left:auto }
+#gd-style-ef92109-002 { display:flex;justify-content:space-between;gap:12px }
+#gd-style-ef92109-003 { margin-top:16px }
+#gd-style-ef92109-004 { font-weight:500;color:var(--text-muted) }
+#gd-style-ef92109-005 { border:0;border-top:1px solid var(--border);margin:20px 0 }
+#archive-order { margin-left:8px }
+#m-price-info { margin-top:8px }

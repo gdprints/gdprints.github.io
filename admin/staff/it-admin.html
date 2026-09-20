@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>System Admin · GDprint</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="css/staff.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+</head>
+<body>
+<div class="staff-wrap">
+<div class="staff-head">
+<div>
+<h1>IT / System Administrator</h1>
+<div class="staff-role" id="role-line">–</div>
+</div>
+<button class="btn btn-ghost" data-logout="">Ելք</button>
+</div>
+<div class="staff-toolbar">
+<a class="btn btn-ghost" href="dashboard.html">Dashboard</a><a class="btn btn-primary" href="it-admin.html">System</a><a class="btn btn-ghost" href="profile.html">Իմ հաշիվը</a>
+</div>
+<div class="staff-grid">
+<div class="staff-card">
+<h3>Server Status</h3>
+<p>CPU · RAM · Disk · RAID · Network</p>
+</div>
+<div class="staff-card">
+<h3>Website / Database</h3>
+<p>Կարգավիճակ և միջադեպերի գրանցում</p>
+</div>
+<div class="staff-card">
+<h3>Backup</h3>
+<p>Last backup · Manual backup · Restore test</p>
+</div>
+<div class="staff-card">
+<h3>Security</h3>
+<p>SSL · Domain/DNS · Firewall · Updates · Emergency Recovery</p>
+</div>
+</div>
+<section class="staff-section"><h2>System incidents / logs</h2>
+<form class="staff-card" id="incident-form">
+<div class="field">
+<label>Բաժին</label><select id="inc-category"><option>server</option>
+<option>website</option>
+<option>database</option>
+<option>backup</option>
+<option>security</option>
+<option>ssl_dns</option></select>
+</div>
+<div class="field">
+<label>Վերնագիր</label><input id="inc-title" required="">
+</div>
+<div class="field">
+<label>Մանրամասներ</label><textarea id="inc-details"></textarea>
+</div>
+<button class="btn btn-primary">Գրանցել միջադեպը</button>
+</form>
+<div class="task-list" id="incident-list"></div></section>
+</div>
+<script src="../shared/js/vendor/supabase.js"></script><script src="../shared/js/supabase.js"></script><script src="../shared/js/ui.js?v=7.6.4"></script><script src="../shared/js/auth.js"></script><script src="../shared/js/order-details.js?v=8.0.3"></script><script src="js/staff.js?v=8.0.3"></script>
+</body>
+</html>

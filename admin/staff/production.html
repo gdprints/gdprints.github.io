@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>Արտադրական աշխատանք · GDprint</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="css/staff.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="../shared/css/pages/staff/production.css" rel="stylesheet">
+</head>
+<body>
+<div class="staff-wrap">
+<div class="staff-head">
+<div>
+<h1 id="prod-title">Արտադրական աշխատանք</h1>
+<div class="staff-role" id="role-line">–</div>
+</div>
+<button class="btn btn-ghost" data-logout="">Ելք</button>
+</div>
+<div class="staff-toolbar">
+<a class="btn btn-ghost" href="dashboard.html">Dashboard</a><a class="btn btn-ghost" href="tasks.html">Իմ աշխատանքները</a><a class="btn btn-primary" href="production.html">Աշխատանքային կենտրոն</a><a class="btn btn-ghost" href="files.html">Ֆայլեր</a><a class="btn btn-ghost" href="messages.html">Հաղորդագրություններ</a><a class="btn btn-ghost" href="profile.html">Իմ հաշիվը</a>
+</div>
+<div class="staff-card"><div class="field">
+<label>Պատվեր</label><select id="prod-order"></select>
+</div></div>
+<div id="role-workspace"></div>
+<div class="staff-card" id="gd-style-5abbe93-003">
+<h2 id="gd-style-5abbe93-004">Իմ ընթացիկ հերթը</h2>
+<div class="task-list" id="prod-queue"></div>
+</div>
+</div>
+<script src="../shared/js/vendor/supabase.js"></script><script src="../shared/js/supabase.js"></script><script src="../shared/js/ui.js?v=7.6.4"></script><script src="../shared/js/auth.js"></script><script src="../shared/js/order-details.js?v=8.0.3"></script><script src="js/staff.js?v=8.0.3"></script><script src="js/production.js"></script>
+</body>
+</html>

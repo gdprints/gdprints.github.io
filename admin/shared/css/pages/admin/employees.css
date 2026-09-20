@@ -1,0 +1,9 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/employees.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+/* ---- extracted <style> block 1 from admin/admin/employees.html ---- */
+.emp-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.emp-card{border:1px solid var(--border);border-radius:16px;padding:16px;background:var(--surface-solid)}.emp-top{display:flex;gap:12px;align-items:flex-start}.emp-avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--surface);font-weight:800}.emp-meta{font-size:12px;color:var(--text-muted);margin-top:3px}.emp-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.emp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.emp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.emp-stat{padding:9px;border-radius:10px;background:var(--surface)}.emp-stat b{display:block;font-size:18px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}.toolbar input{min-width:240px}.modalx{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;place-items:center;padding:16px;z-index:1000}.modalx.open{display:grid}.modalx-card{width:min(680px,100%);max-height:90vh;overflow:auto;background:var(--surface-solid);border:1px solid var(--border);border-radius:18px;padding:20px}.modalx-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}@media(max-width:860px){.emp-wrap{grid-template-columns:1fr}.emp-controls{grid-template-columns:1fr}.emp-stats{grid-template-columns:1fr 1fr}}
+
+#theme-toggle { margin-left:auto }
+#gd-style-4072cdc-002 { font-weight:500;color:var(--text-muted) }
+#save-comp-btn { margin-top:12px }

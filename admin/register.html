@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Աշխատակցի գրանցում · GDprint</title>
+<link href="shared/css/design-system.css" rel="stylesheet">
+<link href="manifest.webmanifest" rel="manifest">
+<meta content="#102233" name="theme-color">
+<link href="icons/admin-192.png" rel="apple-touch-icon">
+<link href="shared/css/pwa-install.css" rel="stylesheet">
+<link href="shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="shared/css/pages/auth/register.css" rel="stylesheet">
+</head>
+<body class="erp-auth">
+<div class="auth-shell">
+<section aria-label="GDprint" class="auth-visual">
+<img alt="GDprint" class="auth-visual-logo" src="img/logo-light.png">
+<div class="auth-visual-kicker">Տպարանի կառավարման համակարգ</div>
+<div class="auth-visual-copy">
+<h2>Միացեք GDprint թիմին</h2>
+<p>Գրանցումից հետո հաշիվը կակտիվանա միայն տնօրենի հաստատումից և համապատասխան դերի նշանակելուց հետո։</p>
+</div>
+</section>
+<main class="auth-main">
+<div class="auth-card auth-card-register">
+<div class="auth-brand">
+<div class="auth-title">Աշխատակցի գրանցում</div>
+<div class="auth-sub">Լրացրեք տվյալները՝ անձնական աշխատանքային հաշիվ ստեղծելու համար</div>
+</div>
+<form id="register-form">
+<div class="field">
+<label for="reg-name">Անուն Ազգանուն</label>
+<input autocomplete="name" id="reg-name" name="full_name" placeholder="Ձեր անուն ազգանունը" required="" type="text">
+</div>
+<div class="field-row">
+<div class="field">
+<label for="reg-phone">Հեռախոսահամար</label><input autocomplete="tel" id="reg-phone" name="phone" placeholder="+374 XX XXXXXX" required="" type="tel">
+</div>
+<div class="field">
+<label for="reg-email">Էլ. հասցե</label><input autocomplete="username" id="reg-email" name="email" placeholder="you@example.com" required="" type="email">
+</div>
+</div>
+<div class="field-row">
+<div class="field">
+<label for="reg-pass">Գաղտնաբառ</label><input autocomplete="new-password" id="reg-pass" minlength="8" name="password" placeholder="Առնվազն 8 նիշ" required="" type="password">
+</div>
+<div class="field">
+<label for="reg-pass2">Կրկնել գաղտնաբառը</label><input autocomplete="new-password" id="reg-pass2" minlength="8" name="password_confirm" placeholder="Կրկնել գաղտնաբառը" required="" type="password">
+</div>
+</div>
+<p id="register-error"></p>
+<button class="btn btn-primary btn-block" type="submit">Գրանցվել</button>
+</form>
+<div class="auth-switch">Արդեն հաշիվ ունե՞ք — <a href="login.html">Մուտք գործել</a>
+</div>
+</div>
+<div class="auth-foot">
+<span>GDprint © 2026 · Անվտանգ աշխատակիցների համակարգ</span><select aria-label="Լեզու" class="auth-lang"><option>Հայերեն</option></select>
+</div>
+</main>
+</div>
+<script src="shared/js/vendor/supabase.js"></script>
+<script src="shared/js/supabase.js"></script>
+<script src="shared/js/ui.js?v=7.6.4"></script>
+<script src="shared/js/auth.js"></script>
+<script src="shared/js/pwa-install.js"></script>
+</body>
+</html>

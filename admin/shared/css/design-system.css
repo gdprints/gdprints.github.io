@@ -1,0 +1,94 @@
+/* ============================================================
+   GDprint — Shared Design System (v2)
+   Same signature motif as before: the print registration mark
+   (crosshair-in-circle) used to align CMYK plates — recurs as
+   active-state indicators, spinners, and status dots.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --ink-cyan: #00B8D9; --ink-magenta: #E91E8C; --ink-yellow: #FFC400; --ink-key: #14151C;
+  --success: #2ED573; --warning: #FFB020; --danger: #FF4757; --info: var(--ink-cyan);
+
+  --bg-light: #F3F4F8; --surface-light: rgba(255,255,255,0.65); --surface-light-solid: #FFFFFF;
+  --border-light: rgba(20,21,28,0.08); --text-light: #14151C; --text-light-muted: #6B6E7B;
+
+  --bg-dark: #0B0C12; --surface-dark: rgba(255,255,255,0.05); --surface-dark-solid: #15161F;
+  --border-dark: rgba(255,255,255,0.08); --text-dark: #F2F3F7; --text-dark-muted: #92939F;
+
+  --bg: var(--bg-dark); --surface: var(--surface-dark); --surface-solid: var(--surface-dark-solid);
+  --border: var(--border-dark); --text: var(--text-dark); --text-muted: var(--text-dark-muted);
+
+  --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px; --radius-full: 999px;
+  --shadow-glass: 0 8px 32px rgba(0,0,0,0.28); --shadow-pop: 0 16px 48px rgba(0,0,0,0.4);
+  --blur: blur(18px);
+  --font-display: 'Sora', sans-serif; --font-body: 'Inter', sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  --sidebar-w: 264px; --sidebar-w-collapsed: 84px; --topbar-h: 72px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="light"]{
+  --bg: var(--bg-light); --surface: var(--surface-light); --surface-solid: var(--surface-light-solid);
+  --border: var(--border-light); --text: var(--text-light); --text-muted: var(--text-light-muted);
+  --shadow-glass: 0 8px 32px rgba(20,21,28,0.08); --shadow-pop: 0 16px 48px rgba(20,21,28,0.14);
+}
+
+*,*::before,*::after{ box-sizing: border-box; margin: 0; padding: 0; }
+html{ -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body{ font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; transition: background .3s var(--ease), color .3s var(--ease); overflow-x: hidden; }
+body::before{ content:""; position: fixed; inset: 0; background: radial-gradient(circle at 12% 8%, rgba(0,184,217,0.14), transparent 40%), radial-gradient(circle at 88% 82%, rgba(233,30,140,0.12), transparent 42%), radial-gradient(circle at 50% 100%, rgba(255,196,0,0.06), transparent 50%); pointer-events: none; z-index: 0; }
+a{ color: inherit; text-decoration: none; } button{ font-family: inherit; cursor: pointer; } ul{ list-style: none; } img{ max-width: 100%; display: block; }
+::selection{ background: var(--ink-cyan); color: #fff; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+:focus-visible{ outline: 2px solid var(--ink-cyan); outline-offset: 2px; border-radius: 4px; }
+h1,h2,h3,h4{ font-family: var(--font-display); letter-spacing: -0.01em; }
+
+.glass{ background: var(--surface); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border: 1px solid var(--border); box-shadow: var(--shadow-glass); }
+
+.reg-mark{ position: relative; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid currentColor; flex-shrink: 0; }
+.reg-mark::before,.reg-mark::after{ content:""; position: absolute; background: currentColor; }
+.reg-mark::before{ left: 50%; top: -3px; bottom: -3px; width: 1.5px; transform: translateX(-50%); }
+.reg-mark::after{ top: 50%; left: -3px; right: -3px; height: 1.5px; transform: translateY(-50%); }
+.reg-spinner{ width: 34px; height: 34px; position: relative; animation: reg-spin 1.1s linear infinite; color: var(--ink-cyan); }
+.reg-spinner .reg-mark{ width: 100%; height: 100%; border-width: 2px; }
+@keyframes reg-spin{ to{ transform: rotate(360deg); } }
+
+/* ---------- Buttons / Forms (shared by every page) ---------- */
+.btn{ display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; border: 1px solid transparent; transition: transform .16s var(--ease), box-shadow .16s var(--ease), background .16s var(--ease), border-color .16s var(--ease); white-space: nowrap; }
+.btn svg{ width: 16px; height: 16px; } .btn:active{ transform: scale(0.97); }
+.btn-primary{ background: linear-gradient(135deg, var(--ink-cyan), #0090ab); color: #fff; box-shadow: 0 6px 18px rgba(0,184,217,0.28); }
+.btn-primary:hover{ box-shadow: 0 8px 24px rgba(0,184,217,0.4); transform: translateY(-1px); }
+.btn-ghost{ background: var(--surface-solid); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover{ border-color: var(--ink-cyan); }
+.btn-danger{ background: rgba(255,71,87,0.12); color: var(--danger); }
+.btn-danger:hover{ background: rgba(255,71,87,0.2); }
+.btn-sm{ padding: 6px 12px; font-size: 12.5px; } .btn-block{ width: 100%; } .btn:disabled{ opacity: .5; cursor: not-allowed; transform: none; }
+
+.field{ margin-bottom: 16px; }
+.field label{ display: block; font-size: 12.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 7px; text-transform: uppercase; letter-spacing: .03em; }
+.field input, .field select, .field textarea{ width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface-solid); color: var(--text); font-size: 14px; font-family: var(--font-body); transition: border-color .18s var(--ease), box-shadow .18s var(--ease); }
+.field input:focus, .field select:focus, .field textarea:focus{ outline: none; border-color: var(--ink-cyan); box-shadow: 0 0 0 3px rgba(0,184,217,0.15); }
+.field textarea{ resize: vertical; min-height: 90px; }
+.field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px){ .field-row{ grid-template-columns: 1fr; } }
+
+/* ---------- Auth pages ---------- */
+.auth-shell{ min-height: 100vh; display: grid; place-items: center; position: relative; z-index: 1; padding: 20px; }
+.auth-card{ width: 100%; max-width: 420px; border-radius: var(--radius-lg); padding: 40px 34px; }
+.auth-brand{ display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 28px; }
+.brand-mark{ width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: conic-gradient(from 180deg, var(--ink-cyan), var(--ink-magenta), var(--ink-yellow), var(--ink-cyan)); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 20px; }
+.auth-title{ font-family: var(--font-display); font-size: 22px; font-weight: 700; }
+.auth-sub{ font-size: 13px; color: var(--text-muted); margin-top: 2px; text-align: center; }
+.auth-switch{ text-align: center; margin-top: 18px; font-size: 13px; color: var(--text-muted); }
+.auth-switch a{ color: var(--ink-cyan); font-weight: 600; }
+.role-toggle{ display: flex; gap: 8px; margin-bottom: 20px; padding: 4px; background: var(--surface-solid); border: 1px solid var(--border); border-radius: var(--radius-full); }
+.role-toggle button{ flex: 1; padding: 8px 12px; border-radius: var(--radius-full); border: none; background: none; color: var(--text-muted); font-size: 13px; font-weight: 600; transition: all .18s var(--ease); }
+.role-toggle button.active{ background: linear-gradient(135deg, var(--ink-cyan), #0090ab); color: #fff; }
+
+.toast-stack{ position: fixed; bottom: 24px; right: 24px; z-index: 200; display: flex; flex-direction: column; gap: 10px; }
+.toast{ display: flex; align-items: center; gap: 10px; padding: 13px 18px; border-radius: var(--radius-sm); background: var(--surface-solid); border: 1px solid var(--border); box-shadow: var(--shadow-pop); font-size: 13.5px; min-width: 240px; animation: toast-in .28s var(--ease); }
+@keyframes toast-in{ from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform: translateY(0);} }
+.toast.success .reg-mark{ color: var(--success); } .toast.error .reg-mark{ color: var(--danger); } .toast.info .reg-mark{ color: var(--ink-cyan); }
+
+/* Dashboard links/buttons never use browser/Bootstrap hover underlines. */
+a:hover, a:focus, a:active, .btn:hover, .nav-item:hover { text-decoration: none !important; }

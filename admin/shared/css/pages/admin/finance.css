@@ -1,0 +1,5 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/finance.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#theme-toggle { margin-left:auto }
+#gd-style-72e2792-002 { display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:16px }

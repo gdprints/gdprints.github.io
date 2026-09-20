@@ -1,0 +1,7 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/manager/workspace.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#gd-style-8ad732a-001 { display:grid;grid-template-columns:1fr 1fr;gap:18px }
+#gd-style-8ad732a-002 { margin-top:22px }
+#gd-style-8ad732a-003 { margin-top:18px }
+#mw-contact-history { margin-top:12px }

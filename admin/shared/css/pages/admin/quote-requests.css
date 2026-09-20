@@ -1,0 +1,12 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/quote-requests.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+/* ---- extracted <style> block 1 from admin/admin/quote-requests.html ---- */
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}.quote-card{border:1px solid var(--border);border-radius:16px;padding:16px;background:var(--surface)}
+    .quote-head{display:flex;justify-content:space-between;gap:12px}.quote-title{font-weight:800}.quote-meta{font-size:12px;color:var(--text-muted);margin-top:5px}.quote-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.status{font-size:12px;font-weight:800;padding:6px 9px;border-radius:999px;background:var(--surface-2)}
+    .amount{font-weight:850;font-size:18px;margin-top:10px}.reviewed{opacity:.76}.empty{padding:26px;text-align:center;color:var(--text-muted)}
+
+#refresh { margin-left:auto }
+#gd-style-02202dc-002 { margin-top:16px;display:flex;gap:10px;flex-wrap:wrap }
+#search { min-width:280px }
+#quotes { margin-top:16px }

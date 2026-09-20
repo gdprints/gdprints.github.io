@@ -1,0 +1,11 @@
+/* GDprint v8.0 — page-specific styles extracted from admin/admin/system-center.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#probe { margin-left:auto }
+#lastBackup { font-size:18px }
+#gd-style-2dec242-003 { margin-top:16px }
+#gd-style-2dec242-004 { display:flex;gap:8px;flex-wrap:wrap }
+#gd-style-2dec242-005 { margin-top:16px }
+#integration-health { margin-top:10px }
+#gd-style-2dec242-007 { margin-top:16px }
+#ops { margin-top:10px }
