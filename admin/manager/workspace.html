@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>Աշխատանքային կենտրոն · GDprint Manager</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="../shared/css/pages/manager/workspace.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar"><div class="brand"><div class="brand-name"><img class="theme-logo" src="../img/logo-dark.png"></div></div>
+<nav><a class="nav-item" href="dashboard.html">Dashboard</a><a class="nav-item" href="new-order.html">Նոր պատվեր</a><a class="nav-item active" href="workspace.html">Հաճախորդներ / Առաջարկներ</a><a class="nav-item" href="messages.html">Հաղորդագրություններ</a><a class="nav-item" href="analytics.html">Իմ արդյունքները</a><a class="nav-item" data-logout="" href="#">Ելք</a></nav></aside><div class="main">
+<header class="topbar"><div>
+<div class="page-title">Մենեջերի աշխատանքային կենտրոն</div>
+<div class="page-sub">Հաճախորդներ, կապի պատմություն և գնային առաջարկներ</div>
+</div></header><main class="content"><div class="grid-2" id="gd-style-8ad732a-001">
+<section class="card glass"><div class="card-title">Հաճախորդներ</div>
+<div class="field">
+<label>Որոնում</label><input id="mw-search" placeholder="անուն, հեռախոս, email">
+</div>
+<div id="mw-customers"></div></section><section class="card glass"><div class="card-title">Գնային առաջարկի հարցում</div>
+<form id="mw-quote">
+<div class="field">
+<label>Հաճախորդ</label><select id="mw-customer"></select>
+</div>
+<div class="field">
+<label>Վերնագիր / ծառայություն</label><input id="mw-title" required="">
+</div>
+<div class="field">
+<label>Առաջարկվող գումար</label><input id="mw-amount" min="0" type="number">
+</div>
+<div class="field">
+<label>Նշում Admin-ին</label><textarea id="mw-note"></textarea>
+</div>
+<button class="btn btn-primary">Ուղարկել Admin-ի հաստատման</button>
+</form>
+<div class="card-title" id="gd-style-8ad732a-002">Իմ առաջարկները</div>
+<div id="mw-quotes"></div></section>
+</div>
+<section class="card glass" id="gd-style-8ad732a-003"><div class="card-title" id="mw-contact-title">Կապի պատմություն</div>
+<div class="field-row">
+<div class="field">
+<label>Տեսակ</label><select id="mw-kind"><option value="call">Զանգ</option>
+<option value="email">Email</option>
+<option value="whatsapp">WhatsApp</option>
+<option value="viber">Viber</option>
+<option value="note">Նշում</option></select>
+</div>
+<div class="field">
+<label>Արդյունք / նշում</label><input id="mw-contact-note">
+</div>
+</div>
+<button class="btn" id="mw-save-contact">Պահպանել</button><div id="mw-contact-history"></div></section></main>
+</div>
+</div>
+<script src="../shared/js/vendor/supabase.js"></script><script src="../shared/js/supabase.js"></script><script src="../shared/js/ui.js?v=7.6.4"></script><script src="../shared/js/auth.js"></script><script src="js/workspace.js"></script>
+</body>
+</html>

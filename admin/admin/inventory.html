@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<link href="../img/logo-icon.png" rel="icon">
+<title>Պահեստ · GDprint Admin</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="../manifest.webmanifest" rel="manifest">
+<meta content="#0b0b0d" name="theme-color">
+<link href="../shared/css/pwa-install.css" rel="stylesheet">
+<link href="../shared/css/pages/admin/inventory.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+<aside aria-label="Ադմինիստրացիոն մենյու" class="sidebar" id="sidebar"><div class="brand"><a aria-label="GDprint Admin" class="brand-name" href="dashboard.html"><img alt="GDprint" class="theme-logo" data-logo-dark="../img/logo-dark.png" data-logo-light="../img/logo-light.png" data-theme-logo="" src="../img/logo-light.png"></a></div>
+<div class="sidebar-nav-scroll">
+<div class="nav-section-title">Հիմնական</div>
+<nav><a class="nav-item" href="dashboard.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="7" rx="1.5" width="7" x="3" y="3"></rect><rect height="5" rx="1.5" width="7" x="14" y="3"></rect><rect height="9" rx="1.5" width="7" x="14" y="12"></rect><rect height="7" rx="1.5" width="7" x="3" y="14"></rect></svg><span>Dashboard</span></a><a class="nav-item" href="orders.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 2h12l2 4v15H4V6l2-4z"></path><path d="M4 6h16"></path><path d="M9 10h6M9 14h6M9 18h4"></path></svg><span>Պատվերներ</span></a><a class="nav-item" href="customers.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Հաճախորդներ</span></a><a class="nav-item" href="employees.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8v6M23 11h-6"></path></svg><span>Աշխատակիցներ</span></a><a class="nav-item" href="managers.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="9" cy="7" r="4"></circle><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><path d="M19 8l2 2 3-3"></path></svg><span>Մենեջերներ</span></a><a class="nav-item" href="partners.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 12l3 3 5-5"></path><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>Գործընկերներ</span></a><a class="nav-item" href="work-distribution.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="5" cy="6" r="2"></circle><circle cx="19" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><path d="M7 6h10M6.5 7.5l4.5 8M17.5 7.5l-4.5 8"></path></svg><span>Աշխատանքների բաշխում</span></a><a class="nav-item" href="finance.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M3 10h18"></path><path d="M7 15h4"></path><circle cx="17" cy="15" r="1"></circle></svg><span>Ֆինանսներ</span></a><a aria-current="page" class="nav-item active" href="inventory.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"></path><path d="M3 7v10l9 4 9-4V7"></path><path d="M12 11v10"></path></svg><span>Պահեստ</span></a></nav><div class="nav-section-title">Կառավարում</div>
+<nav><a class="nav-item" href="control-center.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Վերահսկման կենտրոն</span></a><a class="nav-item" href="quote-requests.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 3h16v18H4z"></path><path d="M8 7h8M8 11h8M8 15h5"></path><path d="M17 14v5M14.5 16.5h5"></path></svg><span>Գնային առաջարկներ</span></a><a class="nav-item" href="offers.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 12v8H4v-8"></path><path d="M2 7h20v5H2z"></path><path d="M12 22V7"></path><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Z"></path><path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"></path></svg><span>Customer App առաջարկներ</span></a><a class="nav-item" href="analytics.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 16l4-5 4 3 5-7"></path></svg><span>Անալիտիկա</span></a><a class="nav-item" href="messages.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 8h8M8 12h5"></path></svg><span>Հաղորդագրություններ</span></a><a class="nav-item" href="activity.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span>Activity Log</span></a></nav><div class="nav-section-title">Համակարգ</div>
+<nav><a class="nav-item" href="master-data.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path><circle cx="8" cy="6" r="2"></circle><circle cx="16" cy="12" r="2"></circle><circle cx="10" cy="18" r="2"></circle></svg><span>Ծառայություններ և գներ</span></a><a class="nav-item" href="marketing.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 11v2l10 4V7L3 11z"></path><path d="M13 9l7-3v12l-7-3"></path><path d="M6 14l1 6h4l-2-5"></path></svg><span>Զեղչեր · առաջարկներ · գովազդներ</span></a><a class="nav-item" href="website-content.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><path d="M3 9h18"></path><circle cx="6" cy="6.5" fill="currentColor" r=".5" stroke="none"></circle><circle cx="9" cy="6.5" fill="currentColor" r=".5" stroke="none"></circle><path d="M7 13h5M7 16h8"></path></svg><span>Կայքի բովանդակություն</span></a><a class="nav-item" href="system-center.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><path d="M7 8h10M7 12h4M7 16h7"></path><circle cx="17" cy="12" r="1"></circle><circle cx="17" cy="16" r="1"></circle></svg><span>System Center</span></a><a class="nav-item" href="settings.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15z"></path></svg><span>Կարգավորումներ</span></a></nav>
+</div>
+<div class="sidebar-foot">
+<div class="avatar" id="user-avatar">A</div>
+<div class="sidebar-foot-text">
+<div class="name" id="user-name">Ադմին</div>
+<div class="role">Super Admin</div>
+</div>
+<a aria-label="Ելք" class="sidebar-logout" data-logout="" href="#" title="Ելք">↪</a>
+</div></aside>
+<div class="main">
+<header class="topbar">
+<button class="icon-btn menu-toggle" id="menu-toggle">☰</button>
+<div>
+<div class="page-title">Պահեստ</div>
+<div class="page-sub">Նյութեր, մնացորդ, ինքնարժեք և վաճառքի գին</div>
+</div>
+<button class="icon-btn" id="refresh-inventory" title="Թարմացնել">↻</button>
+<button class="icon-btn" id="theme-toggle" title="Փոխել թեման">◐</button>
+</header>
+<main class="content">
+<section class="inv-stats">
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Նյութերի տեսակներ</div>
+<div class="inv-stat-value" id="inv-stat-items">0</div>
+</div>
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Ընդհանուր ինքնարժեք</div>
+<div class="inv-stat-value" id="inv-stat-cost">0 AMD</div>
+</div>
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Վաճառքի հնարավոր արժեք</div>
+<div class="inv-stat-value" id="inv-stat-sale">0 AMD</div>
+</div>
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Հնարավոր մարժա</div>
+<div class="inv-stat-value" id="inv-stat-margin">0 AMD</div>
+</div>
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Քիչ մնացորդ</div>
+<div class="inv-stat-value inv-low" id="inv-stat-low">0</div>
+</div>
+<div class="card glass inv-stat">
+<div class="inv-stat-label">Պահուստավորված</div>
+<div class="inv-stat-value" id="inv-stat-reserved">0</div>
+</div>
+</section>
+<section class="card glass">
+<div id="gd-style-8b8db36-002">
+<div>
+<div class="card-title">Պահեստի նյութեր</div>
+<div class="page-sub">Քանակը փոխվում է միայն «Մուտք» / «Ելք» գործողություններով</div>
+</div>
+<button class="btn btn-primary" id="add-material-btn" type="button">+ Ավելացնել նյութ</button>
+</div>
+<div class="inv-toolbar">
+<div class="field search">
+<label>Որոնում</label><input id="inventory-search" placeholder="Անվանում, տեսակ, չափ, մատակարար…" type="search">
+</div>
+<div class="field">
+<label>Միավոր</label><select id="inventory-unit-filter"><option value="">Բոլորը</option>
+<option value="piece">Հատ</option>
+<option value="box">Տուփ</option>
+<option value="roll">Ռուլոն</option>
+<option value="meter">Մետր</option>
+<option value="sqm">մ²</option></select>
+</div>
+<div class="field">
+<label>Նպատակ</label><select id="inventory-purpose-filter"><option value="">Բոլորը</option>
+<option value="printing">Տպագրություն</option>
+<option value="plotter">Պլոտերային հատում</option>
+<option value="both">Երկուսն էլ</option></select>
+</div>
+<div class="field">
+<label>Մնացորդ</label><select id="inventory-stock-filter"><option value="">Բոլորը</option>
+<option value="low">Քիչ մնացորդ</option>
+<option value="out">Վերջացած</option>
+<option value="ok">Առկա</option></select>
+</div>
+</div>
+<div class="table-wrap"><table class="data-table">
+<thead><tr>
+<th>Նյութ</th>
+<th>Տեսակ / չափ</th>
+<th>Քանակ</th>
+<th>Ինքնարժեք</th>
+<th>Վաճառքի գին</th>
+<th>Պահեստի արժեք</th>
+<th>Գործողություններ</th>
+</tr></thead>
+<tbody id="inventory-body"><tr><td class="inv-empty" colspan="7">Բեռնվում է…</td></tr></tbody>
+</table></div>
+</section>
+<section class="inv-auto-grid">
+<div class="card glass">
+<div id="gd-style-8b8db36-003">
+<div>
+<div class="card-title">Ծառայություն → նյութ ավտոմատացում</div>
+<div class="page-sub">Պատվերի տվյալներով պահուստավորում և արտադրության պահին ավտոմատ ելք</div>
+</div>
+<button class="btn btn-primary" id="add-rule-btn" type="button">+ Նոր կանոն</button>
+</div>
+<div id="inventory-rules-list"><div class="inv-empty">Բեռնվում է…</div></div>
+</div>
+<div class="card glass">
+<div id="gd-style-8b8db36-004">
+<div>
+<div class="card-title">Պատվերների նյութեր</div>
+<div class="page-sub">Վերջին պահուստներ, ելքեր և պակասներ</div>
+</div>
+<button class="inv-mini-btn" id="refresh-allocations" type="button">Թարմացնել</button>
+</div>
+<div id="inventory-allocations-list"><div class="inv-empty">Բեռնվում է…</div></div>
+</div>
+</section>
+</main>
+</div>
+</div>
+<div class="inv-modal-backdrop" id="material-modal"><div class="inv-modal">
+<div class="inv-modal-head">
+<div>
+<div class="card-title" id="material-modal-title">Նոր նյութ</div>
+<div class="page-sub">Լրացրեք նյութի հիմնական տվյալները</div>
+</div>
+<button class="inv-close" data-close-modal="material-modal">×</button>
+</div>
+<form id="material-form">
+<div class="inv-modal-body">
+<input id="material-id" type="hidden">
+<div class="inv-grid2">
+<div class="field">
+<label>Նյութի անվանում *</label><input id="material-name" placeholder="Օր․ Բաներ 440գ" required="">
+</div>
+<div class="field">
+<label>Տեսակ *</label><input id="material-type" placeholder="Օր․ PVC, կավճապատ թուղթ" required="">
+</div>
+<div class="field">
+<label>Չափ *</label><input id="material-size" placeholder="Օր․ 1.6 × 50 մ, A3, 70×100 սմ" required="">
+</div>
+<div class="field">
+<label>Հաշվառման միավոր *</label><select id="material-unit" required=""><option value="piece">Հատ</option>
+<option value="box">Տուփ</option>
+<option value="roll">Ռուլոն</option>
+<option value="meter">Մետր</option>
+<option value="sqm">մ²</option></select>
+</div>
+<div class="field">
+<label>Կատեգորիա</label><input id="material-category" placeholder="Օր․ Թուղթ, բաներ, սթիքեր">
+</div>
+<div class="field">
+<label>Նպատակ / կիրառություն</label>
+<select id="material-purpose">
+<option value="">Չնշված</option>
+<option value="printing">Տպագրության համար</option>
+<option value="plotter">Պլոտերային հատման համար</option>
+<option value="both">Երկուսի համար</option>
+</select>
+</div>
+<div class="field">
+<label>Գույն</label><input id="material-color" placeholder="Օր․ Սպիտակ, Սև, Կարմիր">
+</div>
+<div class="field">
+<label>Ռուլոնի լայնություն (մ)</label><input id="material-roll-width" min="0" placeholder="Օր․ 1.22" step="0.01" type="number">
+</div>
+<div class="field">
+<label>Ռուլոնի երկարություն (մ)</label><input id="material-roll-length" min="0" placeholder="Օր․ 50" step="0.01" type="number">
+</div>
+<div class="field">
+<label>Մատակարար</label><input id="material-supplier" placeholder="Մատակարարի անվանում">
+</div>
+<div class="field">
+<label>Գնման ինքնարժեք / միավոր (AMD) *</label><input id="material-cost" min="0" required="" step="0.01" type="number">
+</div>
+<div class="field">
+<label>Վաճառքի գին / միավոր (AMD) *</label><input id="material-sale" min="0" required="" step="0.01" type="number">
+</div>
+<div class="field">
+<label>Նվազագույն մնացորդ</label><input id="material-min-stock" min="0" step="0.001" type="number" value="0">
+</div>
+<div class="field" id="initial-quantity-field">
+<label>Սկզբնական քանակ</label><input id="material-initial-qty" min="0" step="0.001" type="number" value="0"><div class="inv-hint">Ռուլոնի դեպքում կարող եք գրել նաև կոտորակային քանակ․ օրինակ 0.2 ռուլոն = 10 մ, եթե ռուլոնը 50 մ է։</div>
+</div>
+</div>
+<div class="field">
+<label>Նշում</label><textarea id="material-notes" placeholder="Լրացուցիչ տվյալներ…" rows="3"></textarea>
+</div>
+</div>
+<div class="inv-modal-foot">
+<button class="btn btn-ghost" data-close-modal="material-modal" type="button">Չեղարկել</button><button class="btn btn-primary" id="save-material-btn" type="submit">Պահպանել</button>
+</div>
+</form>
+</div></div>
+<div class="inv-modal-backdrop" id="movement-modal"><div class="inv-modal" id="gd-style-8b8db36-005">
+<div class="inv-modal-head">
+<div>
+<div class="card-title" id="movement-title">Պահեստի շարժ</div>
+<div class="page-sub" id="movement-sub">—</div>
+</div>
+<button class="inv-close" data-close-modal="movement-modal">×</button>
+</div>
+<form id="movement-form">
+<div class="inv-modal-body">
+<input id="movement-item-id" type="hidden"><input id="movement-direction" type="hidden">
+<div class="field">
+<label>Քանակ *</label><input id="movement-qty" min="0.001" required="" step="0.001" type="number">
+</div>
+<div class="field">
+<label>Նշում / պատճառ</label><textarea id="movement-note" placeholder="Օր․ նոր գնում, արտադրության համար դուրսգրում…" rows="3"></textarea>
+</div>
+</div>
+<div class="inv-modal-foot">
+<button class="btn btn-ghost" data-close-modal="movement-modal" type="button">Չեղարկել</button><button class="btn btn-primary" id="movement-save-btn" type="submit">Հաստատել</button>
+</div>
+</form>
+</div></div>
+<div class="inv-modal-backdrop" id="rule-modal"><div class="inv-modal">
+<div class="inv-modal-head">
+<div>
+<div class="card-title" id="rule-modal-title">Նոր ավտոմատացման կանոն</div>
+<div class="page-sub">Կապեք ծառայության պարամետրը պահեստային նյութի հետ</div>
+</div>
+<button class="inv-close" data-close-modal="rule-modal">×</button>
+</div>
+<form id="rule-form">
+<div class="inv-modal-body">
+<input id="rule-id" type="hidden">
+<div class="inv-grid2">
+<div class="field">
+<label>Կանոնի կոդ *</label><input id="rule-code" placeholder="օր․ photo_a6" required="">
+</div>
+<div class="field">
+<label>Անվանում *</label><input id="rule-label" placeholder="Լուսանկար A6 → Ֆոտոթուղթ A6" required="">
+</div>
+<div class="field">
+<label>Service key *</label><input id="rule-service-key" placeholder="photo_printing" required="">
+</div>
+<div class="field">
+<label>Պահեստային նյութ *</label><select id="rule-item" required=""></select>
+</div>
+<div class="field">
+<label>Համեմատվող դաշտ</label><select id="rule-match-field"><option value="">Չկա</option>
+<option value="size">Չափս</option>
+<option value="material">Նյութ</option>
+<option value="paper_type">Թղթի տեսակ</option></select>
+</div>
+<div class="field">
+<label>Համեմատվող արժեք</label><input id="rule-match-value" placeholder="օր․ A6">
+</div>
+<div class="field">
+<label>Հաշվարկ</label><select id="rule-calculation"><option value="quantity">Քանակ × գործակից</option>
+<option value="area">Լայնություն × բարձրություն × քանակ</option>
+<option value="fixed">Ֆիքսված քանակ</option></select>
+</div>
+<div class="field">
+<label>Գործակից *</label><input id="rule-multiplier" min="0.0001" required="" step="0.0001" type="number" value="1">
+</div>
+<div class="field">
+<label>Ելքի փուլ</label><select id="rule-stage"><option value="digital_print">Digital Print</option>
+<option value="large_format">Large Format</option>
+<option value="finishing">Finishing</option>
+<option value="packing">Packing</option>
+<option value="delivery">Delivery</option></select>
+</div>
+<div class="field">
+<label>Վիճակ</label><select id="rule-active"><option value="true">Ակտիվ</option>
+<option value="false">Անջատված</option></select>
+</div>
+</div>
+<div class="inv-hint">Օրինակ՝ photo_printing + size=A6 + quantity × 1 → Ֆոտոթուղթ A6։ Պատվերի պահին նյութը պահուստավորվում է, իսկ Digital Print փուլ մտնելիս դուրս է գրվում։</div>
+</div>
+<div class="inv-modal-foot">
+<button class="btn btn-ghost" data-close-modal="rule-modal" type="button">Չեղարկել</button><button class="btn btn-primary" id="save-rule-btn" type="submit">Պահպանել</button>
+</div>
+</form>
+</div></div>
+<div class="inv-modal-backdrop" id="history-modal"><div class="inv-modal">
+<div class="inv-modal-head">
+<div>
+<div class="card-title">Շարժերի պատմություն</div>
+<div class="page-sub" id="history-sub">—</div>
+</div>
+<button class="inv-close" data-close-modal="history-modal">×</button>
+</div>
+<div class="inv-modal-body"><div class="inv-history-list" id="history-list">Բեռնվում է…</div></div>
+<div class="inv-modal-foot"><button class="btn btn-ghost" data-close-modal="history-modal" type="button">Փակել</button></div>
+</div></div>
+<script src="../shared/js/vendor/supabase.js"></script>
+<script src="../shared/js/supabase.js"></script>
+<script src="../shared/js/ui.js?v=7.6.4"></script>
+<script src="../shared/js/auth.js"></script>
+<script src="js/inventory.js?v=7.5.8"></script>
+<script src="../shared/js/pwa-install.js"></script>
+</body>
+</html>

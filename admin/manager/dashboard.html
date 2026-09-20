@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<link href="../img/logo-icon.png" rel="icon">
+<link href="../img/logo-icon.png" rel="apple-touch-icon">
+<title>Dashboard · GDprint Manager</title>
+<link href="../shared/css/design-system.css" rel="stylesheet">
+<link href="../shared/css/app-shell.css" rel="stylesheet">
+<link href="../manifest.webmanifest" rel="manifest">
+<meta content="#0b0b0d" name="theme-color">
+<meta content="yes" name="mobile-web-app-capable">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<link href="../icons/admin-192.png" rel="apple-touch-icon">
+<link href="../shared/css/pwa-install.css" rel="stylesheet">
+<link href="../shared/css/erp-redesign.css?v=7.6.4" rel="stylesheet">
+<link href="../shared/css/pages/manager/dashboard.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+<div class="brand"><div class="brand-name"><img alt="GDprint" class="theme-logo" data-theme-logo="" src="../img/logo-dark.png"></div></div>
+<div class="nav-section-title">Իմ էջը</div>
+<nav>
+<a class="nav-item active" href="dashboard.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="9" rx="1.5" width="7" x="3" y="3"></rect><rect height="5" rx="1.5" width="7" x="14" y="3"></rect><rect height="9" rx="1.5" width="7" x="14" y="12"></rect><rect height="5" rx="1.5" width="7" x="3" y="16"></rect></svg>
+<span>Dashboard</span>
+</a>
+<a class="nav-item" href="new-order.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+<span>Նոր պատվեր</span>
+</a>
+<a class="nav-item" href="workspace.html"><span>Հաճախորդներ / Առաջարկներ</span></a>
+<a class="nav-item" href="analytics.html"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 16l4-5 4 3 5-7"></path></svg><span>Անալիտիկա</span></a>
+<a class="nav-item" href="messages.html">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+<span>Հաղորդագրություններ</span>
+</a>
+</nav>
+<div class="nav-section-title">Համակարգ</div>
+<nav>
+<a class="nav-item" data-logout="" href="#">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5M21 12H9"></path></svg>
+<span>Ելք</span>
+</a>
+</nav>
+<div class="sidebar-foot">
+<div class="avatar" id="user-avatar">M</div>
+<div class="sidebar-foot-text">
+<div class="name" id="user-name">Մենեջեր</div>
+<div class="role">Մենեջեր</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<header class="topbar">
+<button class="icon-btn menu-toggle" id="menu-toggle"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"></path></svg></button>
+<div>
+<div class="page-title">Բարի գալուստ</div>
+<div class="page-sub" id="today-date">–</div>
+</div>
+<a class="btn btn-primary" href="new-order.html" id="gd-style-551a1b2-001">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+        Նոր պատվեր
+      </a>
+<button class="icon-btn" id="theme-toggle" title="Փոխել թեման"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg></button>
+</header>
+<main class="content">
+<div class="erp-welcome">
+<h1>Մենեջերի աշխատանքային կենտրոն</h1>
+<p>Պատվերների գրանցում, հաճախորդների սպասարկում և ընթացքի վերահսկում</p>
+</div>
+<div class="stat-grid">
+<div class="stat-card glass">
+<div class="stat-icon cyan"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
+<div class="stat-label">Այսօր գրանցված</div>
+<div class="stat-value" id="stat-today-count">–</div>
+</div>
+<div class="stat-card glass">
+<div class="stat-icon magenta"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
+<div class="stat-label">Այս ամիս գրանցված</div>
+<div class="stat-value" id="stat-month-count">–</div>
+</div>
+<div class="stat-card glass">
+<div class="stat-icon yellow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+<div class="stat-label">Գրանցած գումար (ամիս)</div>
+<div class="stat-value" id="stat-month-revenue">–</div>
+</div>
+<div class="stat-card glass">
+<div class="stat-icon green"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="9"></circle></svg></div>
+<div class="stat-label">Իմ եկամուտը (այսօր)</div>
+<div class="stat-value" id="stat-today-earning">–</div>
+</div>
+<div class="stat-card glass">
+<div class="stat-icon green"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="9"></circle></svg></div>
+<div class="stat-label">Իմ եկամուտը (ամիս)</div>
+<div class="stat-value" id="stat-month-earning">–</div>
+</div>
+</div>
+<div class="grid-2" id="gd-style-551a1b2-002">
+<div class="card glass">
+<div class="card-head">
+<div class="card-title">Իմ պատվերները</div>
+<div class="page-sub" id="orders-count-sub">–</div>
+</div>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr>
+<th>Պատվեր</th>
+<th>Հաճախորդ</th>
+<th>Ծառայություն</th>
+<th>Գին</th>
+<th>Կարգավիճակ</th>
+<th>Իմ եկամուտ</th>
+</tr></thead>
+<tbody id="orders-body">
+<tr><td colspan="6" id="gd-style-551a1b2-003">
+<span class="reg-spinner" id="gd-style-551a1b2-004"><span class="reg-mark"></span></span><br>Բեռնվում է...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<div class="card glass" id="gd-style-551a1b2-005">
+<div class="card-head"><div class="card-title">Ամսական վաստակի նպատակ</div></div>
+<div id="gd-style-551a1b2-006">
+<span id="target-progress-label">–</span>
+<span class="mono" id="target-progress-pct">–</span>
+</div>
+<div id="gd-style-551a1b2-008">
+<div id="target-progress-bar"></div>
+</div>
+</div>
+<div class="card glass">
+<div class="card-head"><div class="card-title">🏆 Առաջատարներ (այս ամիս)</div></div>
+<div id="leaderboard-list"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- ============ ORDER DRAWER (read-mostly for managers) ============ -->
+<div class="overlay" id="drawer-overlay"></div>
+<div class="drawer" id="order-drawer">
+<div class="drawer-head">
+<div>
+<div class="card-title mono" id="drawer-order-number">—</div>
+<div id="drawer-status-pill"></div>
+</div>
+<button class="drawer-close" id="drawer-close"><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
+</div>
+<div class="drawer-body">
+<div>
+<div class="field">
+<label>Հաճախորդ</label><input disabled id="f-customer" type="text">
+</div>
+<div class="field-row">
+<div class="field">
+<label>Հեռախոս</label><input disabled id="f-phone" type="text">
+</div>
+<div class="field">
+<label>Էլ. հասցե</label><input disabled id="f-email" type="text">
+</div>
+</div>
+<div class="field">
+<label>Ծառայություն</label><input disabled id="f-service" type="text">
+</div>
+<div class="field">
+<label>Ստացման / առաքման տվյալներ</label><div id="drawer-delivery">—</div>
+</div>
+<div class="field-row">
+<div class="field">
+<label>Գին</label><input disabled id="f-total" type="text">
+</div>
+<div class="field">
+<label>Իմ եկամուտը այս պատվերից</label><input disabled id="f-earning" type="text">
+</div>
+</div>
+<div class="field">
+<label>Վիճակ</label><select id="f-status"></select>
+</div>
+<button class="btn btn-primary btn-block" id="save-status-btn">Թարմացնել վիճակը</button>
+<div id="gd-style-551a1b2-013">
+<div class="card-title" id="gd-style-551a1b2-014">Պատվերի մանրամասներ</div>
+<div id="drawer-extra-details"></div>
+</div>
+</div>
+<div>
+<div class="card-title" id="gd-style-551a1b2-015">Gallery</div>
+<div class="gallery-grid" id="drawer-gallery"></div>
+<div id="gd-style-551a1b2-016">
+<div class="card-title" id="gd-style-551a1b2-017">Timeline</div>
+<div class="timeline" id="drawer-timeline"></div>
+</div>
+</div>
+</div>
+</div>
+<script src="../shared/js/vendor/supabase.js"></script>
+<script src="../shared/js/supabase.js"></script>
+<script src="../shared/js/ui.js?v=7.6.4"></script>
+<script src="../shared/js/auth.js"></script>
+<script src="../shared/js/realtime.js"></script>
+<script src="../shared/js/order-details.js?v=8.0.3"></script>
+<script src="js/dashboard.js?v=8.0.3"></script>
+<script src="../shared/js/pwa-install.js"></script>
+</body>
+</html>
