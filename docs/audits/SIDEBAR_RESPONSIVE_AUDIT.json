@@ -1,0 +1,26 @@
+{
+  "version": "7.3.3c",
+  "admin_pages": 20,
+  "sidebar_menu_items": 20,
+  "inconsistent_sidebar_pages": [],
+  "pages_with_invalid_active_count": [],
+  "pages_missing_theme_logo_binding": [],
+  "broken_local_links": [],
+  "admin_js_files_checked": 41,
+  "js_syntax_errors": [],
+  "responsive_breakpoints": [
+    "1024px",
+    "860px",
+    "640px",
+    "380px"
+  ],
+  "mobile_drawer_features": [
+    "scrim",
+    "escape close",
+    "outside/scrim close",
+    "nav close",
+    "body scroll lock",
+    "aria-expanded"
+  ],
+  "sql_required": false
+}

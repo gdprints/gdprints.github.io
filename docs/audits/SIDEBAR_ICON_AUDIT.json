@@ -1,0 +1,107 @@
+{
+  "changed_pages": [
+    "activity.html",
+    "analytics.html",
+    "control-center.html",
+    "customers.html",
+    "dashboard.html",
+    "employees.html",
+    "finance.html",
+    "inventory.html",
+    "managers.html",
+    "marketing.html",
+    "master-data.html",
+    "messages.html",
+    "offers.html",
+    "orders.html",
+    "partners.html",
+    "quote-requests.html",
+    "settings.html",
+    "system-center.html",
+    "website-content.html",
+    "work-distribution.html"
+  ],
+  "pages": {
+    "activity.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "analytics.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "control-center.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "customers.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "dashboard.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "employees.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "finance.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "inventory.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "managers.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "marketing.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "master-data.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "messages.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "offers.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "orders.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "partners.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "quote-requests.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "settings.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "system-center.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "website-content.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    },
+    "work-distribution.html": {
+      "sidebar_icons": 20,
+      "missing": []
+    }
+  },
+  "ok": true
+}

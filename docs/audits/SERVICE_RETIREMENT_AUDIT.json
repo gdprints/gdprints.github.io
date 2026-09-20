@@ -1,0 +1,180 @@
+{
+  "version": "7.6.0",
+  "retired_service_count": 18,
+  "retired_service_keys": [
+    "printable_forms",
+    "calendar",
+    "flyer",
+    "booklet_printing",
+    "paper_bags",
+    "thick_paper_bags",
+    "manual_printing",
+    "guide_printing",
+    "medical_forms",
+    "label_printing",
+    "flier_printing",
+    "folder_printing",
+    "postcard_printing",
+    "ticket_printing",
+    "certificate_award",
+    "poster_printing",
+    "map_printing",
+    "note_sheets"
+  ],
+  "remaining_service_count": 12,
+  "remaining_service_keys": [
+    "wide_format",
+    "plotter_cutting",
+    "business_cards",
+    "photo_printing",
+    "cup_printing",
+    "rollup",
+    "canvas",
+    "poster_placement",
+    "kinder_box_printing",
+    "tshirt_printing",
+    "x_banner",
+    "self_adhesive_sticker"
+  ],
+  "public_service_pages": {
+    "services.html": {
+      "count": 12,
+      "keys": [
+        "business_cards",
+        "canvas",
+        "cup_printing",
+        "kinder_box_printing",
+        "photo_printing",
+        "plotter_cutting",
+        "poster_placement",
+        "rollup",
+        "self_adhesive_sticker",
+        "tshirt_printing",
+        "wide_format",
+        "x_banner"
+      ],
+      "retired_found": []
+    },
+    "RU/services.html": {
+      "count": 12,
+      "keys": [
+        "business_cards",
+        "canvas",
+        "cup_printing",
+        "kinder_box_printing",
+        "photo_printing",
+        "plotter_cutting",
+        "poster_placement",
+        "rollup",
+        "self_adhesive_sticker",
+        "tshirt_printing",
+        "wide_format",
+        "x_banner"
+      ],
+      "retired_found": []
+    },
+    "EN/services.html": {
+      "count": 12,
+      "keys": [
+        "business_cards",
+        "canvas",
+        "cup_printing",
+        "kinder_box_printing",
+        "photo_printing",
+        "plotter_cutting",
+        "poster_placement",
+        "rollup",
+        "self_adhesive_sticker",
+        "tshirt_printing",
+        "wide_format",
+        "x_banner"
+      ],
+      "retired_found": []
+    }
+  },
+  "manager_new_order": {
+    "count": 8,
+    "keys": [
+      "business_cards",
+      "canvas",
+      "cup_printing",
+      "photo_printing",
+      "plotter_cutting",
+      "poster_placement",
+      "rollup",
+      "wide_format"
+    ],
+    "retired_found": []
+  },
+  "customer_app": {
+    "count": 12,
+    "keys": [
+      "business_cards",
+      "photo_printing",
+      "wide_format",
+      "rollup",
+      "canvas",
+      "cup_printing",
+      "plotter_cutting",
+      "poster_placement",
+      "kinder_box_printing",
+      "tshirt_printing",
+      "x_banner",
+      "self_adhesive_sticker"
+    ],
+    "retired_found": []
+  },
+  "service_images": {
+    "assets/img/services": {
+      "count": 12,
+      "files": [
+        "01-large-format-printing.png",
+        "02-plotter-cutting.png",
+        "03-business-cards.png",
+        "04-photo-printing.png",
+        "07-mug-printing.png",
+        "08-roll-up-stand.png",
+        "09-canvas-printing.png",
+        "10-advertising-installation.png",
+        "21-kinder-box-printing.png",
+        "28-tshirt-printing.png",
+        "29-x-banner.png",
+        "30-self-adhesive-stickers.png"
+      ]
+    },
+    "app/assets/img/services": {
+      "count": 12,
+      "files": [
+        "01-large-format-printing.png",
+        "02-plotter-cutting.png",
+        "03-business-cards.png",
+        "04-photo-printing.png",
+        "07-mug-printing.png",
+        "08-roll-up-stand.png",
+        "09-canvas-printing.png",
+        "10-advertising-installation.png",
+        "21-kinder-box-printing.png",
+        "28-tshirt-printing.png",
+        "29-x-banner.png",
+        "30-self-adhesive-stickers.png"
+      ]
+    }
+  },
+  "runtime_retired_key_references": [],
+  "runtime_retired_key_reference_count": 0,
+  "database_migration": "supabase/044_retire_18_services.sql",
+  "historical_orders_policy": "preserve existing orders; block new orders for retired service keys",
+  "checks": {
+    "hy_services_12": true,
+    "ru_services_12": true,
+    "en_services_12": true,
+    "app_services_12": true,
+    "no_retired_public_cards": true,
+    "no_retired_manager_cards": true,
+    "no_retired_app_services": true,
+    "no_runtime_retired_key_refs": true,
+    "public_service_images_12": true,
+    "app_service_images_12": true
+  },
+  "all_checks_passed": true
+}

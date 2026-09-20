@@ -1,0 +1,38 @@
+GDprint v6.4 Staff ERP
+- unified staff registration/login
+- forgot/reset password
+- role-based redirect and account state guards
+- Admin employee management page
+- Employee IDs
+- pending approval workflow
+- expanded staff roles
+- staff task assignment + priorities + deadlines + status history
+- staff dashboard/tasks/messages/profile
+- production file read/upload for assigned orders
+- designer proof publishing for assigned orders
+- warehouse staff inventory read + stock movement
+- courier delivery page with phone/map/task status
+- finance summary page
+- staff login history
+- PWA cache bumped to v6.4
+- Admin sidebars linked to Employees
+- new Supabase migration 024_staff_erp.sql
+
+
+v6.4.1 hotfix
+- Fixed staff_assigned_files(): order_design_proofs uses published_at instead of nonexistent created_at.
+- Added supabase/024a_staff_erp_proof_date_hotfix.sql.
+
+
+## v6.4.2 password recovery hotfix
+- Production reset redirect fixed to https://gdprint.am/admin/reset-password.html
+- Added recovery-session validation on reset page
+- Added Supabase URL Configuration instructions
+
+v6.4.3 — Designer / production order context
+- Assigned production staff now receives full relevant order context, not only order number/title/note.
+- Added service name, customer name, order status/date/language, description, technical order_details, file/proof counts.
+- Added expandable “Պատվերի ամբողջ տվյալները” section to every assigned task.
+- Added quick technical summary (quantity/size/material/etc.) directly on the task card.
+- Internal price/provenance keys are hidden from production staff.
+- Added secure RPC staff_my_order_contexts() limited to orders assigned to the authenticated staff member.

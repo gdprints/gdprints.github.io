@@ -1,0 +1,55 @@
+{
+  "version": "8.0.3",
+  "shared_formatter": "admin/shared/js/order-details.js",
+  "system_metadata_hidden": [
+    "_server_price",
+    "_created_from",
+    "_created_via",
+    "_repeated_from",
+    "future _* keys"
+  ],
+  "visible_system_exception": "_price_display -> localized calculated price label",
+  "semantic_dedupe": [
+    "size / localized size",
+    "quantity / localized quantity",
+    "width",
+    "height",
+    "material",
+    "paper_type",
+    "paper_weight",
+    "print_type",
+    "sides",
+    "lamination",
+    "finishing",
+    "cutting",
+    "contour",
+    "design",
+    "company",
+    "address",
+    "phone",
+    "email",
+    "notes"
+  ],
+  "staff_pages_using_formatter": 10,
+  "staff_pages_missing_formatter": [],
+  "admin_dashboard_formatter": true,
+  "manager_dashboard_formatter": true,
+  "website_tracking_formatter_hy": true,
+  "website_tracking_formatter_ru": true,
+  "direct_raw_detail_renderers": [],
+  "sql_required": false,
+  "sample_expected": [
+    [
+      "Թղթի չափս",
+      "A6"
+    ],
+    [
+      "Տպագրության քանակը",
+      "1"
+    ],
+    [
+      "Հաշվարկված գին (կայքից)",
+      "Արժեքը: 100 AMD"
+    ]
+  ]
+}

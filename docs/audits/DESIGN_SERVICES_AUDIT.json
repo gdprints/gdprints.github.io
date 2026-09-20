@@ -1,0 +1,61 @@
+{
+  "version": "7.6.1",
+  "design_services": [
+    "plotter_file_design",
+    "mug_design",
+    "business_card_design",
+    "banner_design",
+    "outdoor_ad_design",
+    "rollup_design",
+    "corporate_identity",
+    "logo_design"
+  ],
+  "services.html": {
+    "service_cards": 20,
+    "design_forms": 8,
+    "design_category_buttons": 2,
+    "design_menu_links": 8
+  },
+  "RU/services.html": {
+    "service_cards": 20,
+    "design_forms": 8,
+    "design_category_buttons": 2,
+    "design_menu_links": 8
+  },
+  "EN/services.html": {
+    "service_cards": 20,
+    "design_forms": 8,
+    "design_category_buttons": 2,
+    "design_menu_links": 8
+  },
+  "customer_app": {
+    "service_entries": 20,
+    "design_keys_present": 8,
+    "catalog_badge_20": true
+  },
+  "manager": {
+    "service_cards": 16,
+    "design_forms": 8
+  },
+  "pricing.html": {
+    "design_order_links": 8
+  },
+  "RU/pricing.html": {
+    "design_order_links": 8
+  },
+  "EN/pricing.html": {
+    "design_order_links": 8
+  },
+  "public_headers": {
+    "with_header": 34,
+    "with_design_col": 34,
+    "missing": []
+  },
+  "retired_runtime_refs": [],
+  "sql_045_exists": true,
+  "portfolio_counts": {
+    "hy": true,
+    "ru": true,
+    "en": true
+  }
+}

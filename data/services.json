@@ -1,0 +1,534 @@
+{
+  "version": "8.0.0",
+  "timezone": "Asia/Yerevan",
+  "services": [
+    {
+      "key": "wide_format",
+      "prefix": "LTP",
+      "category": "large",
+      "active": true,
+      "image": "assets/img/services/01-large-format-printing.png",
+      "names": {
+        "hy": "Լայնաֆորմատ տպագրություն",
+        "ru": "Широкоформатная печать",
+        "en": "Large format printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Բաններ, վինիլ, ցուցանակ",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "LTP",
+      "manager": {
+        "modal_target": "#modal-wide-format",
+        "prefix": "LTP",
+        "meta_hy": "Մեծ ֆորմատներ"
+      }
+    },
+    {
+      "key": "plotter_cutting",
+      "prefix": "PLT",
+      "category": "large",
+      "active": true,
+      "image": "assets/img/services/02-plotter-cutting.png",
+      "names": {
+        "hy": "Պլոտերային հատում",
+        "ru": "Плоттерная резка",
+        "en": "Plotter cutting"
+      },
+      "pricing": {
+        "type": "quote"
+      },
+      "descriptions": {
+        "hy": "Ինքնակպչուն նյութերի կտրում",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "PLT",
+      "manager": {
+        "modal_target": "#modal-plotter",
+        "prefix": "PLT",
+        "meta_hy": "Վինիլ և տեքստ"
+      }
+    },
+    {
+      "key": "business_cards",
+      "prefix": "AYC",
+      "category": "print",
+      "active": true,
+      "image": "assets/img/services/03-business-cards.png",
+      "names": {
+        "hy": "Այցեքարտերի տպագրություն",
+        "ru": "Печать визиток",
+        "en": "Business card printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "1000 հատից • արագ հաշվարկ",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "AT",
+      "manager": {
+        "modal_target": "#modal-bizcard",
+        "prefix": "AYC",
+        "meta_hy": "Business cards"
+      }
+    },
+    {
+      "key": "photo_printing",
+      "prefix": "LUS",
+      "category": "print",
+      "active": true,
+      "image": "assets/img/services/04-photo-printing.png",
+      "names": {
+        "hy": "Լուսանկարների տպագրություն",
+        "ru": "Печать фотографий",
+        "en": "Photo printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Բարձր որակի ֆոտոտպագրություն",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "PH",
+      "manager": {
+        "modal_target": "#modal-photo",
+        "prefix": "LUS",
+        "meta_hy": "Ֆոտո տպագրություն"
+      }
+    },
+    {
+      "key": "cup_printing",
+      "prefix": "CUP",
+      "category": "promo",
+      "active": true,
+      "image": "assets/img/services/07-mug-printing.png",
+      "names": {
+        "hy": "Բաժակի վրա տպագրություն",
+        "ru": "Печать на кружках",
+        "en": "Mug printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Անհատական տպագրություն",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "CUP",
+      "manager": {
+        "modal_target": "#modal-cup",
+        "prefix": "CUP",
+        "meta_hy": "Սուբլիմացիոն տպագրություն"
+      }
+    },
+    {
+      "key": "rollup",
+      "prefix": "RUP",
+      "category": "large",
+      "active": true,
+      "image": "assets/img/services/08-roll-up-stand.png",
+      "names": {
+        "hy": "Rull UP Stand տպագրություն",
+        "ru": "Печать Roll Up Stand",
+        "en": "Roll UP Stand Printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Ստենդ և տպագրություն",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "RL",
+      "manager": {
+        "modal_target": "#modal-rollup",
+        "prefix": "RUP",
+        "meta_hy": "Շարժական ստենդ"
+      }
+    },
+    {
+      "key": "canvas",
+      "prefix": "CNV",
+      "category": "large",
+      "active": true,
+      "image": "assets/img/services/09-canvas-printing.png",
+      "names": {
+        "hy": "Կտավի վրա տպագրություն",
+        "ru": "Печать на полотне",
+        "en": "Canvas Printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Լուսանկար կտավի վրա",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "CNV",
+      "manager": {
+        "modal_target": "#modal-canvas",
+        "prefix": "CNV",
+        "meta_hy": "Canvas print"
+      }
+    },
+    {
+      "key": "poster_placement",
+      "prefix": "POST",
+      "category": "promo",
+      "active": true,
+      "image": "assets/img/services/10-advertising-installation.png",
+      "names": {
+        "hy": "Գովազդի տեղադրում",
+        "ru": "Размещение рекламы",
+        "en": "Advertising placement"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Պաստառների տեղադրում",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "POST",
+      "manager": {
+        "modal_target": "#modal-poster",
+        "prefix": "POST",
+        "meta_hy": "Փակցնում և մոնտաժ"
+      }
+    },
+    {
+      "key": "kinder_box_printing",
+      "prefix": "KIN",
+      "category": "pack",
+      "active": true,
+      "image": "assets/img/services/21-kinder-box-printing.png",
+      "names": {
+        "hy": "Kinder տուփերի տպագրություն",
+        "ru": "Печать коробок Kinder",
+        "en": "Kinder box printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Տուփերի տպագրություն և պատրաստում",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "KIN",
+      "manager": {
+        "modal_target": "#modal-kinder-box",
+        "prefix": "KIN",
+        "meta_hy": "Տուփերի պատրաստում"
+      }
+    },
+    {
+      "key": "tshirt_printing",
+      "prefix": "TSH",
+      "category": "promo",
+      "active": true,
+      "image": "assets/img/services/28-tshirt-printing.png",
+      "names": {
+        "hy": "Շապիկների վրա տպագրություն",
+        "ru": "Печать на футболках",
+        "en": "T-shirt printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Տպագրություն հագուստի վրա",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "TSH",
+      "manager": {
+        "modal_target": "#modal-tshirt",
+        "prefix": "TSH",
+        "meta_hy": "Հագուստի տպագրություն"
+      }
+    },
+    {
+      "key": "x_banner",
+      "prefix": "XBN",
+      "category": "large",
+      "active": true,
+      "image": "assets/img/services/29-x-banner.png",
+      "names": {
+        "hy": "X-բաներների տպագրություն",
+        "ru": "Печать X-баннеров",
+        "en": "X-banner printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "X-banner համակարգ և տպագրություն",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "XBN",
+      "manager": {
+        "modal_target": "#modal-xbanner",
+        "prefix": "XBN",
+        "meta_hy": "X-ստենդ և տպագրություն"
+      }
+    },
+    {
+      "key": "self_adhesive_sticker",
+      "prefix": "STC",
+      "category": "pack",
+      "active": true,
+      "image": "assets/img/services/30-self-adhesive-stickers.png",
+      "names": {
+        "hy": "Ինքնակպչուն սթիքերների տպագրություն",
+        "ru": "Печать самоклеящихся стикеров",
+        "en": "Self-adhesive sticker printing"
+      },
+      "pricing": {
+        "type": "calc"
+      },
+      "descriptions": {
+        "hy": "Սթիքերների տպագրություն և կտրում",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "STC",
+      "manager": {
+        "modal_target": "#modal-sticker",
+        "prefix": "STC",
+        "meta_hy": "Պիտակ և կոնտուրային կտրում"
+      }
+    },
+    {
+      "key": "plotter_file_design",
+      "prefix": "PFD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/33-plotter-file-design.png",
+      "names": {
+        "hy": "Պլոտերային հատման ֆայլ",
+        "ru": "Файл для плоттерной резки",
+        "en": "Plotter Cut File"
+      },
+      "pricing": {
+        "type": "from",
+        "amount_amd": 3000
+      },
+      "descriptions": {
+        "hy": "Սկսած 3,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "PFD",
+      "manager": {
+        "modal_target": "#modal-plotter-file-design",
+        "prefix": "PFD",
+        "meta_hy": "3,000 ՀՀ դրամից"
+      }
+    },
+    {
+      "key": "mug_design",
+      "prefix": "MGD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/34-mug-design.png",
+      "names": {
+        "hy": "Բաժակի դիզայն",
+        "ru": "Дизайн кружки",
+        "en": "Mug Design"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 3000
+      },
+      "descriptions": {
+        "hy": "3,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "MGD",
+      "manager": {
+        "modal_target": "#modal-mug-design",
+        "prefix": "MGD",
+        "meta_hy": "3,000 ՀՀ դրամ"
+      }
+    },
+    {
+      "key": "business_card_design",
+      "prefix": "BCD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/35-business-card-design.png",
+      "names": {
+        "hy": "Այցեքարտի դիզայն",
+        "ru": "Дизайн визитки",
+        "en": "Business Card Design"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 4000
+      },
+      "descriptions": {
+        "hy": "4,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "BCD",
+      "manager": {
+        "modal_target": "#modal-business-card-design",
+        "prefix": "BCD",
+        "meta_hy": "4,000 ՀՀ դրամ"
+      }
+    },
+    {
+      "key": "banner_design",
+      "prefix": "BND",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/36-banner-design.png",
+      "names": {
+        "hy": "Բանների դիզայն",
+        "ru": "Дизайн баннера",
+        "en": "Banner Design"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 7000
+      },
+      "descriptions": {
+        "hy": "7,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "BND",
+      "manager": {
+        "modal_target": "#modal-banner-design",
+        "prefix": "BND",
+        "meta_hy": "7,000 ՀՀ դրամ"
+      }
+    },
+    {
+      "key": "outdoor_ad_design",
+      "prefix": "OAD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/37-outdoor-ad-design.png",
+      "names": {
+        "hy": "Արտաքին գովազդի դիզայն",
+        "ru": "Дизайн наружной рекламы",
+        "en": "Outdoor Advertising Design"
+      },
+      "pricing": {
+        "type": "from",
+        "amount_amd": 10000
+      },
+      "descriptions": {
+        "hy": "Սկսած 10,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "OAD",
+      "manager": {
+        "modal_target": "#modal-outdoor-ad-design",
+        "prefix": "OAD",
+        "meta_hy": "10,000 ՀՀ դրամից"
+      }
+    },
+    {
+      "key": "rollup_design",
+      "prefix": "RUD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/38-rollup-design.png",
+      "names": {
+        "hy": "Roll Up դիզայն",
+        "ru": "Дизайн Roll Up",
+        "en": "Roll-Up Design"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 10000
+      },
+      "descriptions": {
+        "hy": "10,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "RUD",
+      "manager": {
+        "modal_target": "#modal-rollup-design",
+        "prefix": "RUD",
+        "meta_hy": "10,000 ՀՀ դրամ"
+      }
+    },
+    {
+      "key": "corporate_identity",
+      "prefix": "CID",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/39-corporate-identity.png",
+      "names": {
+        "hy": "Կորպորատիվ ոճ",
+        "ru": "Корпоративный стиль",
+        "en": "Corporate Identity"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 18000
+      },
+      "descriptions": {
+        "hy": "18,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "CID",
+      "manager": {
+        "modal_target": "#modal-corporate-identity",
+        "prefix": "CID",
+        "meta_hy": "18,000 ՀՀ դրամ"
+      }
+    },
+    {
+      "key": "logo_design",
+      "prefix": "LGD",
+      "category": "design",
+      "active": true,
+      "image": "assets/img/services/40-logo-design.png",
+      "names": {
+        "hy": "Լոգոյի դիզայն",
+        "ru": "Дизайн логотипа",
+        "en": "Logo Design"
+      },
+      "pricing": {
+        "type": "fixed",
+        "amount_amd": 30000
+      },
+      "descriptions": {
+        "hy": "30,000 AMD",
+        "ru": "",
+        "en": ""
+      },
+      "site_prefix": "LGD",
+      "manager": {
+        "modal_target": "#modal-logo-design",
+        "prefix": "LGD",
+        "meta_hy": "30,000 ՀՀ դրամ"
+      }
+    }
+  ]
+}

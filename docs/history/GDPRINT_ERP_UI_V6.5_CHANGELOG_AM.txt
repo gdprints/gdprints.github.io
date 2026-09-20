@@ -1,0 +1,24 @@
+GDprint ERP v6.5 — Admin/Staff UI Redesign
+
+Այս տարբերակը կառուցված է օգտագործողի հաստատած 16-էկրանանոց կոնցեպտի հիման վրա։
+
+Փոփոխություններ
+- Մուգ կապտասև ձախ sidebar + կարմիր active state
+- Սպիտակ/բաց աշխատանքային տարածք
+- Կարմիր GDprint primary action-ներ
+- Կոմպակտ KPI քարտեր
+- Նոր table/card/form տեսք
+- Director/Admin էջերի միասնական UI
+- Manager էջերի միասնական UI
+- Staff էջերի նոր sidebar/dashboard UI
+- Login/Register/Forgot/Reset էջերի split-screen դիզայն
+- Drawer/modal/form համակարգը նույնպես բերվել է նույն ոճին
+- Responsive mobile/tablet կանոններ
+- Գործող JS ID-ներն ու Supabase logic-ը պահպանվել են
+- v6.4.3-ի Staff ERP, password reset hotfix և Designer order-context ֆունկցիոնալությունը պահպանված է
+
+Հիմնական նոր stylesheet
+admin/shared/css/erp-redesign.css
+
+Տվյալների շտեմարանի նոր migration չի պահանջվում միայն այս UI update-ի համար։
+Եթե 025_staff_order_context.sql դեռ չեք աշխատեցրել, այն անհրաժեշտ է Designer-ի ամբողջ պատվերի տվյալների համար։

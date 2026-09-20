@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GDprint — Portfolio</title>
+<meta content="GDprint is an online printing service in Armenia offering printing, graphic design, large-format printing, plotter cutting and custom printed products." name="description">
+<meta content="GDprint, online printing, printing Armenia, graphic design, large format printing, plotter cutting, business cards, photo printing" name="keywords">
+<meta content="GDprinting" name="author">
+
+<link href="../assets/img/logo-icon.png" rel="icon">
+<link href="../assets/img/logo-icon.png" rel="apple-touch-icon">
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<link href="../assets/css/main.css" rel="stylesheet">
+<link href="../assets/css/gdprint-header-v7.css" rel="stylesheet">
+<link href="../assets/css/portfolio-existing-extracted.css" rel="stylesheet">
+<link href="../assets/css/portfolio-premium.css" rel="stylesheet">
+<script src="../assets/js/portfolio-consent-guard.js"></script>
+</head>
+<body class="portfolio-page">
+<header class="header sticky-top gdp-v7-full" id="header">
+<div class="branding">
+<div class="container position-relative d-flex align-items-center justify-content-between">
+<a class="logo d-flex align-items-center" href="home.html">
+<img alt="GDprint" src="../assets/img/logo.png">
+</a>
+<nav class="navmenu" id="navmenu">
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="about.html">About us</a></li>
+<li class="service-menu">
+<button aria-expanded="false" class="gdp-service-trigger" type="button">
+<span>Services</span><i class="bi bi-chevron-down"></i>
+</button>
+<div class="gdp-mega"><div class="gdp-mega-grid">
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-printer"></i><span>Printing</span>
+</div>
+<ul>
+<li><a data-service-key="business_cards" href="services.html?service=business_cards#services">Business card printing</a></li>
+<li><a data-service-key="photo_printing" href="services.html?service=photo_printing#services">Photo printing</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-badge-ad"></i><span>Advertising materials</span>
+</div>
+<ul>
+<li><a data-service-key="rollup" href="services.html?service=rollup#services">Roll Up Stand Printing</a></li>
+<li><a data-service-key="x_banner" href="services.html?service=x_banner#services">X-banner printing</a></li>
+<li><a data-service-key="self_adhesive_sticker" href="services.html?service=self_adhesive_sticker#services">Self-adhesive sticker printing</a></li>
+<li><a data-service-key="poster_placement" href="services.html?service=poster_placement#services">Advertising placement</a></li>
+<li><a data-service-key="tshirt_printing" href="services.html?service=tshirt_printing#services">T-shirt printing</a></li>
+<li><a data-service-key="cup_printing" href="services.html?service=cup_printing#services">Printing on the mug</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-box-seam"></i><span>Packaging</span>
+</div>
+<ul><li><a data-service-key="kinder_box_printing" href="services.html?service=kinder_box_printing#services">Kinder box printing</a></li></ul>
+</div>
+<div class="gdp-mega-col">
+<div class="gdp-mega-title">
+<i class="bi bi-vector-pen"></i><span>Large format &amp; cutting</span>
+</div>
+<ul>
+<li><a data-service-key="wide_format" href="services.html?service=wide_format#services">Wide Format Printing</a></li>
+<li><a data-service-key="plotter_cutting" href="services.html?service=plotter_cutting#services">Plotter Cutting</a></li>
+<li><a data-service-key="canvas" href="services.html?service=canvas#services">Canvas Printing</a></li>
+</ul>
+</div>
+<div class="gdp-mega-col gdp-design-col">
+<div class="gdp-mega-title">
+<i class="bi bi-palette"></i><span>Design</span>
+</div>
+<ul>
+<li><a data-service-key="plotter_file_design" href="services.html?service=plotter_file_design#services">Plotter Cut File</a></li>
+<li><a data-service-key="mug_design" href="services.html?service=mug_design#services">Mug Design</a></li>
+<li><a data-service-key="business_card_design" href="services.html?service=business_card_design#services">Business Card Design</a></li>
+<li><a data-service-key="banner_design" href="services.html?service=banner_design#services">Banner Design</a></li>
+<li><a data-service-key="outdoor_ad_design" href="services.html?service=outdoor_ad_design#services">Outdoor Advertising Design</a></li>
+<li><a data-service-key="rollup_design" href="services.html?service=rollup_design#services">Roll-Up Design</a></li>
+<li><a data-service-key="corporate_identity" href="services.html?service=corporate_identity#services">Corporate Identity</a></li>
+<li><a data-service-key="logo_design" href="services.html?service=logo_design#services">Logo Design</a></li>
+</ul>
+</div>
+</div></div>
+</li>
+<li><a class="active" href="portfolio.html">Portfolio</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li class="dropdown">
+<a href="#" id="other"><span>Other</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+<ul>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="testimonials.html">Reviews</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="Regulations.html">Regulations</a></li>
+<li><a href="partner.html">Partner packages</a></li>
+</ul>
+</li>
+</ul>
+<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+<div class="gdp-actions">
+<div class="language-dropdown">
+<button class="language-button" type="button"><img alt="" src="https://flagcdn.com/w40/us.png"></button>
+<div class="language-menu">
+<a class="active" href="../portfolio.html"><img alt="Հայերեն" src="https://flagcdn.com/w40/am.png"> Հայերեն</a><a class="active" href="../RU/portfolio.html"><img alt="Русский" src="https://flagcdn.com/w40/ru.png"> Русский</a><a class="active" href="portfolio.html"><img alt="English" src="https://flagcdn.com/w40/us.png"> English</a>
+</div>
+</div>
+<button aria-label="Search" class="gdp-search-toggle" type="button"><i class="bi bi-search"></i></button>
+<a class="gdp-order-btn" href="services.html#services">Order<i class="bi bi-arrow-right"></i></a>
+</div>
+<div class="gdp-search-panel">
+<input autocomplete="off" class="gdp-search-input" placeholder="Search a service..." type="search">
+<div class="gdp-search-results"></div>
+</div>
+</div>
+</div>
+</header>
+<main class="main gdp-portfolio" data-portfolio-root="">
+<section class="gdp-portfolio-hero">
+<div class="gdp-portfolio-hero__inner">
+<span class="gdp-portfolio-eyebrow"><i class="bi bi-diamond-fill"></i>GDprint / Portfolio</span>
+<h1>Our work</h1>
+<p>Real print projects from idea to finished product. Find the right example with filters or search.</p>
+<div class="gdp-portfolio-stats">
+<span class="gdp-portfolio-stat"><i class="bi bi-images"></i>500+ projects</span>
+<span class="gdp-portfolio-stat"><i class="bi bi-grid-3x3-gap"></i>20 services</span>
+<span class="gdp-portfolio-stat"><i class="bi bi-patch-check"></i>High quality</span>
+</div>
+</div>
+</section>
+<section class="gdp-portfolio-shell">
+<aside class="gdp-filter-panel" data-filter-panel="">
+<div class="gdp-filter-title">
+<h2>Filters</h2>
+<button class="gdp-filter-close" data-close-filter="" type="button"><i class="bi bi-x-lg"></i></button>
+</div>
+<label class="gdp-search"><i class="bi bi-search"></i><input data-portfolio-search="" placeholder="Search projects..." type="search"></label>
+<div class="gdp-filter-group">
+<h3>Categories</h3>
+<div class="gdp-filter-list">
+<button class="gdp-filter-btn active" data-filter="all" type="button"><span><i class="bi bi-grid"></i>All</span><span class="gdp-filter-count">31</span></button><button class="gdp-filter-btn" data-filter="print" type="button"><span><i class="bi bi-printer"></i>Printing</span><span class="gdp-filter-count">15</span></button><button class="gdp-filter-btn" data-filter="cutting" type="button"><span><i class="bi bi-scissors"></i>Plotter cutting</span><span class="gdp-filter-count">8</span></button><button class="gdp-filter-btn" data-filter="card" type="button"><span><i class="bi bi-person-vcard"></i>Business cards</span><span class="gdp-filter-count">8</span></button>
+</div>
+</div>
+<div class="gdp-filter-group">
+<h3>Color</h3>
+<div class="gdp-color-row">
+<span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span><span class="gdp-color-dot"></span>
+</div>
+</div>
+<div class="gdp-filter-group">
+<h3>Materials</h3>
+<div class="gdp-materials">
+<label><input disabled type="checkbox"> Paper</label><label><input disabled type="checkbox"> Vinyl</label><label><input disabled type="checkbox"> Plastic</label><label><input disabled type="checkbox"> Textile</label><label><input disabled type="checkbox"> Cardboard</label>
+</div>
+</div>
+</aside>
+<div class="gdp-filter-backdrop" data-filter-backdrop=""></div>
+<div class="gdp-portfolio-main">
+<div class="gdp-toolbar">
+<div class="gdp-toolbar-left">
+<button class="gdp-mobile-filter" data-open-filter="" type="button"><i class="bi bi-sliders"></i>Filter</button>
+<div class="gdp-tabs">
+<button class="gdp-tab active" data-filter="all" type="button">All</button><button class="gdp-tab" data-filter="print" type="button">Printing</button><button class="gdp-tab" data-filter="cutting" type="button">Plotter cutting</button><button class="gdp-tab" data-filter="card" type="button">Business cards</button>
+</div>
+</div>
+<div class="gdp-toolbar-right">
+<button aria-label="Grid" class="gdp-view-btn active" data-view="grid" type="button"><i class="bi bi-grid-3x3-gap-fill"></i></button>
+<button aria-label="List" class="gdp-view-btn" data-view="list" type="button"><i class="bi bi-list-ul"></i></button>
+<select aria-label="Sort: newest first" class="gdp-sort"><option>Sort: newest first</option></select>
+</div>
+</div>
+<div class="gdp-project-grid" data-project-grid="">
+<article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/1.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №1 Printing" data-title="Project №1">
+<div class="gdp-project-media">
+<img alt="Project №1" loading="lazy" src="../assets/img/portfolio/1.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №1</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/2.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №2 Printing" data-title="Project №2">
+<div class="gdp-project-media">
+<img alt="Project №2" loading="lazy" src="../assets/img/portfolio/2.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №2</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/4.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №4 Printing" data-title="Project №4">
+<div class="gdp-project-media">
+<img alt="Project №4" loading="lazy" src="../assets/img/portfolio/4.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №4</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/5.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №5 Printing" data-title="Project №5">
+<div class="gdp-project-media">
+<img alt="Project №5" loading="lazy" src="../assets/img/portfolio/5.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №5</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/6.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №6 Printing" data-title="Project №6">
+<div class="gdp-project-media">
+<img alt="Project №6" loading="lazy" src="../assets/img/portfolio/6.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №6</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/7.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №7 Printing" data-title="Project №7">
+<div class="gdp-project-media">
+<img alt="Project №7" loading="lazy" src="../assets/img/portfolio/7.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №7</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/8.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №8 Printing" data-title="Project №8">
+<div class="gdp-project-media">
+<img alt="Project №8" loading="lazy" src="../assets/img/portfolio/8.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №8</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/9.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №9 Printing" data-title="Project №9">
+<div class="gdp-project-media">
+<img alt="Project №9" loading="lazy" src="../assets/img/portfolio/9.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №9</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/13.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №13 Printing" data-title="Project №13">
+<div class="gdp-project-media">
+<img alt="Project №13" loading="lazy" src="../assets/img/portfolio/13.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №13</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/14.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №14 Printing" data-title="Project №14">
+<div class="gdp-project-media">
+<img alt="Project №14" loading="lazy" src="../assets/img/portfolio/14.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №14</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/15.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №15 Printing" data-title="Project №15">
+<div class="gdp-project-media">
+<img alt="Project №15" loading="lazy" src="../assets/img/portfolio/15.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №15</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/19.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №19 Printing" data-title="Project №19">
+<div class="gdp-project-media">
+<img alt="Project №19" loading="lazy" src="../assets/img/portfolio/19.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №19</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/28.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №28 Printing" data-title="Project №28">
+<div class="gdp-project-media">
+<img alt="Project №28" loading="lazy" src="../assets/img/portfolio/28.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №28</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/29.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №29 Printing" data-title="Project №29">
+<div class="gdp-project-media">
+<img alt="Project №29" loading="lazy" src="../assets/img/portfolio/29.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №29</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="print" data-image="../assets/img/portfolio/30.jpg" data-meta="Printing" data-order-href="services.html" data-project-card="" data-search="Project №30 Printing" data-title="Project №30">
+<div class="gdp-project-media">
+<img alt="Project №30" loading="lazy" src="../assets/img/portfolio/30.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №30</h3>
+<p class="gdp-project-meta">Printing</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/10.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №10 Plotter cutting" data-title="Project №10">
+<div class="gdp-project-media">
+<img alt="Project №10" loading="lazy" src="../assets/img/portfolio/10.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №10</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/11.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №11 Plotter cutting" data-title="Project №11">
+<div class="gdp-project-media">
+<img alt="Project №11" loading="lazy" src="../assets/img/portfolio/11.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №11</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/12.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №12 Plotter cutting" data-title="Project №12">
+<div class="gdp-project-media">
+<img alt="Project №12" loading="lazy" src="../assets/img/portfolio/12.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №12</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/17.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №17 Plotter cutting" data-title="Project №17">
+<div class="gdp-project-media">
+<img alt="Project №17" loading="lazy" src="../assets/img/portfolio/17.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №17</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/18.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №18 Plotter cutting" data-title="Project №18">
+<div class="gdp-project-media">
+<img alt="Project №18" loading="lazy" src="../assets/img/portfolio/18.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №18</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/20.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №20 Plotter cutting" data-title="Project №20">
+<div class="gdp-project-media">
+<img alt="Project №20" loading="lazy" src="../assets/img/portfolio/20.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №20</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/27.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №27 Plotter cutting" data-title="Project №27">
+<div class="gdp-project-media">
+<img alt="Project №27" loading="lazy" src="../assets/img/portfolio/27.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №27</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="cutting" data-image="../assets/img/portfolio/31.jpg" data-meta="Plotter cutting" data-order-href="services.html?service=plotter_cutting#services" data-project-card="" data-search="Project №31 Plotter cutting" data-title="Project №31">
+<div class="gdp-project-media">
+<img alt="Project №31" loading="lazy" src="../assets/img/portfolio/31.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №31</h3>
+<p class="gdp-project-meta">Plotter cutting</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/21.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №21 Business cards" data-title="Project №21">
+<div class="gdp-project-media">
+<img alt="Project №21" loading="lazy" src="../assets/img/portfolio/21.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №21</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/22.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №22 Business cards" data-title="Project №22">
+<div class="gdp-project-media">
+<img alt="Project №22" loading="lazy" src="../assets/img/portfolio/22.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №22</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/23.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №23 Business cards" data-title="Project №23">
+<div class="gdp-project-media">
+<img alt="Project №23" loading="lazy" src="../assets/img/portfolio/23.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №23</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/24.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №24 Business cards" data-title="Project №24">
+<div class="gdp-project-media">
+<img alt="Project №24" loading="lazy" src="../assets/img/portfolio/24.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №24</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/25.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №25 Business cards" data-title="Project №25">
+<div class="gdp-project-media">
+<img alt="Project №25" loading="lazy" src="../assets/img/portfolio/25.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №25</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/26.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №26 Business cards" data-title="Project №26">
+<div class="gdp-project-media">
+<img alt="Project №26" loading="lazy" src="../assets/img/portfolio/26.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №26</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/16.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №16 Business cards" data-title="Project №16">
+<div class="gdp-project-media">
+<img alt="Project №16" loading="lazy" src="../assets/img/portfolio/16.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №16</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article><article class="gdp-project-card" data-category="card" data-image="../assets/img/portfolio/32.jpg" data-meta="Business cards" data-order-href="services.html?service=business_cards#services" data-project-card="" data-search="Project №32 Business cards" data-title="Project №32">
+<div class="gdp-project-media">
+<img alt="Project №32" loading="lazy" src="../assets/img/portfolio/32.jpg">
+<span class="gdp-project-badge">Portfolio</span>
+</div>
+<div class="gdp-project-body">
+<div class="gdp-project-top">
+<div>
+<h3 class="gdp-project-title">Project №32</h3>
+<p class="gdp-project-meta">Business cards</p>
+</div>
+<button aria-label="Order similar" class="gdp-project-open" data-project-open="" type="button">
+<i class="bi bi-arrow-up-right"></i>
+</button>
+</div>
+</div>
+</article>
+</div>
+<div class="gdp-empty" data-empty="">
+<i class="bi bi-search"></i>No projects found for this filter</div>
+<div class="gdp-portfolio-cta">
+<div>
+<h3>Didn't find an example close to your idea?</h3>
+<p>Choose a service and place your order online.</p>
+</div>
+<a href="services.html">Place an order <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="gdp-project-modal" data-project-modal="">
+<div class="gdp-project-modal__backdrop" data-modal-close=""></div>
+<div aria-modal="true" class="gdp-project-modal__dialog" role="dialog">
+<button aria-label="Close" class="gdp-project-modal__close" data-modal-close="" type="button"><i class="bi bi-x-lg"></i></button>
+<div class="gdp-project-modal__media"><img alt="" data-modal-img="" src=""></div>
+<div class="gdp-project-modal__body">
+<h2 data-modal-title=""></h2>
+<p data-modal-meta=""></p>
+<a class="gdp-project-order" data-modal-order="" href="services.html">Order similar <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</main>
+<footer class="gdp-footer" id="footer">
+<div class="gdp-footer-main">
+<div class="gdp-brand">
+<a aria-label="GDprint" href="../home.html">
+<img alt="GDprint" src="../assets/img/logo.png">
+</a>
+<p class="gdp-brand-line">Your ideas, brought to print</p>
+<div class="gdp-tagline">Print Your Ideas</div>
+<div class="gdp-promises">
+<div class="gdp-promise">
+<i class="bi bi-receipt"></i><span>Transparent price</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-lightning-charge"></i><span>Fast ordering</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-shield-check"></i><span>Secure payment</span>
+</div>
+<div class="gdp-promise">
+<i class="bi bi-headset"></i><span>Online support</span>
+</div>
+</div>
+</div>
+<div class="gdp-col">
+<h4>Services</h4>
+<ul>
+<li><a href="../services.html">Business cards</a></li>
+<li><a href="../services.html">Large format</a></li>
+<li><a href="../services.html">Photo printing</a></li>
+<li><a href="../services.html">Packaging</a></li>
+<li><a href="../services.html">Promo products</a></li>
+</ul>
+</div>
+<div class="gdp-col">
+<h4>Useful</h4>
+<ul>
+<li><a href="../about.html">About us</a></li>
+<li><a href="../faq.html">FAQ</a></li>
+<li><a href="../services.html">Order online</a></li>
+<li><a href="../pricing.html">Pricing</a></li>
+<li><a href="../portfolio.html">Portfolio</a></li>
+<li><a href="../Regulations.html">Regulations</a></li>
+</ul>
+</div>
+<div class="gdp-col">
+<h4>Contacts</h4>
+<div class="gdp-contact-list">
+<div class="gdp-contact-row">
+<i class="bi bi-telephone-fill"></i>
+<a href="tel:+37495818921">+374 95 818 921</a>
+</div>
+<div class="gdp-contact-row">
+<i class="bi bi-envelope-fill"></i>
+<a href="mailto:gdprint.am@mail.ru">gdprint.am@mail.ru</a>
+</div>
+<div class="gdp-contact-row gdp-hours-row">
+<i class="bi bi-clock-fill"></i><span>Mon–Sat 09:00–19:00, Sunday closed</span>
+</div>
+</div>
+<a class="gdp-contact-btn" href="../contact.html">
+<i class="bi bi-chat-dots-fill"></i>Contact us<i class="bi bi-arrow-right"></i>
+</a>
+</div>
+<div class="gdp-idea">
+<div class="gdp-script">Print<br>Your <strong>Ideas</strong>
+</div>
+<p>Fast, convenient and modern printing solutions for your business.</p>
+</div>
+</div>
+<div class="gdp-footer-bottom">
+<div class="gdp-copy">© 2026 GDprint | All rights reserved</div>
+<div aria-label="Payment methods" class="gdp-payments">
+<span class="gdp-payment-title">Payment methods</span><img alt="IDBank" class="gdp-payment-logo" loading="lazy" src="../assets/img/icons/idbank.svg" title="IDBank"><img alt="ArCa" class="gdp-payment-logo" loading="lazy" src="../assets/img/icons/arca.svg" title="ArCa"><img alt="Mastercard" class="gdp-payment-logo" loading="lazy" src="../assets/img/icons/mastercard.svg" title="Mastercard"><img alt="Visa" class="gdp-payment-logo" loading="lazy" src="../assets/img/icons/visa.svg" title="Visa">
+</div>
+<div class="gdp-legal">
+<a href="../Regulations.html">Terms of use</a>
+<a href="../faq.html">Frequently asked questions</a>
+</div>
+</div>
+</footer>
+
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/php-email-form/validate.js"></script>
+<script src="../assets/vendor/aos/aos.js"></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+<script src="../assets/js/main.js"></script>
+<div class="ns-modal" id="ns-subscription-modal">
+<div class="ns-modal__content">
+
+<div class="ns-modal__header">
+<h2 class="ns-modal__title d-none">Subscribe to Newsletter</h2>
+<p class="ns-modal__subtitle d-none">Get the latest updates and offers</p>
+<button class="ns-modal__close" id="ns-close-modal">×</button>
+</div>
+
+<div class="ns-modal__body">
+
+<div class="ns-benefits">
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span class="d-none">Exclusive discounts only for subscribers.</span>
+</div>
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span class="d-none">Weekly newsletter with news</span>
+</div>
+<div class="ns-benefit">
+<i class="fas fa-check-circle ns-benefit__icon"></i>
+<span class="d-none">Free shipping on orders over 50,000 AMD</span>
+</div>
+</div>
+
+<form action="https://formsubmit.co/660dd97886433d138ad8015f38da42f1" class="ns-form" id="ns-subscription-form" method="POST">
+
+<input name="_subject" type="hidden" value="Նոր բաժանորդագրություն | New Subscription">
+<input name="_template" type="hidden" value="table">
+<input name="_captcha" type="hidden" value="false">
+<input name="_next" type="hidden" value="https://YOUR-WEBSITE.com/thank-you.html">
+<input id="ns-form-language" name="_language" type="hidden" value="hy">
+
+<input id="ns-submit-language" name="Լեզու | Language" type="hidden" value="Հայերեն">
+
+<div class="ns-form-group">
+<label class="d-none" for="ns-name">Name</label>
+<i class="fas fa-user ns-input-icon"></i>
+<input id="ns-name" name="Անուն | Name" placeholder="Օրինակ՝ Հայկ Պետրոսյան" required="" type="text">
+</div>
+
+<div class="ns-form-group">
+<label class="d-none" for="ns-email">Email</label>
+<i class="fas fa-envelope ns-input-icon"></i>
+<input id="ns-email" name="Էլ. հասցե | Email" placeholder="example@mail.com" required="" type="email">
+</div>
+
+<div class="ns-form-group">
+<label class="d-none" for="ns-phone">Phone <span class="ns-optional">(optional)</span></label>
+<i class="fas fa-phone-alt ns-input-icon"></i>
+<input id="ns-phone" name="Հեռախոս | Phone" placeholder="+374 XX XXX XXX" required="" type="tel">
+</div>
+
+<div class="ns-checkbox-group">
+<input id="ns-terms" required="" type="checkbox">
+<label class="d-none" for="ns-terms">I accept the <a href="./EN/Regulations.html">Terms &amp; Conditions</a></label>
+</div>
+<button class="ns-submit-btn" id="ns-submit-btn" type="submit">
+<span class="d-none">Subscribe</span>
+</button>
+</form>
+
+<div class="ns-success-message d-none" id="ns-success-message">
+<i class="fas fa-check-circle ns-success-icon"></i>
+<h3 class="d-none">Thank you for subscribing!</h3>
+<p class="d-none">A confirmation email has been sent to your inbox.</p>
+</div>
+</div>
+
+<div class="ns-modal__footer">
+<p class="d-none">Don't want to subscribe? <a href="#" id="ns-close-footer-en">Close</a></p>
+</div>
+</div>
+</div>
+<script src="../assets/js/gdprint-header-v7.js"></script><script src="../assets/js/site-contextmenu.js"></script><script src="../assets/js/tawk-loader.js"></script><script src="../assets/js/portfolio-premium.js"></script>
+</body>
+</html>

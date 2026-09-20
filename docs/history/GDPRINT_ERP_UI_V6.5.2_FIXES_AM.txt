@@ -1,0 +1,13 @@
+GDprint ERP v6.5.2
+
+Ուղղումներ
+1. Customer App-ում ցուցադրվում են կայքի բոլոր 30 ակտիվ ծառայությունները։
+2. Կայքի HY/EN/RU ծառայությունների պատվերի ձևերում ավելացվել է բազմակի ֆայլի վերբեռնում՝ մինչև 50MB/ֆայլ, private Supabase Storage-ով։
+3. Բոլոր staff էջերում ավելացվել է Light/Dark theme toggle։
+4. Բոլոր staff էջերում ավելացվել է միասնական notification center։
+5. Բոլոր staff էջերի վերևում ցուցադրվում է GDprint տարբերանշանը։
+
+ՊԱՐՏԱԴԻՐ SQL
+Supabase SQL Editor-ում մեկ անգամ աշխատեցնել՝ supabase/026_website_order_file_upload.sql
+
+Նշում. customer-order-files bucket-ը մնում է private։ Կայքի անանուն օգտատերը ստանում է միայն website/* ուղով upload-ի իրավունք, ոչ read իրավունք։

@@ -1,0 +1,19 @@
+{
+  "version": "7.6.4",
+  "manager_service_cards": 20,
+  "manager_cards_with_images": 20,
+  "manager_cards_with_inline_service_icons": 0,
+  "manager_all_cards_images": true,
+  "yerevan_timezone_helper": true,
+  "24_hour_helper": true,
+  "deadline_order_save_yerevan": true,
+  "deadline_assignment_save_yerevan": true,
+  "day_close_migration_exists": true,
+  "day_close_button_shared": true,
+  "staff_pages_covered": 10,
+  "manager_pages_covered": 5,
+  "admin_pages_covered": 20,
+  "admin_html_ui_cache_busted": 40,
+  "employee_admin_close_status": true,
+  "service_worker_cache": true
+}

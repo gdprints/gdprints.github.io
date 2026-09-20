@@ -1,0 +1,14 @@
+{
+  "brand": "GDprint",
+  "timezone": "Asia/Yerevan",
+  "time_format": "24h",
+  "currency": "AMD",
+  "default_locale": "hy",
+  "supported_locales": [
+    "hy",
+    "ru",
+    "en"
+  ],
+  "service_catalog": "data/services.json",
+  "architecture_version": "8.0.0"
+}

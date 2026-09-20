@@ -1,0 +1,15 @@
+{
+  "version": "7.5.3",
+  "checks": {
+    "website_source_explicit": true,
+    "manager_source_explicit": true,
+    "customer_app_source_server_normalized": true,
+    "analytics_manager_earnings_source_guard": true,
+    "manager_dashboard_source_filter": true,
+    "leaderboard_source_filter": true,
+    "admin_dashboard_source_label": true,
+    "website_cache_bust": "7.5.3",
+    "admin_service_worker_cache": "gdprint-admin-v7-5-3",
+    "js_syntax_errors": 0
+  }
+}

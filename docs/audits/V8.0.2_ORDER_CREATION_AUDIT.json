@@ -1,0 +1,20 @@
+{
+  "version": "8.0.2",
+  "purpose": "Website + Manager + Customer App order creation repair",
+  "checks": {
+    "website_manager_use_create_gd_order": true,
+    "legacy_manager_use_create_gd_order": true,
+    "shared_direct_orders_insert_absent": true,
+    "legacy_direct_orders_insert_absent": true,
+    "customer_app_uses_customer_rpc": true,
+    "migration_has_guard_fix": true,
+    "migration_has_website_manager_rpc": true,
+    "migration_has_customer_app_rpc": true,
+    "migration_has_file_upload_fix": true,
+    "website_script_cache_v802": true,
+    "customer_cache_v802": true,
+    "admin_cache_v802": true,
+    "js_syntax_ok": true
+  },
+  "all_static_checks_passed": true
+}

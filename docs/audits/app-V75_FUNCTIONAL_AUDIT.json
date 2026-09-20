@@ -1,0 +1,19 @@
+{
+  "version": "7.5",
+  "html_files": 18,
+  "js_files": 5,
+  "js_errors": [],
+  "missing_local_links": [],
+  "sw_missing_assets": [],
+  "features": [
+    "messages inbox",
+    "order conversation history",
+    "customer-admin message notifications",
+    "realtime conversation refresh",
+    "repeat order",
+    "forgot password",
+    "reset password",
+    "profile password change",
+    "PWA shortcuts"
+  ]
+}

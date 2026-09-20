@@ -1,0 +1,41 @@
+{
+  "version": "8.0.0",
+  "base_version": "7.6.4",
+  "timezone": "Asia/Yerevan",
+  "html_files": 97,
+  "css_files": 130,
+  "js_files": 208,
+  "inline_style_tags": 0,
+  "inline_style_attributes": 0,
+  "inline_runtime_scripts": 0,
+  "inline_event_attributes": 0,
+  "missing_html_local_refs": [],
+  "missing_generated_css_urls": [],
+  "js_syntax_errors": [],
+  "services_count": 20,
+  "manager_services_count": 20,
+  "design_services_count": 8,
+  "public_service_cards": {
+    "services.html": 20,
+    "RU/services.html": 20,
+    "EN/services.html": 20
+  },
+  "manager_catalog_mount": true,
+  "manager_static_service_cards": 0,
+  "app_catalog_is_canonical": true,
+  "visible_armenian_excluding_language_name": {
+    "EN": [],
+    "RU": []
+  },
+  "service_worker_cache_versions": {
+    "app": "gdprint-customer-v8-0-0",
+    "admin": "gdprint-admin-v8-0-0"
+  },
+  "architecture_docs": [
+    "README_ARCHITECTURE_AM.md",
+    "docs/CODE_STYLE_AM.md",
+    "docs/WHERE_TO_EDIT_AM.md",
+    "docs/REFACTOR_V8_AM.md",
+    "docs/PROJECT_TREE.txt"
+  ]
+}

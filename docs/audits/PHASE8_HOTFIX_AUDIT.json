@@ -1,0 +1,13 @@
+{
+  "version": "7.3.2",
+  "html_files": 40,
+  "html_issues": [],
+  "rpc_refs": 43,
+  "missing_rpcs": [],
+  "fixed_areas": [
+    "work-distribution",
+    "orders-erp",
+    "staff-to-admin-messages-notifications",
+    "master-data-modals"
+  ]
+}

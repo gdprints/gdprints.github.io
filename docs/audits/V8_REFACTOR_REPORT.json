@@ -1,0 +1,591 @@
+{
+  "html_files": 97,
+  "style_blocks_moved": 88,
+  "inline_scripts_moved": 99,
+  "inline_styles_moved": 892,
+  "events_moved": 48,
+  "files": {
+    "EN/Regulations.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 6,
+      "events": 0
+    },
+    "EN/about.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "EN/contact.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "EN/faq.html": {
+      "styles": 2,
+      "scripts": 1,
+      "style_attrs": 13,
+      "events": 0
+    },
+    "EN/home.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 11,
+      "events": 0
+    },
+    "EN/partner.html": {
+      "styles": 2,
+      "scripts": 1,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "EN/portfolio.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "EN/pricing.html": {
+      "styles": 4,
+      "scripts": 0,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "EN/services.html": {
+      "styles": 3,
+      "scripts": 2,
+      "style_attrs": 131,
+      "events": 14
+    },
+    "EN/team.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "EN/testimonials.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "Help-center/article.html": {
+      "styles": 0,
+      "scripts": 1,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "Help-center/articles.html": {
+      "styles": 1,
+      "scripts": 1,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "Help-center/collections.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 10,
+      "events": 0
+    },
+    "Help-center/help-center.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "RU/Regulations.html": {
+      "styles": 2,
+      "scripts": 2,
+      "style_attrs": 6,
+      "events": 0
+    },
+    "RU/about.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "RU/contact.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "RU/faq.html": {
+      "styles": 2,
+      "scripts": 1,
+      "style_attrs": 13,
+      "events": 0
+    },
+    "RU/home.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 11,
+      "events": 0
+    },
+    "RU/partner.html": {
+      "styles": 2,
+      "scripts": 1,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "RU/portfolio.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "RU/pricing.html": {
+      "styles": 4,
+      "scripts": 0,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "RU/services.html": {
+      "styles": 3,
+      "scripts": 1,
+      "style_attrs": 131,
+      "events": 14
+    },
+    "RU/team.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "RU/testimonials.html": {
+      "styles": 2,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "Regulations.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 6,
+      "events": 0
+    },
+    "about.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/admin/activity.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/admin/analytics.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/admin/control-center.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 7,
+      "events": 0
+    },
+    "admin/admin/customers.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 14,
+      "events": 0
+    },
+    "admin/admin/dashboard.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 25,
+      "events": 0
+    },
+    "admin/admin/employees.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "admin/admin/finance.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/admin/inventory.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "admin/admin/managers.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "admin/admin/marketing.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/admin/master-data.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/admin/messages.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "admin/admin/offers.html": {
+      "styles": 2,
+      "scripts": 1,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "admin/admin/orders.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 7,
+      "events": 0
+    },
+    "admin/admin/partners.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "admin/admin/quote-requests.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/admin/settings.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 11,
+      "events": 0
+    },
+    "admin/admin/system-center.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 8,
+      "events": 0
+    },
+    "admin/admin/website-content.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/admin/work-distribution.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "admin/forgot-password.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/login.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/manager/analytics.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/manager/dashboard.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 17,
+      "events": 0
+    },
+    "admin/manager/messages.html": {
+      "styles": 1,
+      "scripts": 0,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "admin/manager/new-order.html": {
+      "styles": 1,
+      "scripts": 1,
+      "style_attrs": 117,
+      "events": 5
+    },
+    "admin/manager/workspace.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/register.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/reset-password.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/site-tracking-section.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "admin/staff/dashboard.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/staff/delivery.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/staff/files.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "admin/staff/finance.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/staff/it-admin.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "admin/staff/messages.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "admin/staff/production.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/staff/profile.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "admin/staff/tasks.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "admin/staff/warehouse.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "app/addresses.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "app/confirm.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 7,
+      "events": 1
+    },
+    "app/forgot-password.html": {
+      "styles": 0,
+      "scripts": 1,
+      "style_attrs": 2,
+      "events": 1
+    },
+    "app/home.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "app/index.html": {
+      "styles": 0,
+      "scripts": 1,
+      "style_attrs": 0,
+      "events": 1
+    },
+    "app/messages.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "app/notifications.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "app/order.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 4,
+      "events": 0
+    },
+    "app/orders.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "app/payment.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "app/payments.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "app/profile.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 6,
+      "events": 1
+    },
+    "app/push.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "app/register.html": {
+      "styles": 0,
+      "scripts": 1,
+      "style_attrs": 0,
+      "events": 1
+    },
+    "app/reset-password.html": {
+      "styles": 0,
+      "scripts": 1,
+      "style_attrs": 1,
+      "events": 0
+    },
+    "app/service.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "app/services.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "app/upload.html": {
+      "styles": 0,
+      "scripts": 3,
+      "style_attrs": 5,
+      "events": 1
+    },
+    "contact.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 7,
+      "events": 0
+    },
+    "faq.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 13,
+      "events": 0
+    },
+    "home.html": {
+      "styles": 2,
+      "scripts": 6,
+      "style_attrs": 16,
+      "events": 1
+    },
+    "index.html": {
+      "styles": 1,
+      "scripts": 2,
+      "style_attrs": 5,
+      "events": 3
+    },
+    "partner-thank-you.html": {
+      "styles": 3,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "partner.html": {
+      "styles": 2,
+      "scripts": 4,
+      "style_attrs": 2,
+      "events": 0
+    },
+    "portfolio.html": {
+      "styles": 0,
+      "scripts": 0,
+      "style_attrs": 0,
+      "events": 0
+    },
+    "pricing.html": {
+      "styles": 6,
+      "scripts": 3,
+      "style_attrs": 5,
+      "events": 0
+    },
+    "services.html": {
+      "styles": 4,
+      "scripts": 4,
+      "style_attrs": 137,
+      "events": 5
+    },
+    "team.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 3,
+      "events": 0
+    },
+    "testimonials.html": {
+      "styles": 2,
+      "scripts": 3,
+      "style_attrs": 1,
+      "events": 0
+    }
+  }
+}

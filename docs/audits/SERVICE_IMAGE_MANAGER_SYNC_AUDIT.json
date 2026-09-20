@@ -1,0 +1,88 @@
+{
+  "version": "7.6.3",
+  "public_service_counts": {
+    "services.html": 20,
+    "RU/services.html": 20,
+    "EN/services.html": 20
+  },
+  "manager_service_count": 20,
+  "app_service_count": 20,
+  "manager_missing_vs_hy": [],
+  "manager_extra_vs_hy": [],
+  "app_missing_vs_hy": [],
+  "design_images": {
+    "33-plotter-file-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "34-mug-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "35-business-card-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "36-banner-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "37-outdoor-ad-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "38-rollup-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "39-corporate-identity.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    },
+    "40-logo-design.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "exists_in_app": true
+    }
+  },
+  "design_image_refs": {
+    "hy_services_png": 8,
+    "ru_services_png": 8,
+    "en_services_png": 8,
+    "pricing_hy_images": 8,
+    "pricing_ru_images": 8,
+    "pricing_en_images": 8,
+    "manager_design_png": 8,
+    "app_design_png": 8
+  },
+  "manager_added_services": [
+    "kinder_box_printing",
+    "tshirt_printing",
+    "x_banner",
+    "self_adhesive_sticker"
+  ],
+  "sql_required": false
+}

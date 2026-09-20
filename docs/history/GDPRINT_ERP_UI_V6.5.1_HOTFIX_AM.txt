@@ -1,0 +1,10 @@
+GDprint ERP UI v6.5.1 HOTFIX
+
+Ուղղումներ՝
+1. Գիշերային/ցերեկային ռեժիմը իրականում աշխատում է և հիշվում է localStorage-ում։
+2. Հեռացվել է sidebar-ի և հիմնական content-ի կրկնակի offset-ը։
+3. Հեռացվել է հին երկրորդ notification bell-ը, թողնվել է մեկ գործող notification center։
+4. Login և Register էջերը վերաձևավորվել են approved split-screen կոնցեպտին համապատասխան։
+5. Theme toggle-ը ցույց է տալիս sun/moon վիճակը և ունի հասկանալի aria/title։
+
+Նոր SQL migration անհրաժեշտ չէ։

@@ -1,0 +1,8 @@
+{
+  "version": "7.3.3",
+  "js_files_checked": 41,
+  "js_syntax_errors": [],
+  "rpc_calls": 45,
+  "missing_rpc_definitions": [],
+  "repair_migration": "037_staff_admin_bridge_repair.sql"
+}

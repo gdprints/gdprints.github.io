@@ -1,0 +1,25 @@
+{
+  "version": "7.5.8",
+  "base": "7.5.7",
+  "features": {
+    "service_material_rules": true,
+    "order_reservation": true,
+    "production_consumption": true,
+    "cancel_release": true,
+    "waste_consumption": true,
+    "low_stock_notifications": true,
+    "manual_out_reservation_protection": true,
+    "photo_presets": ["A3", "A4", "A5", "A6"],
+    "website_canonical_details": true,
+    "admin_rule_ui": true,
+    "admin_allocation_ui": true
+  },
+  "static_checks": {
+    "javascript_files_checked": 93,
+    "javascript_syntax_errors": 0,
+    "inventory_html_duplicate_ids": 0,
+    "modified_pages_missing_local_assets": 0,
+    "sql_dollar_quote_balanced": true
+  },
+  "live_database_tested": false
+}

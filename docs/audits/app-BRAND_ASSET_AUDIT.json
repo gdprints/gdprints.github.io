@@ -1,0 +1,83 @@
+{
+  "version": "7.4.1",
+  "real_logo": "assets/img/gdprint-logo.png",
+  "logo_exists": true,
+  "service_count": 30,
+  "all_service_images_exist": true,
+  "services": [
+    {
+      "key": "business_cards",
+      "name": "Այցեքարտեր",
+      "image": "assets/img/services/03-business-cards.png",
+      "exists": true
+    },
+    {
+      "key": "photo_printing",
+      "name": "Լուսանկարներ",
+      "image": "assets/img/services/04-photo-printing.png",
+      "exists": true
+    },
+    {
+      "key": "wide_format",
+      "name": "Լայնաֆորմատ",
+      "image": "assets/img/services/01-large-format-printing.png",
+      "exists": true
+    },
+    {
+      "key": "rollup",
+      "name": "Roll-up",
+      "image": "assets/img/services/08-roll-up-stand.png",
+      "exists": true
+    },
+    {
+      "key": "canvas",
+      "name": "Կտավ",
+      "image": "assets/img/services/09-canvas-printing.png",
+      "exists": true
+    },
+    {
+      "key": "cup_printing",
+      "name": "Բաժակների տպագրություն",
+      "image": "assets/img/services/07-mug-printing.png",
+      "exists": true
+    },
+    {
+      "key": "plotter_cutting",
+      "name": "Պլոտերային հատում",
+      "image": "assets/img/services/02-plotter-cutting.png",
+      "exists": true
+    },
+    {
+      "key": "poster_placement",
+      "name": "Գովազդի տեղադրում",
+      "image": "assets/img/services/10-advertising-installation.png",
+      "exists": true
+    },
+    {
+      "key": "kinder_box_printing",
+      "name": "Kinder տուփեր",
+      "image": "assets/img/services/21-kinder-box-printing.png",
+      "exists": true
+    },
+    {
+      "key": "tshirt_printing",
+      "name": "Շապիկների տպագրություն",
+      "image": "assets/img/services/28-tshirt-printing.png",
+      "exists": true
+    },
+    {
+      "key": "x_banner",
+      "name": "X-banner",
+      "image": "assets/img/services/29-x-banner.png",
+      "exists": true
+    },
+    {
+      "key": "self_adhesive_sticker",
+      "name": "Ինքնակպչուն սթիքերներ",
+      "image": "assets/img/services/30-self-adhesive-stickers.png",
+      "exists": true
+    }
+  ],
+  "html_pages": 15,
+  "premium_css_version_741": 15
+}

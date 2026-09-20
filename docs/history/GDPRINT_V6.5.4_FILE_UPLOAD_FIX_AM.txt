@@ -1,0 +1,12 @@
+GDprint v6.5.4 — Կայքից ֆայլի վերբեռնման ուղղում
+
+1) Supabase → SQL Editor-ում մեկ անգամ աշխատեցնել՝
+   supabase/027_website_file_upload_hotfix.sql
+
+2) Կայքում փոխարինել նոր ZIP-ի ֆայլերով։
+
+Ուղղումներ
+- website/* Storage upload policy-ն այժմ աշխատում է թե anon, թե authenticated browser session-ի դեպքում։
+- Public կայքում Customer App-ի առկա session-ը այլևս պատվերը սխալմամբ Manager order չի դարձնում։
+- Ֆայլի upload/RPC error-ը console-ում այժմ տպվում է ամբողջ message/code/details-ով։
+- main.js/sub.js/aos.js/price_am.js-ում բացակայող DOM element-ների պատճառով առաջացող console error-ների հիմնական դեպքերը պաշտպանված են null-check-երով։
