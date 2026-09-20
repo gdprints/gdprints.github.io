@@ -1,0 +1,6 @@
+/* GDprint v8.0 — page-specific styles extracted from app/addresses.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#gd-style-7ed3cb9-001 { padding:16px;margin-top:12px }
+#form-title { margin-top:0 }
+#gd-style-7ed3cb9-003 { display:flex;gap:9px;align-items:center;margin:10px 0 15px }

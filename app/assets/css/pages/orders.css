@@ -1,0 +1,4 @@
+/* GDprint v8.0 — page-specific styles extracted from app/orders.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#orders { display:grid;gap:11px }

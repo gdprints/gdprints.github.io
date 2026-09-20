@@ -1,0 +1,10 @@
+/* GDprint v8.0 — page-specific styles extracted from app/confirm.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#gd-style-6d76faa-001 { padding:18px }
+#gd-style-6d76faa-002 { width:64px;height:64px;border-radius:50%;background:#e8f7ee;color:#179252;display:grid;place-items:center;font-size:32px;margin:auto }
+#gd-style-6d76faa-003 { text-align:center }
+#gd-style-6d76faa-004 { padding:14px;margin:14px 0;background:#fafafa }
+#delivery-address-wrap { display:none }
+#gd-style-6d76faa-006 { margin-top:7px }
+#gd-style-6d76faa-007 { margin-top:10px }

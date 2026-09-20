@@ -1,0 +1,4 @@
+/* GDprint v8.0 — page-specific styles extracted from app/notifications.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#notifications { display:grid;gap:10px }

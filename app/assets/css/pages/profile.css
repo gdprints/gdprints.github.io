@@ -1,0 +1,9 @@
+/* GDprint v8.0 — page-specific styles extracted from app/profile.html
+   Keep shared styles in core/shared CSS; keep only page-specific rules here. */
+
+#profile-form { padding:16px;margin-top:12px }
+#gd-style-40b8815-002 { margin-top:12px }
+#gd-style-40b8815-003 { padding:16px;margin-top:12px }
+#gd-style-40b8815-004 { margin:0 }
+#gd-style-40b8815-005 { margin:4px 0 0 }
+#gd-style-40b8815-006 { margin-top:14px;color:#d33 }
