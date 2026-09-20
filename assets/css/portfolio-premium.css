@@ -1,0 +1,760 @@
+/* GDprint Portfolio — Sidebar + Grid */
+.gdp-portfolio {
+	--red: #ef1b24;
+	--ink: #0d1115;
+	--muted: #6f767d;
+	--line: #e7e9ec;
+	--soft: #f6f7f8;
+	color: var(--ink);
+	background: #fff;
+}
+
+.gdp-portfolio * {
+	box-sizing: border-box
+}
+
+.gdp-portfolio-hero {
+	min-height: 190px;
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 82% 22%, rgba(239, 27, 36, .25), transparent 26%),
+		linear-gradient(120deg, #080a0c 0%, #11161b 60%, #050607 100%);
+	color: #fff;
+}
+
+.gdp-portfolio-hero::after {
+	content: "";
+	position: absolute;
+	right: -90px;
+	top: -120px;
+	width: 520px;
+	height: 520px;
+	border: 1px solid rgba(255, 255, 255, .08);
+	border-radius: 50%;
+	box-shadow: 0 0 0 75px rgba(255, 255, 255, .025), 0 0 0 150px rgba(255, 255, 255, .018);
+}
+
+.gdp-portfolio-hero__inner {
+	width: min(1320px, calc(100% - 30px));
+	margin: auto;
+	padding: 30px 0 24px;
+	position: relative;
+	z-index: 1
+}
+
+.gdp-portfolio-eyebrow {
+	display: inline-flex;
+	gap: 8px;
+	align-items: center;
+	color: #ff7479;
+	font-weight: 800;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: .08em
+}
+
+.gdp-portfolio-hero h1 {
+	font-size: clamp(30px, 4vw, 52px);
+	font-weight: 900;
+	line-height: 1.02;
+	margin: 12px 0 14px;
+	max-width: 760px;
+	color: #fff;
+}
+
+.gdp-portfolio-hero p {
+	max-width: 720px;
+	color: #cdd2d7;
+	font-size: 15px;
+	line-height: 1.7;
+	margin: 0
+}
+
+.gdp-portfolio-stats {
+	display: flex;
+	gap: 24px;
+	flex-wrap: wrap;
+	margin-top: 16px
+}
+
+.gdp-portfolio-stat {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #eef1f3;
+	font-weight: 700;
+	font-size: 13px
+}
+
+.gdp-portfolio-stat i {
+	font-size: 17px;
+	color: var(--red)
+}
+
+.gdp-portfolio-shell {
+	width: min(1380px, calc(100% - 36px));
+	margin: 0 auto;
+	padding: 26px 0 58px;
+	display: grid;
+	grid-template-columns: 270px minmax(0, 1fr);
+	gap: 24px
+}
+
+.gdp-filter-panel {
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: #fff;
+	padding: 18px;
+	position: sticky;
+	top: 94px;
+	height: max-content;
+	box-shadow: 0 16px 40px rgba(18, 24, 28, .05)
+}
+
+.gdp-filter-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px
+}
+
+.gdp-filter-title h2 {
+	font-size: 18px;
+	font-weight: 900;
+	margin: 0
+}
+
+.gdp-filter-close {
+	display: none;
+	border: 0;
+	background: none;
+	font-size: 22px
+}
+
+.gdp-search {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	padding: 0 12px;
+	background: #fafbfb;
+	margin-bottom: 19px
+}
+
+.gdp-search i {
+	color: #757b82
+}
+
+.gdp-search input {
+	width: 100%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	padding: 12px 9px;
+	font-size: 14px
+}
+
+.gdp-filter-group {
+	padding-top: 16px;
+	margin-top: 16px;
+	border-top: 1px solid var(--line)
+}
+
+.gdp-filter-group h3 {
+	font-size: 13px;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	margin: 0 0 10px
+}
+
+.gdp-filter-list {
+	display: grid;
+	gap: 4px
+}
+
+.gdp-filter-btn {
+	width: 100%;
+	border: 0;
+	background: transparent;
+	border-radius: 10px;
+	padding: 10px 11px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: left;
+	color: #4f565d;
+	font-size: 14px
+}
+
+.gdp-filter-btn span:first-child {
+	display: flex;
+	align-items: center;
+	gap: 9px
+}
+
+.gdp-filter-btn i {
+	width: 20px;
+	text-align: center
+}
+
+.gdp-filter-btn:hover {
+	background: #f7f8f9;
+	color: #111
+}
+
+.gdp-filter-btn.active {
+	background: var(--red);
+	color: #fff;
+	font-weight: 800
+}
+
+.gdp-filter-count {
+	opacity: .75;
+	font-size: 12px
+}
+
+.gdp-color-row {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap
+}
+
+.gdp-color-dot {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 1px #ccd1d6
+}
+
+.gdp-color-dot:nth-child(1) {
+	background: #0c1014
+}
+
+.gdp-color-dot:nth-child(2) {
+	background: #ef1b24
+}
+
+.gdp-color-dot:nth-child(3) {
+	background: #1d62d1
+}
+
+.gdp-color-dot:nth-child(4) {
+	background: #159755
+}
+
+.gdp-color-dot:nth-child(5) {
+	background: #f1bd15
+}
+
+.gdp-color-dot:nth-child(6) {
+	background: #8a3fd1
+}
+
+.gdp-materials {
+	display: grid;
+	gap: 8px;
+	color: #596067;
+	font-size: 13px
+}
+
+.gdp-materials label {
+	display: flex;
+	gap: 8px;
+	align-items: center
+}
+
+.gdp-portfolio-main {
+	min-width: 0
+}
+
+.gdp-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: space-between;
+	margin-bottom: 18px;
+	flex-wrap: wrap
+}
+
+.gdp-toolbar-left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap
+}
+
+.gdp-mobile-filter {
+	display: none;
+	border: 1px solid var(--line);
+	background: #fff;
+	border-radius: 11px;
+	padding: 10px 13px;
+	font-weight: 800
+}
+
+.gdp-tabs {
+	display: flex;
+	gap: 7px;
+	flex-wrap: wrap
+}
+
+.gdp-tab {
+	border: 1px solid var(--line);
+	background: #fff;
+	color: #4d555d;
+	border-radius: 11px;
+	padding: 10px 14px;
+	font-size: 13px;
+	font-weight: 800
+}
+
+.gdp-tab.active {
+	background: var(--red);
+	border-color: var(--red);
+	color: #fff
+}
+
+.gdp-toolbar-right {
+	display: flex;
+	gap: 8px;
+	align-items: center
+}
+
+.gdp-view-btn {
+	width: 40px;
+	height: 40px;
+	border: 1px solid var(--line);
+	background: #fff;
+	border-radius: 10px
+}
+
+.gdp-view-btn.active {
+	background: var(--red);
+	border-color: var(--red);
+	color: #fff
+}
+
+.gdp-sort {
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	padding: 10px 12px;
+	background: #fff;
+	outline: 0;
+	color: #4f565d
+}
+
+.gdp-project-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px
+}
+
+.gdp-project-card {
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	overflow: hidden;
+	background: #fff;
+	transition: .22s ease;
+	box-shadow: 0 8px 24px rgba(20, 25, 30, .035)
+}
+
+.gdp-project-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 18px 38px rgba(18, 24, 28, .10)
+}
+
+.gdp-project-card[hidden] {
+	display: none !important
+}
+
+.gdp-project-media {
+	aspect-ratio: 1.45/1;
+	background: #eef0f2;
+	overflow: hidden;
+	position: relative
+}
+
+.gdp-project-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: .35s ease
+}
+
+.gdp-project-card:hover .gdp-project-media img {
+	transform: scale(1.025)
+}
+
+.gdp-project-badge {
+	position: absolute;
+	left: 12px;
+	top: 12px;
+	background: rgba(13, 17, 21, .88);
+	color: #fff;
+	border-radius: 999px;
+	padding: 6px 10px;
+	font-size: 11px;
+	font-weight: 800;
+	backdrop-filter: blur(8px)
+}
+
+.gdp-project-body {
+	padding: 14px 15px 15px
+}
+
+.gdp-project-top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px
+}
+
+.gdp-project-title {
+	font-size: 16px;
+	font-weight: 900;
+	margin: 0 0 4px
+}
+
+.gdp-project-meta {
+	font-size: 12px;
+	color: #868d94;
+	margin: 0
+}
+
+.gdp-project-open {
+	width: 38px;
+	height: 38px;
+	border: 1px solid var(--line);
+	border-radius: 50%;
+	background: #fff;
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto
+}
+
+.gdp-project-open:hover {
+	background: var(--red);
+	border-color: var(--red);
+	color: #fff
+}
+
+.gdp-empty {
+	display: none;
+	border: 1px dashed #ccd2d7;
+	border-radius: 16px;
+	padding: 52px 22px;
+	text-align: center;
+	color: #767d84
+}
+
+.gdp-empty.show {
+	display: block
+}
+
+.gdp-empty i {
+	font-size: 34px;
+	color: var(--red);
+	display: block;
+	margin-bottom: 9px
+}
+
+.gdp-portfolio-cta {
+	margin-top: 24px;
+	border-radius: 18px;
+	padding: 24px 26px;
+	background: linear-gradient(110deg, #0b0e11, #171b20);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 22px;
+	overflow: hidden;
+	position: relative
+}
+
+.gdp-portfolio-cta::after {
+	content: "";
+	position: absolute;
+	right: -45px;
+	top: -70px;
+	width: 190px;
+	height: 190px;
+	background: var(--red);
+	opacity: .12;
+	border-radius: 50%
+}
+
+.gdp-portfolio-cta h3 {
+	font-size: 20px;
+	font-weight: 900;
+	margin: 0 0 5px;
+	color: #fff;
+}
+
+.gdp-portfolio-cta p {
+	margin: 0;
+	color: #aeb5bc
+}
+
+.gdp-portfolio-cta a {
+	position: relative;
+	z-index: 1;
+	white-space: nowrap;
+	background: var(--red);
+	color: #fff !important;
+	text-decoration: none;
+	border-radius: 11px;
+	padding: 13px 18px;
+	font-weight: 900
+}
+
+.gdp-project-grid.list-view {
+	grid-template-columns: 1fr
+}
+
+.gdp-project-grid.list-view .gdp-project-card {
+	display: grid;
+	grid-template-columns: 260px 1fr
+}
+
+.gdp-project-grid.list-view .gdp-project-media {
+	aspect-ratio: auto;
+	min-height: 180px
+}
+
+.gdp-filter-backdrop {
+	display: none
+}
+
+.gdp-project-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 22px
+}
+
+.gdp-project-modal.open {
+	display: flex
+}
+
+.gdp-project-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, .72)
+}
+
+.gdp-project-modal__dialog {
+	position: relative;
+	width: min(920px, 100%);
+	max-height: 88vh;
+	overflow: auto;
+	background: #fff;
+	border-radius: 20px;
+	padding: 0;
+	box-shadow: 0 30px 90px rgba(0, 0, 0, .28)
+}
+
+.gdp-project-modal__close {
+	position: absolute;
+	right: 14px;
+	top: 14px;
+	z-index: 3;
+	width: 42px;
+	height: 42px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, .72);
+	color: #fff;
+	font-size: 22px
+}
+
+.gdp-project-modal__media {
+	background: #f0f1f2
+}
+
+.gdp-project-modal__media img {
+	width: 100%;
+	display: block
+}
+
+.gdp-project-modal__body {
+	padding: 22px
+}
+
+.gdp-project-modal__body h2 {
+	font-weight: 900;
+	margin: 0 0 6px
+}
+
+.gdp-project-modal__body p {
+	color: #727980
+}
+
+.gdp-project-order {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: var(--red);
+	color: #fff !important;
+	text-decoration: none;
+	padding: 12px 17px;
+	border-radius: 11px;
+	font-weight: 900
+}
+
+@media(max-width:1100px) {
+	.gdp-project-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+	}
+
+	.gdp-portfolio-shell {
+		grid-template-columns: 235px minmax(0, 1fr)
+	}
+}
+
+@media(max-width:820px) {
+	.gdp-portfolio-shell {
+		display: block
+	}
+
+	.gdp-filter-panel {
+		position: fixed;
+		z-index: 1700;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: min(340px, 88vw);
+		border-radius: 0;
+		transform: translateX(-105%);
+		transition: .25s ease;
+		overflow: auto
+	}
+
+	.gdp-filter-panel.open {
+		transform: translateX(0)
+	}
+
+	.gdp-filter-close {
+		display: block
+	}
+
+	.gdp-mobile-filter {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px
+	}
+
+	.gdp-filter-backdrop {
+		position: fixed;
+		z-index: 1600;
+		inset: 0;
+		background: rgba(0, 0, 0, .45)
+	}
+
+	.gdp-filter-backdrop.open {
+		display: block
+	}
+
+	.gdp-portfolio-hero {
+		min-height: 170px
+	}
+
+	.gdp-portfolio-hero__inner {
+		padding: 24px 0 20px
+	}
+
+	.gdp-portfolio-stats {
+		gap: 14px
+	}
+}
+
+@media(max-width:590px) {
+	.gdp-project-grid {
+		grid-template-columns: 1fr
+	}
+
+	.gdp-toolbar-right {
+		width: 100%;
+		justify-content: flex-end
+	}
+
+	.gdp-sort {
+		max-width: 170px
+	}
+
+	.gdp-portfolio-cta {
+		align-items: flex-start;
+		flex-direction: column
+	}
+
+	.gdp-project-grid.list-view .gdp-project-card {
+		grid-template-columns: 1fr
+	}
+}
+
+
+/* ===== Compact portfolio hero ===== */
+.gdp-portfolio-hero {
+	min-height: 190px !important;
+}
+
+.gdp-portfolio-hero__inner {
+	padding: 30px 0 24px !important;
+}
+
+.gdp-portfolio-hero h1 {
+	font-size: clamp(30px, 4vw, 52px) !important;
+	margin: 8px 0 8px !important;
+}
+
+.gdp-portfolio-hero p {
+	font-size: 15px !important;
+	line-height: 1.5 !important;
+}
+
+.gdp-portfolio-stats {
+	margin-top: 14px !important;
+	gap: 22px !important;
+}
+
+.gdp-portfolio-stat {
+	font-size: 13px !important;
+}
+
+@media(max-width:820px) {
+	.gdp-portfolio-hero {
+		min-height: 165px !important;
+	}
+
+	.gdp-portfolio-hero__inner {
+		padding: 22px 0 18px !important;
+	}
+
+	.gdp-portfolio-hero h1 {
+		font-size: clamp(28px, 8vw, 40px) !important;
+	}
+
+	.gdp-portfolio-stats {
+		margin-top: 12px !important;
+		gap: 12px 16px !important;
+	}
+}
+
+@media(max-width:590px) {
+	.gdp-portfolio-hero {
+		min-height: 150px !important;
+	}
+
+	.gdp-portfolio-hero p {
+		font-size: 14px !important;
+	}
+}

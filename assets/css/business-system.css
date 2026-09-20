@@ -1,0 +1,745 @@
+/* =====================================================================
+   GDprint — «Բիզնեսների գովազդ» համակարգ
+   business-system.css
+   -----------------------------------------------------------------
+   Այս ֆայլը ՉԻ փոխում կայքի առկա դիզայնը։ Այն միայն օգտագործում է
+   main.css-ում արդեն սահմանված CSS փոփոխականները
+   (--accent-color, --heading-font, --default-font, --background-color
+   և այլն), որպեսզի նոր բաժինը 100% ինտեգրված լինի առկա ոճին։
+   Բեռնել ՄԻՇՏ main.css-ից ՀԵՏՈ։
+   ===================================================================== */
+
+:root {
+	--gdp-radius: 10px;
+	--gdp-radius-sm: 6px;
+	--gdp-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+	--gdp-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+	--gdp-border: 1px solid #eaeaea;
+	--gdp-transition: all 0.3s ease;
+}
+
+.gdp-section {
+	padding: 70px 0;
+}
+
+.gdp-section--alt {
+	background: #fafafa;
+}
+
+/* ---------- Hero ---------- */
+.gdp-hero {
+	position: relative;
+	min-height: 460px;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	background: linear-gradient(120deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.45)), url('../img/hero-carousel/largeprint.jpg') center/cover no-repeat;
+	overflow: hidden;
+}
+
+.gdp-hero__content {
+	position: relative;
+	z-index: 2;
+	max-width: 680px;
+}
+
+.gdp-hero__content h1{
+	color: #fff;
+}
+
+.gdp-hero .badge {
+	background: var(--accent-color);
+	color: #fff;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 6px 14px;
+	border-radius: 30px;
+	text-transform: uppercase;
+	font-size: 12px;
+	display: inline-block;
+	margin-bottom: 18px;
+}
+
+.gdp-hero h1 {
+	font-family: var(--heading-font);
+	font-size: 2.6rem;
+	font-weight: 800;
+	margin-bottom: 18px;
+	line-height: 1.25;
+}
+
+.gdp-hero p {
+	font-size: 1.05rem;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 28px;
+	max-width: 560px;
+}
+
+.gdp-hero .btn-get-started {
+	margin-right: 12px;
+}
+
+.gdp-hero .btn-outline-light-custom {
+	display: inline-block;
+	padding: 12px 30px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	color: #fff;
+	border-radius: 4px;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: var(--gdp-transition);
+}
+
+.gdp-hero .btn-outline-light-custom:hover {
+	background: #fff;
+	color: #000;
+}
+
+/* ---------- Section titles (reuses .section-title pattern) ---------- */
+.gdp-section .section-title h2 {
+	font-family: var(--heading-font);
+}
+
+/* ---------- Pricing cards ---------- */
+.gdp-pricing-card {
+	background: var(--surface-color, #fff);
+	border: var(--gdp-border);
+	border-radius: var(--gdp-radius);
+	padding: 35px 28px;
+	height: 100%;
+	text-align: center;
+	position: relative;
+	transition: var(--gdp-transition);
+	box-shadow: var(--gdp-shadow);
+}
+
+.gdp-pricing-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--gdp-shadow-hover);
+}
+
+.gdp-pricing-card--popular {
+	border: 2px solid var(--accent-color);
+}
+
+.gdp-pricing-card__tag {
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--accent-color);
+	color: #fff;
+	font-size: 12px;
+	padding: 5px 16px;
+	border-radius: 30px;
+	white-space: nowrap;
+	font-weight: 600;
+}
+
+.gdp-pricing-card h3 {
+	font-family: var(--heading-font);
+	font-size: 1.3rem;
+	font-weight: 700;
+	margin: 10px 0 6px;
+}
+
+.gdp-pricing-card .gdp-price {
+	font-size: 1.8rem;
+	font-weight: 800;
+	color: var(--accent-color);
+	margin-bottom: 18px;
+}
+
+.gdp-pricing-card .gdp-price span {
+	font-size: 0.85rem;
+	color: #888;
+	font-weight: 400;
+}
+
+.gdp-pricing-card ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 24px;
+	text-align: left;
+}
+
+.gdp-pricing-card ul li {
+	padding: 7px 0;
+	font-size: 0.93rem;
+	color: #555;
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.gdp-pricing-card ul li i {
+	color: var(--accent-color);
+	margin-top: 3px;
+}
+
+/* Plan selector cards (used inside the add-business form) */
+.gdp-plan-select {
+	cursor: pointer;
+}
+
+.gdp-plan-select input {
+	display: none;
+}
+
+.gdp-plan-select input:checked + .gdp-pricing-card {
+	border: 2px solid var(--accent-color);
+	box-shadow: var(--gdp-shadow-hover);
+}
+
+/* ---------- Form ---------- */
+.gdp-form-card {
+	background: #fff;
+	border: var(--gdp-border);
+	border-radius: var(--gdp-radius);
+	padding: 40px;
+	box-shadow: var(--gdp-shadow);
+}
+
+.gdp-form-card h4 {
+	font-family: var(--heading-font);
+	font-weight: 700;
+	margin-bottom: 22px;
+	padding-bottom: 12px;
+	border-bottom: 2px solid #f1f1f1;
+	color: var(--accent-color);
+}
+
+.gdp-form-card .form-label {
+	font-weight: 600;
+	font-size: 0.9rem;
+	color: #333;
+}
+
+.gdp-form-card .form-control,
+.gdp-form-card .form-select {
+	border-radius: var(--gdp-radius-sm);
+	border: 1px solid #ddd;
+	padding: 10px 14px;
+	font-size: 0.95rem;
+}
+
+.gdp-form-card .form-control:focus,
+.gdp-form-card .form-select:focus {
+	border-color: var(--accent-color);
+	box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.gdp-upload-box {
+	border: 2px dashed #ddd;
+	border-radius: var(--gdp-radius);
+	padding: 22px;
+	text-align: center;
+	cursor: pointer;
+	transition: var(--gdp-transition);
+	background: #fafafa;
+}
+
+.gdp-upload-box:hover {
+	border-color: var(--accent-color);
+	background: #fff5f4;
+}
+
+.gdp-upload-box i {
+	font-size: 1.8rem;
+	color: var(--accent-color);
+	margin-bottom: 8px;
+	display: block;
+}
+
+.gdp-gallery-preview {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 12px;
+}
+
+.gdp-gallery-preview .gdp-thumb {
+	width: 80px;
+	height: 80px;
+	border-radius: var(--gdp-radius-sm);
+	overflow: hidden;
+	position: relative;
+	border: var(--gdp-border);
+}
+
+.gdp-gallery-preview .gdp-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gdp-gallery-preview .gdp-thumb button {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	font-size: 11px;
+	line-height: 1;
+}
+
+/* ---------- Business cards (grid) ---------- */
+.gdp-toolbar {
+	background: #fff;
+	border: var(--gdp-border);
+	border-radius: var(--gdp-radius);
+	padding: 18px 22px;
+	box-shadow: var(--gdp-shadow);
+	margin-bottom: 30px;
+}
+
+.gdp-search-input {
+	position: relative;
+}
+
+.gdp-search-input i {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+}
+
+.gdp-search-input input {
+	padding-left: 42px;
+	border-radius: 30px;
+	border: 1px solid #ddd;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.gdp-chip {
+	display: inline-block;
+	padding: 7px 16px;
+	border-radius: 30px;
+	border: 1px solid #ddd;
+	background: #fff;
+	font-size: 0.85rem;
+	color: #444;
+	cursor: pointer;
+	transition: var(--gdp-transition);
+	margin: 0 6px 8px 0;
+	user-select: none;
+}
+
+.gdp-chip:hover {
+	border-color: var(--accent-color);
+	color: var(--accent-color);
+}
+
+.gdp-chip.active {
+	background: var(--accent-color);
+	border-color: var(--accent-color);
+	color: #fff;
+}
+
+.gdp-card {
+	background: #fff;
+	border: var(--gdp-border);
+	border-radius: var(--gdp-radius);
+	overflow: hidden;
+	box-shadow: var(--gdp-shadow);
+	transition: var(--gdp-transition);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.gdp-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--gdp-shadow-hover);
+}
+
+.gdp-card__cover {
+	height: 160px;
+	background: #eee linear-gradient(135deg, #f1f1f1, #e6e6e6);
+	position: relative;
+	overflow: hidden;
+}
+
+.gdp-card__cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gdp-card__logo {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	background: #fff;
+	position: absolute;
+	left: 18px;
+	bottom: -28px;
+	overflow: hidden;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.gdp-card__logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gdp-card__badges {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: flex-end;
+}
+
+.gdp-badge-pill {
+	font-size: 11px;
+	font-weight: 700;
+	padding: 4px 10px;
+	border-radius: 30px;
+	color: #fff;
+	letter-spacing: 0.5px;
+}
+
+.gdp-badge-pill--vip { background: linear-gradient(120deg, #b8860b, #ffd700); color: #3a2a00; }
+.gdp-badge-pill--featured { background: var(--accent-color); }
+.gdp-badge-pill--new { background: #2e7d32; }
+
+.gdp-card__fav {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.9);
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #bbb;
+	transition: var(--gdp-transition);
+	cursor: pointer;
+}
+
+.gdp-card__fav.active {
+	color: var(--accent-color);
+}
+
+.gdp-card__body {
+	padding: 36px 18px 18px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.gdp-card__cat {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: var(--accent-color);
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.gdp-card__title {
+	font-family: var(--heading-font);
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 6px;
+	color: #222;
+}
+
+.gdp-card__desc {
+	color: #666;
+	font-size: 0.88rem;
+	margin-bottom: 14px;
+	flex: 1;
+}
+
+.gdp-card__meta {
+	font-size: 0.82rem;
+	color: #777;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-bottom: 14px;
+}
+
+.gdp-card__meta i {
+	color: var(--accent-color);
+	width: 16px;
+}
+
+.gdp-stars {
+	color: #ffb400;
+	font-size: 0.85rem;
+}
+
+.gdp-card .btn-get-started {
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+/* ---------- Skeleton loader ---------- */
+.gdp-skeleton {
+	background: linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%);
+	background-size: 400% 100%;
+	animation: gdp-skeleton-loading 1.4s ease infinite;
+	border-radius: var(--gdp-radius);
+}
+
+@keyframes gdp-skeleton-loading {
+	0% { background-position: 100% 50%; }
+	100% { background-position: 0 50%; }
+}
+
+.gdp-skeleton-card {
+	height: 320px;
+}
+
+/* ---------- Fade / slide animation helpers ---------- */
+.gdp-fade-in {
+	animation: gdp-fade 0.45s ease both;
+}
+
+@keyframes gdp-fade {
+	from { opacity: 0; transform: translateY(12px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Business profile ---------- */
+.gdp-profile-cover {
+	height: 320px;
+	background: #ddd center/cover no-repeat;
+	position: relative;
+}
+
+.gdp-profile-cover::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55));
+}
+
+.gdp-profile-header {
+	position: relative;
+	margin-top: -90px;
+	z-index: 2;
+}
+
+.gdp-profile-logo {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	border: 5px solid #fff;
+	background: #fff;
+	overflow: hidden;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gdp-profile-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gdp-info-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 0;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.gdp-info-row:last-child { border-bottom: none; }
+
+.gdp-info-row i {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--accent-color), transparent 90%);
+	color: var(--accent-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.gdp-social-row a {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	background: #f5f5f5;
+	color: #444;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 8px;
+	transition: var(--gdp-transition);
+}
+
+.gdp-social-row a:hover {
+	background: var(--accent-color);
+	color: #fff;
+}
+
+.gdp-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 12px;
+}
+
+.gdp-gallery-grid img {
+	width: 100%;
+	height: 110px;
+	object-fit: cover;
+	border-radius: var(--gdp-radius-sm);
+	cursor: pointer;
+	transition: var(--gdp-transition);
+}
+
+.gdp-gallery-grid img:hover {
+	opacity: 0.85;
+	transform: scale(1.02);
+}
+
+.gdp-review {
+	border-bottom: 1px solid #f1f1f1;
+	padding: 14px 0;
+}
+
+.gdp-review:last-child { border-bottom: none; }
+
+.gdp-star-input i {
+	font-size: 1.4rem;
+	color: #ddd;
+	cursor: pointer;
+	transition: color 0.15s;
+}
+
+.gdp-star-input i.active {
+	color: #ffb400;
+}
+
+.gdp-breadcrumb a { color: var(--accent-color); text-decoration: none; }
+
+/* ---------- Admin panel ---------- */
+.gdp-admin-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 8px;
+}
+
+.gdp-admin-table thead th {
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	color: #888;
+	padding: 0 14px 8px;
+	text-align: left;
+}
+
+.gdp-admin-table tbody tr {
+	background: #fff;
+	box-shadow: var(--gdp-shadow);
+}
+
+.gdp-admin-table tbody td {
+	padding: 14px;
+	vertical-align: middle;
+	font-size: 0.9rem;
+}
+
+.gdp-admin-table tbody tr td:first-child { border-radius: var(--gdp-radius-sm) 0 0 var(--gdp-radius-sm); }
+.gdp-admin-table tbody tr td:last-child { border-radius: 0 var(--gdp-radius-sm) var(--gdp-radius-sm) 0; }
+
+.gdp-status-pill {
+	font-size: 11px;
+	font-weight: 700;
+	padding: 4px 12px;
+	border-radius: 30px;
+	display: inline-block;
+}
+
+.gdp-status-pill--pending { background: #fff3cd; color: #856404; }
+.gdp-status-pill--approved { background: #d4edda; color: #155724; }
+.gdp-status-pill--rejected { background: #f8d7da; color: #721c24; }
+.gdp-status-pill--suspended { background: #e2e3e5; color: #383d41; }
+
+.gdp-admin-table .btn-sm-icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 4px;
+	font-size: 0.85rem;
+	transition: var(--gdp-transition);
+}
+
+.gdp-stat-card {
+	background: #fff;
+	border: var(--gdp-border);
+	border-radius: var(--gdp-radius);
+	padding: 22px;
+	box-shadow: var(--gdp-shadow);
+	text-align: center;
+}
+
+.gdp-stat-card .num {
+	font-size: 1.8rem;
+	font-weight: 800;
+	color: var(--accent-color);
+	font-family: var(--heading-font);
+}
+
+.gdp-stat-card .lbl {
+	font-size: 0.85rem;
+	color: #777;
+}
+
+/* ---------- Empty state ---------- */
+.gdp-empty {
+	text-align: center;
+	padding: 60px 20px;
+	color: #888;
+}
+
+.gdp-empty i {
+	font-size: 2.6rem;
+	color: #ddd;
+	margin-bottom: 14px;
+	display: block;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+	.gdp-hero h1 { font-size: 1.9rem; }
+	.gdp-form-card { padding: 24px; }
+	.gdp-profile-cover { height: 220px; }
+	.gdp-profile-logo { width: 100px; height: 100px; }
+	.gdp-section { padding: 45px 0; }
+}
+
+@media (max-width: 576px) {
+	.gdp-hero { min-height: 380px; text-align: center; }
+	.gdp-hero__content { margin: 0 auto; }
+	.gdp-hero .btn-get-started,
+	.gdp-hero .btn-outline-light-custom { display: block; margin: 10px auto; max-width: 260px; }
+}
