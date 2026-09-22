@@ -16,40 +16,35 @@
 	window.addEventListener('load', toggleScrolled);
 
 	/**
-	 * Mobile nav toggle
+	 * Legacy mobile navigation.
+	 * GDprint v7/v8 headers are managed exclusively by gdprint-header-v7.js.
 	 */
 	const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+	const isGdprintHeader = Boolean(document.querySelector('#header.gdp-v7-full'));
 
-	function mobileNavToogle() {
-		document.querySelector('body').classList.toggle('mobile-nav-active');
-		mobileNavToggleBtn.classList.toggle('bi-list');
-		mobileNavToggleBtn.classList.toggle('bi-x');
+	if (mobileNavToggleBtn && !isGdprintHeader) {
+		function mobileNavToogle() {
+			document.querySelector('body').classList.toggle('mobile-nav-active');
+			mobileNavToggleBtn.classList.toggle('bi-list');
+			mobileNavToggleBtn.classList.toggle('bi-x');
+		}
+		mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+
+		document.querySelectorAll('#navmenu a').forEach(navmenu => {
+			navmenu.addEventListener('click', () => {
+				if (document.querySelector('.mobile-nav-active')) mobileNavToogle();
+			});
+		});
+
+		document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+			navmenu.addEventListener('click', function (e) {
+				e.preventDefault();
+				this.parentNode.classList.toggle('active');
+				this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+				e.stopImmediatePropagation();
+			});
+		});
 	}
-	mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-
-	/**
-	 * Hide mobile nav on same-page/hash links
-	 */
-	document.querySelectorAll('#navmenu a').forEach(navmenu => {
-		navmenu.addEventListener('click', () => {
-			if (document.querySelector('.mobile-nav-active')) {
-				mobileNavToogle();
-			}
-		});
-
-	});
-
-	/**
-	 * Toggle mobile nav dropdowns
-	 */
-	document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-		navmenu.addEventListener('click', function (e) {
-			e.preventDefault();
-			this.parentNode.classList.toggle('active');
-			this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-			e.stopImmediatePropagation();
-		});
-	});
 
 	/**
 	 * Preloader
