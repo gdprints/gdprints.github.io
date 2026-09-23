@@ -38,7 +38,7 @@
 <script src="assets/js/pages/hy/home/inline-01.js"></script>
 
 <link href="assets/css/pages/hy/home.css" rel="stylesheet">
-<link href="assets/css/gdprint-header-v7.css" rel="stylesheet">
+<link href="assets/css/gdprint-header-v7.css?v=8.0.5" rel="stylesheet">
 </head>
 <body class="index-page">
 <!-- Messenger Chat Plugin -->
@@ -57,52 +57,21 @@
 <li><a href="about.html">Մեր մասին</a></li>
 <li class="service-menu">
 <button aria-expanded="false" class="gdp-service-trigger" type="button">
-<span>Ծառայություններ</span><i class="bi bi-chevron-down"></i>
+<span>Ծառայություններ</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
 </button>
-<div class="gdp-mega"><div class="gdp-mega-grid">
-<div class="gdp-mega-col">
-<div class="gdp-mega-title">
-<i class="bi bi-printer"></i><span>Տպագրություն</span>
-</div>
-<ul>
+<ul class="gdp-service-list">
 <li><a data-service-key="business_cards" href="services.html?service=business_cards#services">Այցեքարտերի տպագրություն</a></li>
 <li><a data-service-key="photo_printing" href="services.html?service=photo_printing#services">Լուսանկարների տպագրություն</a></li>
-</ul>
-</div>
-<div class="gdp-mega-col">
-<div class="gdp-mega-title">
-<i class="bi bi-badge-ad"></i><span>Գովազդային նյութեր</span>
-</div>
-<ul>
 <li><a data-service-key="rollup" href="services.html?service=rollup#services">Rull UP Stand տպագրություն</a></li>
 <li><a data-service-key="x_banner" href="services.html?service=x_banner#services">X-բաներների տպագրություն</a></li>
 <li><a data-service-key="self_adhesive_sticker" href="services.html?service=self_adhesive_sticker#services">Ինքնակպչուն սթիքերների տպագրություն</a></li>
 <li><a data-service-key="poster_placement" href="services.html?service=poster_placement#services">Գովազդի տեղադրում</a></li>
 <li><a data-service-key="tshirt_printing" href="services.html?service=tshirt_printing#services">Շապիկների վրա տպագրություն</a></li>
 <li><a data-service-key="cup_printing" href="services.html?service=cup_printing#services">Բաժակի վրա տպագրություն</a></li>
-</ul>
-</div>
-<div class="gdp-mega-col">
-<div class="gdp-mega-title">
-<i class="bi bi-box-seam"></i><span>Փաթեթավորում</span>
-</div>
-<ul><li><a data-service-key="kinder_box_printing" href="services.html?service=kinder_box_printing#services">Kinder տուփերի տպագրություն</a></li></ul>
-</div>
-<div class="gdp-mega-col">
-<div class="gdp-mega-title">
-<i class="bi bi-vector-pen"></i><span>Մեծ ֆորմատ և հատում</span>
-</div>
-<ul>
+<li><a data-service-key="kinder_box_printing" href="services.html?service=kinder_box_printing#services">Kinder տուփերի տպագրություն</a></li>
 <li><a data-service-key="wide_format" href="services.html?service=wide_format#services">Լայնաֆորմատ տպագրություն</a></li>
 <li><a data-service-key="plotter_cutting" href="services.html?service=plotter_cutting#services">Պլոտերային հատում</a></li>
 <li><a data-service-key="canvas" href="services.html?service=canvas#services">Կտավի վրա տպագրություն</a></li>
-</ul>
-</div>
-<div class="gdp-mega-col gdp-design-col">
-<div class="gdp-mega-title">
-<i class="bi bi-palette"></i><span>Դիզայն</span>
-</div>
-<ul>
 <li><a data-service-key="plotter_file_design" href="services.html?service=plotter_file_design#services">Պլոտերային հատման ֆայլ</a></li>
 <li><a data-service-key="mug_design" href="services.html?service=mug_design#services">Բաժակի դիզայն</a></li>
 <li><a data-service-key="business_card_design" href="services.html?service=business_card_design#services">Այցեքարտի դիզայն</a></li>
@@ -112,8 +81,6 @@
 <li><a data-service-key="corporate_identity" href="services.html?service=corporate_identity#services">Կորպորատիվ ոճ</a></li>
 <li><a data-service-key="logo_design" href="services.html?service=logo_design#services">Լոգոյի դիզայն</a></li>
 </ul>
-</div>
-</div></div>
 </li>
 <li><a href="portfolio.html">Պորտֆոլիո</a></li>
 <li><a href="team.html">Թիմ</a></li>
@@ -129,9 +96,9 @@
 </ul>
 </li>
 </ul>
-<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>
 <div class="gdp-actions">
+<button class="mobile-nav-toggle d-xl-none" type="button" aria-label="Բացել ընտրացանկը" aria-controls="navmenu" aria-expanded="false"><i class="bi bi-list" aria-hidden="true"></i></button>
 <div class="language-dropdown">
 <button class="language-button" type="button"><img alt="" src="https://flagcdn.com/w40/am.png"></button>
 <div class="language-menu">
@@ -162,9 +129,11 @@
 <button aria-label="Slide 7" data-bs-slide-to="6" data-bs-target="#hero-carousel" type="button"></button>
 <button aria-label="Slide 8" data-bs-slide-to="7" data-bs-target="#hero-carousel" type="button"></button>
 <button aria-label="Slide 9" data-bs-slide-to="8" data-bs-target="#hero-carousel" type="button"></button>
+<!--
 <button aria-label="Slide 10" data-bs-slide-to="9" data-bs-target="#hero-carousel" type="button"></button>
 <button aria-label="Slide 11" data-bs-slide-to="10" data-bs-target="#hero-carousel" type="button"></button>
 <button aria-label="Slide 12" data-bs-slide-to="11" data-bs-target="#hero-carousel" type="button"></button>
+-->
 </div>
 <div class="carousel-inner">
 <!-- Սլայդ 1: Լայնաֆորմատ տպագրություն -->
@@ -179,7 +148,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 text-center">
-<img alt="Լայնաֆորմատ տպագրություն" src="assets/img/hero-carousel/larg.jpg">
+<img alt="Լայնաֆորմատ տպագրություն" src="assets/img/services/01-large-format-printing.png">
 </div>
 </div>
 </div>
@@ -197,7 +166,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 order-lg-1 text-center">
-<img alt="Պլոտերային հատում" src="assets/img/portfolio/17.jpg">
+<img alt="Պլոտերային հատում" src="assets/img/services/02-plotter-cutting.png">
 </div>
 </div>
 </div>
@@ -215,7 +184,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 text-center">
-<img alt="Այցեքարտերի տպագրություն" src="https://cdn5.f-cdn.com/contestentries/2034387/51949339/61c6b02b16121_thumb900.jpg">
+<img alt="Այցեքարտերի տպագրություն" src="assets/img/services/03-business-cards.png">
 </div>
 </div>
 </div>
@@ -233,7 +202,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 order-lg-1 text-center">
-<img alt="Լուսանկարների տպագրություն" src="assets/img/hero-carousel/%D4%BC%D5%B8%D6%82%D5%BD%D5%A1%D5%B6%D5%AF%D5%A1%D6%80%D5%B6%D5%A5%D6%80%D5%AB%20%D5%BF%D5%BA%D5%A1%D5%A3%D6%80%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6.jpg">
+<img alt="Լուսանկարների տպագրություն" src="assets/img/services/04-photo-printing.png">
 </div>
 </div>
 </div>
@@ -251,7 +220,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 text-center">
-<img alt="Բաժակի վրա տպագրություն" src="https://teamatika.com/cc956x584/i/photo/dekol-3.jpg">
+<img alt="Բաժակի վրա տպագրություն" src="assets/img/services/07-mug-printing.png">
 </div>
 </div>
 </div>
@@ -269,7 +238,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 order-lg-1 text-center">
-<img alt="Rull UP Stand" src="https://kwarta.ru/upload/resize_cache/webp/iblock/2e5/0punrwrlefdjopmz8j22i3pdj9czr59x.webp">
+<img alt="Rull UP Stand" src="assets/img/services/08-roll-up-stand.png">
 </div>
 </div>
 </div>
@@ -287,7 +256,7 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 text-center">
-<img alt="Կտավի վրա տպագրություն" src="https://eliteprint.rs/wp-content/uploads/2022/06/Stampa-na-Platnu_hero_1.jpg">
+<img alt="Կտավի վրա տպագրություն" src="assets/img/services/09-canvas-printing.png">
 </div>
 </div>
 </div>
@@ -305,13 +274,13 @@
 <a class="btn-get-started" href="services.html">Տեսնել ավելին</a>
 </div>
 <div class="col-lg-6 order-lg-1 text-center">
-<img alt="Գովազդի տեղադրում" src="https://avatars.mds.yandex.net/get-altay/7982580/2a000001881fbfcf201df4f188790c4265f9/orig">
+<img alt="Գովազդի տեղադրում" src="assets/img/services/10-advertising-installation.png">
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- Սլայդ 12: Գրաֆիկ դիզայներ -->
+<!-- Սլայդ 11: Գրաֆիկ դիզայներ -->
 <div class="carousel-item" id="gd-style-3ab23a3-009">
 <div class="carousel-container">
 <div class="container">
@@ -365,42 +334,7 @@
 </div>
 </div>
 </section>
-<section class="gdprint-app-promo">
-<div class="gdprint-app-content">
-<span class="gdprint-app-badge">GDprint Mobile</span>
-<h2>GDprint-ը հիմա նաև Ձեր հեռախոսում</h2>
-<p>
-            Պատվիրեք տպագրական ծառայություններ անմիջապես հեռախոսից,
-            հետևեք պատվերի ընթացքին և ստացեք ծանուցումներ։
-        </p>
-<div class="gdprint-app-features">
-<span>✓ Արագ պատվեր</span>
-<span>✓ Պատվերի հետևում</span>
-<span>✓ Առաքման հասցե</span>
-<span>✓ Ծանուցումներ</span>
-</div>
-<a class="gdprint-app-button" href="APP_URL">
-<span class="gdprint-phone-icon">▣</span>
-            Բացել / Ներբեռնել հավելվածը
-        </a>
-<small>Հասանելի է հեռախոսների և պլանշետների համար</small>
-</div>
-<div class="gdprint-app-visual">
-<div class="gdprint-phone">
-<div class="gdprint-phone-screen">
-<strong> <img alt="" id="gd-style-3ab23a3-010" src="assets/img/logo-light.png"> </strong>
-<span>PRINTING SERVICES</span>
-<div class="gdprint-mini-card">
-                    Տպագրական ծառայությունները<br>
-                    Ձեր հեռախոսում
-                </div>
-<div class="gdprint-mini-services">
-<i></i><i></i><i></i>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 <!-- /Hero Section 
 		<!-- About Section -->
 <section class="section about" id="about">
@@ -647,7 +581,7 @@
 <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <!-- Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=8.0.5"></script>
 <script src="assets/js/sub.js"></script>
 <script src="assets/js/word-list.js"></script>
 <script src="assets/js/pages/hy/home/inline-03.js"></script>
@@ -778,6 +712,6 @@
 </div>
 </div>
 </div>
-<script src="assets/js/gdprint-header-v7.js"></script><script src="assets/js/pages/hy/home/events.js"></script>
+<script src="assets/js/gdprint-header-v7.js?v=8.0.5"></script><script src="assets/js/pages/hy/home/events.js"></script>
 </body>
 </html>
